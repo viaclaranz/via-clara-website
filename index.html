@@ -1,91 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Via Clara</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #222;
-    }
-
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      background: white;
-    }
-
-    h1 {
-      font-size: 56px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 32px;
-    }
-
-    p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    .services {
-      padding: 60px 20px;
-      background: #f0f0f0;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      margin: 20px auto;
-      max-width: 700px;
-      border-radius: 12px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via Clara - Clear Path Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%238B8B7A'>VC</text></svg>">
 </head>
-
 <body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50" y="70" font-size="60" font-family="serif" font-weight="300" text-anchor="middle" fill="%238B8B7A">VC</text>
+                </svg>
+                <span>Via Clara</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blog.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn-primary">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<section class="hero">
-  <h1>Via Clara</h1>
-  <p>
-    Clear Path Consulting for business transformation,
-    analytics, automation, and operational improvement.
-  </p>
-</section>
+    <section class="hero">
+        <div class="container">
+            <h1>Clear Path to Business Excellence</h1>
+            <p>Strategic consulting for business transformation, analytics, and automation that drives measurable results.</p>
+            <a href="contact.html" class="btn-cta">Start Your Journey</a>
+        </div>
+    </section>
 
-<section class="services">
-  <h2 style="text-align:center;">Services</h2>
+    <section class="services-overview">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Business Transformation</h3>
+                    <p>Operating models, governance, PMO, and process improvement to streamline your operations.</p>
+                    <a href="services.html#transformation">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Power BI & Analytics</h3>
+                    <p>Dashboards, reporting, and insights that empower executive decision-making.</p>
+                    <a href="services.html#analytics">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Automation & Systems</h3>
+                    <p>Power Automate, SharePoint, and workflow solutions for digital operations.</p>
+                    <a href="services.html#automation">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h3>Business Transformation</h3>
-    <p>Operating models, governance, PMO, and process improvement.</p>
-  </div>
+    <section class="case-studies-preview">
+        <div class="container">
+            <h2>Real Results, Real Impact</h2>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <h3>Financial Services</h3>
+                    <p><strong>40% Efficiency Gain</strong> through process automation and operational redesign.</p>
+                    <a href="case-studies.html">View Case Study →</a>
+                </div>
+                <div class="case-study-card">
+                    <h3>Retail Operations</h3>
+                    <p><strong>Real-time Analytics</strong> dashboards enabling data-driven retail decisions.</p>
+                    <a href="case-studies.html">View Case Study →</a>
+                </div>
+                <div class="case-study-card">
+                    <h3>Manufacturing</h3>
+                    <p><strong>800+ Hours Annual Savings</strong> from workflow automation and integration.</p>
+                    <a href="case-studies.html">View Case Study →</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h3>Power BI & Analytics</h3>
-    <p>Dashboards, reporting, insights, and executive decision support.</p>
-  </div>
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Via Clara transformed our business processes. Within 6 months, we saw dramatic efficiency improvements and better visibility into our operations."</p>
+                    <strong>— Director of Operations, Financial Services Firm</strong>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Their analytics expertise gave us insights we didn't know we needed. Our reporting is now actionable and drives real business decisions."</p>
+                    <strong>— CEO, Retail Chain</strong>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The automation solutions saved us thousands of hours annually. Via Clara understands both the technology and the business impact."</p>
+                    <strong>— VP of Digital, Manufacturing Company</strong>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h3>Automation & Systems</h3>
-    <p>Power Automate, SharePoint, workflow automation, and digital operations.</p>
-  </div>
-</section>
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for Your Clear Path?</h2>
+            <p>Let's discuss how Via Clara can transform your business.</p>
+            <a href="contact.html" class="btn-cta-light">Get Started Today</a>
+        </div>
+    </section>
 
-<footer>
-  © 2026 Via Clara
-</footer>
-
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Via Clara</h4>
+                <p>Clear Path Consulting for business transformation, analytics, and automation.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="blog.html">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a></p>
+                <p>Phone: <a href="tel:0278024143">027 802 4143</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Via Clara. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
