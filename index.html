@@ -4,254 +4,636 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Via Clara - Clear Path Consulting</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%238B8B7A'>VC</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23B89B7A'>VC</text></svg>">
+
+    <style>
+
+        /* =========================
+           VIA CLARA COLOUR SYSTEM
+        ========================== */
+
+        :root {
+            --bg: #F7F3EE;
+            --bg-secondary: #EFE7DF;
+            --text: #6F6258;
+            --text-light: #A79F98;
+            --accent: #B89B7A;
+            --border: #E6DDD4;
+            --white: #ffffff;
+            --shadow: rgba(111, 98, 88, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(247, 243, 238, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo img {
+            width: 52px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            letter-spacing: 3px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: var(--text-light);
+            margin-top: -4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            padding: 140px 20px 120px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            margin-top: 40px;
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 90px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 50px;
+        }
+
+        /* =========================
+           CARDS / GRIDS
+        ========================== */
+
+        .services-grid,
+        .case-studies-grid,
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card,
+        .case-study-card,
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 32px;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .service-card:hover,
+        .case-study-card:hover,
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .service-icon {
+            font-size: 34px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3,
+        .case-study-card h3 {
+            font-size: 32px;
+            margin-bottom: 14px;
+        }
+
+        .service-card p,
+        .case-study-card p,
+        .testimonial-card p {
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
+        .service-card a,
+        .case-study-card a {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* =========================
+           TESTIMONIALS
+        ========================== */
+
+        .testimonial-card strong {
+            color: var(--text);
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           CTA SECTION
+        ========================== */
+
+        .cta-section {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 30px;
+        }
+
+        .btn-cta-light {
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 18px;
+            font-size: 26px;
+        }
+
+        .footer-section p,
+        .footer-section a,
+        .footer-section li {
+            color: var(--text-light);
+            font-size: 14px;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            padding: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 14px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media(max-width: 900px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            section h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .logo-text span:first-child {
+                font-size: 24px;
+            }
+
+            .logo-text span:last-child {
+                letter-spacing: 3px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
+
+    <!-- NAVBAR -->
+
     <nav class="navbar">
         <div class="container nav-container">
+
             <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <text x="50" y="70" font-size="60" font-family="serif" font-weight="300" text-anchor="middle" fill="%238B8B7A">VC</text>
-                </svg>
-                <span>Via Clara</span>
+
+                <!-- CHANGE THIS PATH TO YOUR ACTUAL LOGO FILE -->
+                <img src="images/logo.png" alt="Via Clara Logo">
+
+                <div class="logo-text">
+                    <span>VIA CLARA</span>
+                    <span>CLEAR PATH</span>
+                </div>
             </div>
+
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="blog.html">Resources</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html" class="btn-primary">Contact</a></li>
             </ul>
+
         </div>
     </nav>
 
+    <!-- HERO -->
+
     <section class="hero">
         <div class="container">
+
             <h1>Clear Path to Business Excellence</h1>
-            <p>Strategic consulting for business transformation, analytics, and automation that drives measurable results.</p>
-            <a href="contact.html" class="btn-cta">Start Your Journey</a>
+
+            <p>
+                Strategic consulting for business transformation,
+                analytics, automation, and operational excellence
+                that drives measurable results.
+            </p>
+
+            <a href="contact.html" class="btn-cta">
+                Start Your Journey
+            </a>
+
         </div>
     </section>
 
+    <!-- SERVICES -->
+
     <section class="services-overview">
+
         <div class="container">
+
             <h2>Our Services</h2>
+
             <div class="services-grid">
+
                 <div class="service-card">
                     <div class="service-icon">🏢</div>
                     <h3>Business Transformation</h3>
-                    <p>Operating models, governance, PMO, and process improvement to streamline your operations.</p>
-                    <a href="services.html#transformation">Learn More →</a>
+                    <p>
+                        Operating models, governance,
+                        PMO leadership, and process redesign
+                        to streamline enterprise operations.
+                    </p>
+                    <a href="#">Learn More →</a>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">📊</div>
                     <h3>Power BI & Analytics</h3>
-                    <p>Dashboards, reporting, and insights that empower executive decision-making.</p>
-                    <a href="services.html#analytics">Learn More →</a>
+                    <p>
+                        Executive dashboards, reporting frameworks,
+                        and data insights that support strategic decisions.
+                    </p>
+                    <a href="#">Learn More →</a>
                 </div>
+
                 <div class="service-card">
                     <div class="service-icon">⚙️</div>
                     <h3>Automation & Systems</h3>
-                    <p>Power Automate, SharePoint, and workflow solutions for digital operations.</p>
-                    <a href="services.html#automation">Learn More →</a>
+                    <p>
+                        Power Platform, SharePoint,
+                        workflow automation, and operational systems design.
+                    </p>
+                    <a href="#">Learn More →</a>
                 </div>
- 
-    </div>
-</section>
 
-    <section class="case-studies-preview">
-    <div class="container">
-        <h2>Real Results, Real Impact</h2>
-
-        <div class="case-studies-grid">
-
-            <div class="case-study-card">
-                <h3>Fleet Operating Model Transformation</h3>
-                <p>
-                    <strong>25% Workforce Reduction & 80%+ Downtime Reduction</strong>
-                    through trans-Tasman operating model redesign across 16,000+ assets in NZ and Australia.
-                </p>
-                <a href="case-studies.html#fleet-operating-model">
-                    View Case Study →
-                </a>
-            </div>
-
-            <div class="case-study-card">
-                <h3>Asset Lifecycle & Procurement Transformation</h3>
-                <p>
-                    <strong>Procurement Reduced from 9 Months to 8 Weeks</strong>
-                    by redesigning scheduling, approvals, and vendor workflows across enterprise fleet operations.
-                </p>
-                <a href="case-studies.html#procurement-transformation">
-                    View Case Study →
-                </a>
-            </div>
-
-            <div class="case-study-card">
-                <h3>Fleet Safety & Risk Reduction</h3>
-                <p>
-                    <strong>220 → 25 Annual Accidents</strong>
-                    through telematics optimisation, driver behaviour scoring, and compliance systems.
-                </p>
-                <a href="case-studies.html#safety-risk-reduction">
-                    View Case Study →
-                </a>
-            </div>
-
-            <div class="case-study-card">
-                <h3>Cost & Vendor Transformation</h3>
-                <p>
-                    <strong>$5M+ Annual Recurring Savings</strong>
-                    delivered through insurance optimisation, fuel efficiency, and vendor performance transformation.
-                </p>
-                <a href="case-studies.html#cost-vendor-transformation">
-                    View Case Study →
-                </a>
-            </div>
-
-            <div class="case-study-card">
-                <h3>Digital Workflow Automation</h3>
-                <p>
-                    <strong>30% Reduction in Manual Workload</strong>
-                    with Power Platform automation improving invoice accuracy from 80% to 99.9%.
-                </p>
-                <a href="case-studies.html#digital-workflow-automation">
-                    View Case Study →
-                </a>
-            </div>
-
-            <div class="case-study-card">
-                <h3>Leadership & Capability Development</h3>
-                <p>
-                    <strong>75% Top Performers or Promotions</strong>
-                    through coaching, capability uplift, and operational leadership development.
-                </p>
-                <a href="case-studies.html#leadership-development">
-                    View Case Study →
-                </a>
             </div>
 
         </div>
-    </div>
-</section>
 
-    <section class="testimonials">
-    <div class="container">
-        <h2>What Our Clients Say</h2>
-
-        <div class="testimonials-grid">
-
-            <div class="testimonial-card">
-                <p>
-                    "The shift to a unified operating model fundamentally changed how we operate across Australia and New Zealand. What was previously fragmented across regions became a single, consistent system with far greater visibility, control, and execution speed.”
-                    <br><br>
-                    “We saw a clear reduction in operational friction between teams and regions. Decision-making became faster and more structured, particularly around fleet availability and maintenance priorities.”
-                    <br><br>
-                    “The improvement in downtime and responsiveness was not incremental — it was a step-change in operational performance.”
-                </p>
-                <strong>— Fleet Operating Model Transformation (AU/NZ)</strong>
-            </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "Procurement cycles that previously took many months were reduced to a matter of weeks, which had a direct impact on operational readiness and asset availability.”
-                    <br><br>
-                    “The introduction of standardised workflows removed long-standing bottlenecks across approvals, scheduling, and vendor coordination.”
-                    <br><br>
-                    “For the first time, we had consistent visibility across the full asset lifecycle — from purchase through to maintenance and replacement planning.”
-                </p>
-                <strong>— Asset Lifecycle & Procurement Transformation</strong>
-            </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "The introduction of driver behaviour scoring and telematics shifted the organisation from reactive incident management to proactive prevention.”
-                    <br><br>
-                    “Safety performance improved significantly, with a clear and sustained reduction in incidents across the fleet.”
-                    <br><br>
-                    “Compliance systems such as lockouts created real accountability and ensured overdue servicing and defects were addressed systematically.”
-                </p>
-                <strong>— Safety, Compliance & Risk Reduction Program</strong>
-            </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "The financial impact was substantial, particularly in insurance and fuel optimisation, which delivered meaningful and sustained annual savings.”
-                    <br><br>
-                    “Vendor performance became measurable and enforceable, improving consistency, accountability, and service delivery across the network.”
-                    <br><br>
-                    “Fleet expenditure became far more transparent, structured, and controllable at an executive level.”
-                </p>
-                <strong>— Cost Optimisation & Vendor Transformation</strong>
-            </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "The move away from email-based ordering and manual workflows completely changed operational efficiency.”
-                    <br><br>
-                    “Invoice accuracy improved dramatically, reducing rework, delays, and reconciliation effort.”
-                    <br><br>
-                    “Order tracking and vendor coordination became real-time, structured, and fully visible across the team.”
-                </p>
-                <strong>— Digital Workflow Automation (Power Platform)</strong>
-            </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "Team capability and performance improved significantly over time, with clear progression into senior and specialist roles.”
-                    <br><br>
-                    “Coaching and structured development created a strong internal leadership pipeline that didn’t previously exist.”
-                    <br><br>
-                    “There was a noticeable shift in ownership, accountability, and engagement across the team.”
-                </p>
-                <strong>— Leadership & Capability Development</strong>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready for Your Clear Path?</h2>
-            <p>Let's discuss how Via Clara can transform your business.</p>
-            <a href="contact.html" class="btn-cta-light">Get Started Today</a>
-        </div>
     </section>
 
+    <!-- CASE STUDIES -->
+
+    <section class="case-studies-preview">
+
+        <div class="container">
+
+            <h2>Real Results. Real Impact.</h2>
+
+            <div class="case-studies-grid">
+
+                <div class="case-study-card">
+                    <h3>Fleet Transformation</h3>
+                    <p>
+                        <strong>80%+ downtime reduction</strong>
+                        and operational redesign across
+                        trans-Tasman fleet operations.
+                    </p>
+                    <a href="#">View Case Study →</a>
+                </div>
+
+                <div class="case-study-card">
+                    <h3>Procurement Optimisation</h3>
+                    <p>
+                        <strong>9 months reduced to 8 weeks</strong>
+                        through workflow redesign and vendor transformation.
+                    </p>
+                    <a href="#">View Case Study →</a>
+                </div>
+
+                <div class="case-study-card">
+                    <h3>Digital Automation</h3>
+                    <p>
+                        <strong>30% reduction in manual workload</strong>
+                        using Power Platform automation and systems integration.
+                    </p>
+                    <a href="#">View Case Study →</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TESTIMONIALS -->
+
+    <section class="testimonials">
+
+        <div class="container">
+
+            <h2>What Clients Say</h2>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <p>
+                        “The operating model transformation fundamentally changed
+                        how we managed fleet operations across Australia and New Zealand.”
+                    </p>
+                    <strong>— Fleet Transformation Program</strong>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>
+                        “The visibility, governance, and automation improvements
+                        created measurable efficiency gains almost immediately.”
+                    </p>
+                    <strong>— Enterprise Operations Leader</strong>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>
+                        “Via Clara brought structure, clarity, and momentum
+                        to highly complex operational challenges.”
+                    </p>
+                    <strong>— Transformation Executive</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <h2>Ready for Your Clear Path?</h2>
+
+            <p>
+                Let's discuss how Via Clara can help transform your business.
+            </p>
+
+            <a href="contact.html" class="btn-cta-light">
+                Get Started Today
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
     <footer>
+
         <div class="container footer-content">
+
             <div class="footer-section">
                 <h4>Via Clara</h4>
-                <p>Clear Path Consulting for business transformation, analytics, and automation.</p>
+                <p>
+                    Clear Path Consulting for business transformation,
+                    analytics, and automation.
+                </p>
             </div>
+
             <div class="footer-section">
                 <h4>Quick Links</h4>
+
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="blog.html">Resources</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Resources</a></li>
                 </ul>
             </div>
+
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>Email: <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a></p>
-                <p>Phone: <a href="tel:0278024143">027 802 4143</a></p>
+
+                <p>Email: contact@viaclara.co.nz</p>
+                <p>Phone: 027 802 4143</p>
             </div>
+
             <div class="footer-section">
-                <h4>Follow Us</h4>
+                <h4>Follow</h4>
+
                 <div class="social-links">
                     <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
+                    <a href="#">Email</a>
                 </div>
             </div>
+
         </div>
+
         <div class="footer-bottom">
-            <p>&copy; 2026 Via Clara. All rights reserved.</p>
+            <p>© 2026 Via Clara. All rights reserved.</p>
         </div>
+
     </footer>
+
 </body>
 </html>
