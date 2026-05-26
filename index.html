@@ -57,53 +57,58 @@
                     <p>Power Automate, SharePoint, and workflow solutions for digital operations.</p>
                     <a href="services.html#automation">Learn More →</a>
                 </div>
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
+    .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 30px;
+}
 
-            <div class="service-card">
-                <div class="service-icon">🧭</div>
-                <h3>Transformation Strategy</h3>
-                <p>Strategic transformation planning, operating model redesign, governance frameworks, and PMO leadership to help organisations deliver sustainable change.</p>
-                <a href="services.html#strategy">Learn More →</a>
-            </div>
+/* Card styling (optional but recommended if not already set) */
+.service-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+}
 
-            <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Operational Excellence</h3>
-                <p>Process optimisation, workflow improvement, and operational redesign focused on increasing efficiency, reducing costs, and improving service delivery.</p>
-                <a href="services.html#operations">Learn More →</a>
-            </div>
+.service-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
 
-            <div class="service-card">
-                <div class="service-icon">💻</div>
-                <h3>Digital & Automation</h3>
-                <p>Microsoft 365, SharePoint, Power Automate, and digital workflow solutions that modernise operations and reduce manual effort.</p>
-                <a href="services.html#digital">Learn More →</a>
-            </div>
+.service-card h3 {
+    margin-bottom: 10px;
+}
 
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Data & Insights</h3>
-                <p>Power BI dashboards, KPI frameworks, reporting transformation, and business intelligence solutions that support smarter decision-making.</p>
-                <a href="services.html#data">Learn More →</a>
-            </div>
+.service-card p {
+    flex-grow: 1;
+    margin-bottom: 16px;
+    color: #555;
+}
 
-            <div class="service-card">
-                <div class="service-icon">🤝</div>
-                <h3>Change & Adoption</h3>
-                <p>Change management, stakeholder engagement, communication planning, and training programs that help teams successfully adopt new ways of working.</p>
-                <a href="services.html#change">Learn More →</a>
-            </div>
+.service-card a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #0066cc;
+}
 
-            <div class="service-card">
-                <div class="service-icon">🚀</div>
-                <h3>Program Delivery</h3>
-                <p>Program and project delivery support including governance, delivery assurance, risk management, and transformation execution.</p>
-                <a href="services.html#delivery">Learn More →</a>
-            </div>
+/* Responsive (important) */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-        </div>
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </section>
     </div>
 </section>
