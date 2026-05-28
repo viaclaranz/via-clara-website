@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Clara — Clear Path</title>
+    <title>About — Via Clara</title>
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,6 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
-            overflow-x: hidden;
         }
 
         h1,h2,h3,h4 {
@@ -41,11 +40,11 @@
 
         .container {
             width: 90%;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: auto;
         }
 
-        /* ================= NAV ================= */
+        /* NAV */
 
         .navbar {
             position: fixed;
@@ -74,11 +73,6 @@
             width: 95px;
         }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
         .logo-text .title {
             font-size: 38px;
             letter-spacing: 3px;
@@ -99,59 +93,140 @@
 
         .btn-primary {
             background: var(--accent);
-            color: #fff;
+            color: white;
             padding: 10px 16px;
             border-radius: 8px;
             text-decoration: none;
         }
 
-        /* ================= HERO ================= */
+        /* HEADER */
 
-        .hero {
+        .page-header {
             position: relative;
-            padding: 240px 0 170px;
             text-align: center;
+            padding: 220px 20px 120px;
         }
 
-        /* WATERMARK */
-        .hero::before {
+        .page-header::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: url('logo.png') center/340px no-repeat;
+            background: url('logo.png') center/360px no-repeat;
             opacity: 0.5;
             z-index: 0;
         }
 
-        .hero-content {
+        .page-header h1 {
             position: relative;
-            z-index: 2;
+            font-size: 78px;
+            margin-bottom: 10px;
         }
 
-        .hero h1 {
-            font-size: 92px;
-            letter-spacing: 2px;
-        }
-
-        .hero h2 {
+        .page-header h2 {
+            position: relative;
             font-size: 26px;
-            letter-spacing: 6px;
             color: var(--accent);
-            margin-top: 10px;
+            letter-spacing: 5px;
         }
 
-        .hero p {
-            margin-top: 30px;
-            font-size: 20px;
-            color: var(--text-light);
-            max-width: 720px;
+        .page-header p {
+            position: relative;
+            margin-top: 25px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--text-light);
+            font-size: 18px;
         }
 
-        .hero a {
-            display: inline-block;
+        /* SECTIONS */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .section h2 {
+            font-size: 52px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
+        /* VALUES */
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
             margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 26px;
+            border-radius: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        /* APPROACH */
+
+        .approach {
+            background: var(--bg-secondary);
+            padding: 100px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .step {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 26px;
+            border-radius: 16px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 16px;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 20px;
             background: var(--accent);
             color: white;
             padding: 14px 28px;
@@ -159,51 +234,17 @@
             text-decoration: none;
         }
 
-        /* ================= SECTION ================= */
-
-        .section {
-            padding: 110px 0;
-        }
-
-        .section h2 {
-            font-size: 54px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 26px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 18px;
-        }
-
-        .card h3 {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--text-light);
-        }
-
-        /* ================= FOOTER ================= */
+        /* FOOTER */
 
         footer {
             background: var(--bg-secondary);
-            padding: 80px 0 30px;
+            padding: 70px 0 20px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
+            gap: 30px;
         }
 
         .footer-bottom {
@@ -211,8 +252,8 @@
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
-            font-size: 13px;
             color: var(--text-light);
+            font-size: 13px;
         }
 
     </style>
@@ -225,7 +266,7 @@
     <div class="container nav-container">
 
         <div class="logo">
-            <img src="logo.png" alt="Via Clara Logo">
+            <img src="logo.png" alt="Via Clara">
             <div class="logo-text">
                 <div class="title">VIA CLARA</div>
                 <div class="tagline">CLEAR PATH</div>
@@ -244,53 +285,120 @@
     </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<!-- HEADER -->
+<section class="page-header">
 
-    <div class="hero-content">
+    <h1>Via Clara</h1>
+    <h2>Clear Path</h2>
 
-        <h1>Via Clara</h1>
-
-        <h2>Clear Path</h2>
-
-        <p>
-            Business transformation, analytics, and automation
-            designed to create clarity, control, and scalable performance.
-        </p>
-
-        <a href="services.html">Explore Services</a>
-
-    </div>
+    <p>
+        We help organisations create clarity in complexity,
+        align execution to strategy, and build systems that scale.
+    </p>
 
 </section>
 
-<!-- SERVICES -->
+<!-- ABOUT -->
 <section class="section">
+    <div class="container split">
+
+        <div>
+            <h2>Our Mission</h2>
+
+            <p>
+                To create clarity in how organisations operate —
+                aligning people, process, and technology into a single direction of travel.
+            </p>
+
+            <p>
+                We focus on outcomes, not activity. On structure, not noise.
+                On building systems that actually work in the real world.
+            </p>
+        </div>
+
+        <div>
+            <h2>What We Stand For</h2>
+
+            <div class="values">
+
+                <div class="value-card">
+                    <h3>Clarity</h3>
+                    <p>Turning complexity into structured, actionable direction.</p>
+                </div>
+
+                <div class="value-card">
+                    <h3>Precision</h3>
+                    <p>Designing systems that are deliberate, scalable, and measurable.</p>
+                </div>
+
+                <div class="value-card">
+                    <h3>Execution</h3>
+                    <p>Ideas only matter when they are implemented properly.</p>
+                </div>
+
+                <div class="value-card">
+                    <h3>Impact</h3>
+                    <p>Real operational and financial outcomes — not theory.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
 
     <div class="container">
 
-        <h2>What We Do</h2>
+        <h2 style="text-align:center; font-size:52px; margin-bottom:50px;">
+            How We Work
+        </h2>
 
-        <div class="grid">
+        <div class="steps">
 
-            <div class="card">
-                <h3>Transformation</h3>
-                <p>Operating models, governance, and enterprise change delivery.</p>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Understand</h3>
+                <p>Deep diagnostic of current state, constraints, and opportunity.</p>
             </div>
 
-            <div class="card">
-                <h3>Analytics</h3>
-                <p>Decision-grade Power BI dashboards and performance visibility.</p>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Design</h3>
+                <p>Define the operating model, systems, and roadmap.</p>
             </div>
 
-            <div class="card">
-                <h3>Automation</h3>
-                <p>Workflow systems and Microsoft Power Platform solutions.</p>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Deliver</h3>
+                <p>Implement with structure, governance, and execution discipline.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Sustain</h3>
+                <p>Embed capability so outcomes continue long after engagement.</p>
             </div>
 
         </div>
 
     </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta">
+
+    <h2>Let’s Build Clarity</h2>
+
+    <p>
+        If your organisation is operating with fragmentation, complexity, or misalignment —
+        we help create a clear path forward.
+    </p>
+
+    <a href="contact.html">Start a Conversation</a>
 
 </section>
 
@@ -301,7 +409,7 @@
 
         <div>
             <h3>Via Clara</h3>
-            <p>Clear Path to clarity and operational performance.</p>
+            <p>Clear Path to clarity and performance.</p>
         </div>
 
         <div>
