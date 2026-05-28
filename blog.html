@@ -1,354 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insights - Via Clara</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Via Clara</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-    --bg:#F7F3EE;
-    --panel:#FFFFFF;
-    --text:#5F564F;
-    --muted:#9B9189;
-    --accent:#B89B7A;
-    --border:#E7DED5;
-}
+    <style>
+        :root {
+            --bg: #F7F3EE;
+            --bg-secondary: #EFE7DF;
+            --text: #6F6258;
+            --text-light: #A79F98;
+            --accent: #B89B7A;
+            --border: #E6DDD4;
+            --white: #ffffff;
+            --shadow: rgba(111, 98, 88, 0.08);
+        }
 
-*{margin:0;padding:0;box-sizing:border-box}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    font-family:Inter,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.7;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            position: relative;
+        }
 
-h1,h2,h3{
-    font-family:"Cormorant Garamond",serif;
-    font-weight:500;
-}
+        /* WATERMARK */
+        body::before {
+            content: "VIA CLARA INSIGHTS";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            letter-spacing: 18px;
+            color: rgba(184, 155, 122, 0.06);
+            z-index: 0;
+            pointer-events: none;
+            white-space: nowrap;
+        }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
+        h1,h2,h3,h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
 
-/* NAV */
-.navbar{
-    position:sticky;
-    top:0;
-    background:rgba(247,243,238,0.9);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-}
+        a { text-decoration: none; color: inherit; }
 
-.nav-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
 
-.logo{
-    font-family:"Cormorant Garamond";
-    font-size:28px;
-}
+        /* NAV */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 238, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
 
-.nav a{
-    margin-left:20px;
-    font-size:14px;
-    text-decoration:none;
-    color:var(--text);
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 26px 0;
+        }
 
-.nav a:hover{color:var(--accent)}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
 
-.btn{
-    background:var(--accent);
-    color:white;
-    padding:10px 16px;
-    border-radius:8px;
-}
+        .logo svg {
+            width: 60px;
+            height: 60px;
+        }
 
-/* HERO */
-.hero{
-    text-align:center;
-    padding:110px 20px 70px;
-}
+        .logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
 
-.hero h1{
-    font-size:64px;
-    margin-bottom:16px;
-}
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 14px;
+        }
 
-.hero p{
-    color:var(--muted);
-    max-width:720px;
-    margin:auto;
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-/* FEATURE ARTICLE */
-.featured{
-    background:var(--panel);
-    border:1px solid var(--border);
-    padding:40px;
-    border-radius:18px;
-    margin-bottom:40px;
-}
+        .btn-primary {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 16px;
+            border-radius: 8px;
+        }
 
-.featured h2{
-    font-size:34px;
-    margin-bottom:10px;
-}
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            padding: 140px 20px 90px;
+        }
 
-.meta{
-    font-size:13px;
-    color:var(--muted);
-    margin-bottom:16px;
-}
+        .page-header h1 {
+            font-size: 62px;
+        }
 
-.featured p{
-    color:var(--muted);
-}
+        .page-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 14px auto 0;
+            font-size: 18px;
+        }
 
-/* GRID ARTICLES */
-.grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:40px;
-}
+        /* LAYOUT */
+        .layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            padding-bottom: 80px;
+        }
 
-.articles{
-    display:grid;
-    gap:20px;
-}
+        /* POSTS */
+        .posts {
+            display: grid;
+            gap: 26px;
+        }
 
-.article{
-    background:var(--panel);
-    border:1px solid var(--border);
-    padding:26px;
-    border-radius:16px;
-    transition:0.25s ease;
-}
+        .post {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: 0.3s ease;
+        }
 
-.article:hover{
-    transform:translateY(-4px);
-}
+        .post:hover {
+            transform: translateY(-5px);
+        }
 
-.article h3{
-    font-size:26px;
-}
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
 
-.article p{
-    color:var(--muted);
-    margin-top:10px;
-}
+        .post h3 {
+            font-size: 28px;
+        }
 
-.tags{
-    margin-top:12px;
-}
+        .date {
+            font-size: 12px;
+            color: var(--text-light);
+        }
 
-.tag{
-    font-size:12px;
-    border:1px solid var(--border);
-    padding:4px 10px;
-    border-radius:999px;
-    margin-right:6px;
-    color:var(--muted);
-}
+        .post p {
+            color: var(--text-light);
+            margin: 14px 0;
+        }
 
-/* SIDEBAR */
-.sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
+        .tags {
+            margin-top: 12px;
+        }
 
-.widget{
-    background:var(--panel);
-    border:1px solid var(--border);
-    padding:22px;
-    border-radius:16px;
-}
+        .tag {
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            margin-right: 6px;
+            color: var(--text-light);
+        }
 
-.widget h4{
-    margin-bottom:10px;
-}
+        .read-more {
+            display: inline-block;
+            margin-top: 14px;
+            color: var(--accent);
+            font-weight: 500;
+        }
 
-.widget a{
-    display:block;
-    font-size:14px;
-    color:var(--muted);
-    margin-bottom:8px;
-    text-decoration:none;
-}
+        /* SIDEBAR */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
 
-.widget a:hover{color:var(--accent)}
+        .widget {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
 
-/* CTA */
-.cta{
-    background:#3E3530;
-    color:white;
-    text-align:center;
-    padding:100px 20px;
-    margin-top:80px;
-}
+        .widget h4 {
+            margin-bottom: 12px;
+        }
 
-.cta h2{
-    font-size:52px;
-    margin-bottom:10px;
-}
+        .widget ul {
+            list-style: none;
+        }
 
-.cta p{
-    opacity:0.75;
-    margin-bottom:20px;
-}
+        .widget li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
 
-.cta a{
-    background:var(--accent);
-    color:white;
-    padding:12px 20px;
-    border-radius:8px;
-    text-decoration:none;
-}
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 10px;
+        }
 
-/* FOOTER */
-footer{
-    padding:60px 0;
-    border-top:1px solid var(--border);
-}
+        /* CTA */
+        .cta {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
 
-.footer{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-    font-size:14px;
-    color:var(--muted);
-}
+        .btn-cta {
+            background: var(--accent);
+            padding: 12px 22px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 16px;
+        }
 
-</style>
+        footer {
+            background: var(--bg-secondary);
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        @media(max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 44px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 18px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<div class="navbar">
-    <div class="container nav-inner">
-        <div class="logo">Via Clara</div>
-        <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="blog.html">Insights</a>
-            <a href="about.html">About</a>
-            <a class="btn" href="contact.html">Contact</a>
-        </div>
-    </div>
-</div>
+<!-- NAV -->
+<nav class="navbar">
+    <div class="container nav-container">
 
-<section class="hero">
-    <div class="container">
-        <h1>Insights & Perspectives</h1>
-        <p>
-            Practical thinking on transformation, operations, analytics, and automation.
-        </p>
+        <div class="logo">
+            <svg viewBox="0 0 100 100">
+                <text x="50" y="70" font-size="60" text-anchor="middle" fill="#B89B7A">VC</text>
+            </svg>
+            <span>Via Clara</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog.html" class="active">Insights</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="btn-primary">Contact</a></li>
+        </ul>
+
     </div>
+</nav>
+
+<!-- HEADER -->
+<section class="page-header">
+    <h1>Insights & Resources</h1>
+    <p>Practical thinking on transformation, automation, and operational excellence.</p>
 </section>
 
-<section class="container">
+<!-- CONTENT -->
+<section class="container layout">
 
-    <!-- FEATURED -->
-    <div class="featured">
-        <h2>The Business Transformation Playbook</h2>
-        <div class="meta">May 2026 · Strategy & Transformation</div>
-        <p>
-            A structured guide to planning, executing, and sustaining enterprise transformation.
-            Covers operating model design, governance, delivery risk, and value realisation.
-        </p>
-    </div>
+    <!-- POSTS -->
+    <div class="posts">
 
-    <div class="grid">
-
-        <!-- ARTICLES -->
-        <div class="articles">
-
-            <div class="article">
-                <h3>Power Automate and the Future of Operational Efficiency</h3>
-                <p>How automation shifts organisations from manual workflows to system-driven execution.</p>
-                <div class="tags">
-                    <span class="tag">Automation</span>
-                    <span class="tag">Operations</span>
-                </div>
+        <div class="post">
+            <div class="post-header">
+                <h3>Business Transformation Playbook</h3>
+                <span class="date">May 24, 2026</span>
             </div>
-
-            <div class="article">
-                <h3>Designing Executive Dashboards That Drive Action</h3>
-                <p>Why most dashboards fail—and how to design decision-grade analytics.</p>
-                <div class="tags">
-                    <span class="tag">Analytics</span>
-                    <span class="tag">BI</span>
-                </div>
+            <p>A structured guide to planning and executing successful transformation initiatives.</p>
+            <div class="tags">
+                <span class="tag">Strategy</span>
+                <span class="tag">Transformation</span>
             </div>
-
-            <div class="article">
-                <h3>Change Management as a Value Lever, Not a Workstream</h3>
-                <p>Embedding adoption into transformation design from day one.</p>
-                <div class="tags">
-                    <span class="tag">Change</span>
-                    <span class="tag">Leadership</span>
-                </div>
-            </div>
-
+            <a class="read-more" href="#">Download →</a>
         </div>
 
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-
-            <div class="widget">
-                <h4>Key Themes</h4>
-                <a href="#">Transformation Strategy</a>
-                <a href="#">Operating Models</a>
-                <a href="#">Automation</a>
-                <a href="#">Analytics</a>
+        <div class="post">
+            <div class="post-header">
+                <h3>Power Automate in Modern Operations</h3>
+                <span class="date">May 20, 2026</span>
             </div>
-
-            <div class="widget">
-                <h4>Downloadables</h4>
-                <a href="#">Transformation Checklist</a>
-                <a href="#">ROI Framework</a>
-                <a href="#">KPI Design Guide</a>
+            <p>How automation is reshaping operational efficiency across organisations.</p>
+            <div class="tags">
+                <span class="tag">Automation</span>
+                <span class="tag">Microsoft</span>
             </div>
+            <a class="read-more" href="#">Read →</a>
+        </div>
 
-            <div class="widget">
-                <h4>Subscribe</h4>
-                <p style="font-size:14px;color:var(--muted)">
-                    Insights delivered monthly.
-                </p>
+        <div class="post">
+            <div class="post-header">
+                <h3>Executive Dashboards That Actually Work</h3>
+                <span class="date">May 15, 2026</span>
             </div>
-
+            <p>Design principles for dashboards that improve decision-making, not just reporting.</p>
+            <div class="tags">
+                <span class="tag">Analytics</span>
+                <span class="tag">BI</span>
+            </div>
+            <a class="read-more" href="#">Read →</a>
         </div>
 
     </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="widget">
+            <h4>Free Tools</h4>
+            <ul>
+                <li>Transformation Checklist</li>
+                <li>ROI Calculator</li>
+                <li>Process Audit Template</li>
+            </ul>
+        </div>
+
+        <div class="widget newsletter">
+            <h4>Subscribe</h4>
+            <p>Get insights directly in your inbox.</p>
+            <input type="email" placeholder="Email address">
+            <button class="btn-primary">Subscribe</button>
+        </div>
+
+    </aside>
 
 </section>
 
+<!-- CTA -->
 <section class="cta">
-    <div class="container">
-        <h2>Let’s solve something meaningful</h2>
-        <p>Start a conversation about your transformation priorities.</p>
-        <a href="contact.html">Contact Via Clara</a>
-    </div>
+    <h2>Need strategic clarity?</h2>
+    <p>We help leadership teams turn complexity into execution.</p>
+    <a href="contact.html" class="btn-cta">Get in Touch</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <div class="container footer">
-        <div>Via Clara<br>Consulting & Transformation</div>
-        <div>contact@viaclara.co.nz</div>
-        <div>© 2026 Via Clara</div>
+    <div class="footer-bottom">
+        © 2026 Via Clara. All rights reserved.
     </div>
 </footer>
 
