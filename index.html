@@ -1,845 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Clara - Clear Path Consulting</title>
-
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/svg+xml"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23B89B7A'>VC</text></svg>">
-
-    <style>
-
-        /* =========================
-           VIA CLARA DESIGN SYSTEM
-        ========================== */
-
-        :root {
-            --bg: #F7F3EE;
-            --bg-secondary: #EFE7DF;
-            --text: #6F6258;
-            --text-light: #A79F98;
-            --accent: #B89B7A;
-            --border: #E6DDD4;
-            --white: #ffffff;
-            --shadow: rgba(111, 98, 88, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1300px;
-            margin: auto;
-        }
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: rgba(247, 243, 238, 0.92);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 18px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        /* BIGGER LOGO */
-
-        .logo img {
-            width: 95px;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text span:first-child {
-            font-size: 34px;
-            letter-spacing: 4px;
-            line-height: 1;
-        }
-
-        .logo-text span:last-child {
-            font-size: 11px;
-            letter-spacing: 6px;
-            color: var(--text-light);
-            margin-top: 4px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            transition: 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white !important;
-
-            padding: 10px 18px;
-            border-radius: 8px;
-
-            transition: 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-        }
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-
-            padding: 160px 20px 130px;
-            text-align: center;
-        }
-
-        /* WATERMARK LOGO */
-
-        .hero-watermark {
-            position: absolute;
-            inset: 0;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .hero-watermark img {
-            width: 950px;
-            opacity: 0.15;
-            filter: grayscale(100%);
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 76px;
-            line-height: 1.05;
-
-            max-width: 950px;
-            margin: auto;
-
-            margin-bottom: 28px;
-        }
-
-        .hero p {
-            max-width: 760px;
-            margin: auto;
-
-            font-size: 20px;
-            color: var(--text-light);
-        }
-
-        .btn-cta {
-            display: inline-block;
-
-            margin-top: 42px;
-
-            background: var(--accent);
-            color: white;
-
-            padding: 15px 30px;
-            border-radius: 8px;
-
-            transition: 0.3s ease;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-        }
-
-        /* =========================
-           SECTIONS
-        ========================== */
-
-        section {
-            padding: 90px 0;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 52px;
-            margin-bottom: 50px;
-        }
-
-        /* =========================
-           GRIDS
-        ========================== */
-
-        .services-grid,
-        .case-studies-grid,
-        .testimonials-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(320px, 1fr));
-
-            gap: 28px;
-        }
-
-        /* =========================
-           CARDS
-        ========================== */
-
-        .service-card,
-        .case-study-card,
-        .testimonial-card {
-
-            background: var(--white);
-
-            border: 1px solid var(--border);
-
-            border-radius: 20px;
-
-            padding: 34px;
-
-            box-shadow: 0 10px 30px var(--shadow);
-
-            transition: 0.35s ease;
-        }
-
-        .service-card:hover,
-        .case-study-card:hover,
-        .testimonial-card:hover {
-
-            transform: translateY(-6px);
-        }
-
-        .service-icon {
-            font-size: 36px;
-            margin-bottom: 18px;
-        }
-
-        .service-card h3,
-        .case-study-card h3 {
-            font-size: 34px;
-            margin-bottom: 16px;
-        }
-
-        .service-card p,
-        .case-study-card p,
-        .testimonial-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        .service-card a,
-        .case-study-card a {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        /* =========================
-           TESTIMONIALS
-        ========================== */
-
-        .testimonial-card strong {
-            color: var(--text);
-            display: block;
-            margin-top: 20px;
-        }
-
-        /* =========================
-           CTA
-        ========================== */
-
-        .cta-section {
-
-            background: var(--text);
-            color: white;
-
-            text-align: center;
-
-            padding: 110px 20px;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 32px;
-        }
-
-        .btn-cta-light {
-
-            background: var(--accent);
-            color: white;
-
-            padding: 14px 28px;
-            border-radius: 8px;
-
-            display: inline-block;
-        }
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-
-            background: var(--bg-secondary);
-
-            padding: 80px 0 30px;
-        }
-
-        .footer-content {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 40px;
-        }
-
-        .footer-section h4 {
-            font-size: 28px;
-            margin-bottom: 18px;
-        }
-
-        .footer-section p,
-        .footer-section li,
-        .footer-section a {
-
-            color: var(--text-light);
-
-            font-size: 14px;
-
-            list-style: none;
-
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul {
-            padding: 0;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 14px;
-        }
-
-        .footer-bottom {
-
-            text-align: center;
-
-            margin-top: 50px;
-            padding-top: 20px;
-
-            border-top: 1px solid var(--border);
-
-            color: var(--text-light);
-            font-size: 13px;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================== */
-
-        @media(max-width: 950px) {
-
-            .nav-container {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 54px;
-            }
-
-            .hero-watermark img {
-                width: 650px;
-            }
-        }
-
-        @media(max-width: 650px) {
-
-            .hero {
-                padding-top: 120px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            section h2 {
-                font-size: 42px;
-            }
-
-            .logo img {
-                width: 75px;
-            }
-
-            .logo-text span:first-child {
-                font-size: 26px;
-            }
-
-            .logo-text span:last-child {
-                letter-spacing: 4px;
-            }
-
-            .hero-watermark img {
-                width: 500px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Via Clara - Transformation Consulting</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#F7F3EE;
+    --panel:#FFFFFF;
+    --text:#5F564F;
+    --muted:#9B9189;
+    --accent:#B89B7A;
+    --border:#E7DED5;
+    --shadow:0 25px 60px rgba(0,0,0,0.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Inter,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* =========================
+   WATERMARK
+========================= */
+
+body::before{
+    content:"VC";
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:420px;
+    font-family:"Cormorant Garamond",serif;
+    color:rgba(184,155,122,0.06);
+    z-index:0;
+    pointer-events:none;
+}
+
+/* =========================
+   NAV (TALL HEADER)
+========================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(247,243,238,0.85);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    height:110px; /* 🔥 taller header */
+    display:flex;
+    align-items:center;
+}
+
+.nav-inner{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* LOGO TOP LEFT */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-box{
+    width:52px;
+    height:52px;
+    border:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:22px;
+    color:var(--accent);
+}
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+
+.logo-text strong{
+    font-family:"Cormorant Garamond",serif;
+    font-size:26px;
+    letter-spacing:2px;
+}
+
+.logo-text span{
+    font-size:11px;
+    letter-spacing:4px;
+    color:var(--muted);
+}
+
+/* NAV LINKS */
+.nav a{
+    margin-left:22px;
+    font-size:14px;
+    text-decoration:none;
+    color:var(--text);
+}
+
+.nav a:hover{
+    color:var(--accent);
+}
+
+.btn{
+    background:var(--accent);
+    color:white !important;
+    padding:10px 16px;
+    border-radius:8px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    text-align:center;
+    padding:140px 20px 110px;
+    z-index:1;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:78px;
+    font-weight:500;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:18px;
+    color:var(--muted);
+    max-width:750px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* =========================
+   SECTION BLOCKS
+========================= */
+
+.section{
+    padding:90px 0;
+    position:relative;
+    z-index:1;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+}
+
+.card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+/* VALUES */
+.values{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.value{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    background:#3E3530;
+    color:white;
+    text-align:center;
+    padding:110px 20px;
+    position:relative;
+    z-index:1;
+}
+
+.cta h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:54px;
+}
+
+.cta p{
+    opacity:0.75;
+    margin-top:14px;
+}
+
+.cta a{
+    display:inline-block;
+    margin-top:25px;
+    background:var(--accent);
+    color:white;
+    padding:12px 22px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:60px 0;
+    border-top:1px solid var(--border);
+    position:relative;
+    z-index:1;
+}
+
+.footer-grid{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    font-size:14px;
+    color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .grid-2{
+        grid-template-columns:1fr;
+    }
+
+    .nav-inner{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+<!-- NAV -->
+<div class="navbar">
+    <div class="nav-inner">
 
-    <nav class="navbar">
-
-        <div class="container nav-container">
-
-            <div class="logo">
-
-                <!-- LOGO FILE -->
-                <!-- Put logo.png in same folder as index.html -->
-
-                <img src="logo.png" alt="Via Clara Logo">
-
-                <div class="logo-text">
-                    <span>VIA CLARA</span>
-                    <span>CLEAR PATH</span>
-                </div>
-
+        <div class="logo">
+            <div class="logo-box">VC</div>
+            <div class="logo-text">
+                <strong>Via Clara</strong>
+                <span>CLEAR PATH</span>
             </div>
-
-            <ul class="nav-links">
-
-                <li><a href="index.html">Home</a></li>
-
-                <li><a href="services.html">Services</a></li>
-
-                <li><a href="case-studies.html">Case Studies</a></li>
-
-                <li><a href="blog.html">Resources</a></li>
-
-                <li><a href="about.html">About</a></li>
-
-                <li>
-                    <a href="contact.html" class="btn-primary">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
         </div>
 
-    </nav>
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <section class="hero">
-
-        <!-- WATERMARK -->
-
-        <div class="hero-watermark">
-            <img src="logo.png" alt="Via Clara Watermark">
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="blog.html">Insights</a>
+            <a href="about.html">About</a>
+            <a class="btn" href="contact.html">Contact</a>
         </div>
 
-        <div class="container">
+    </div>
+</div>
 
-            <h1>
-                Clear Path to
-                Business Excellence
-            </h1>
+<!-- HERO -->
+<section class="hero">
+    <h1>Clarity in Transformation</h1>
+    <p>
+        Via Clara partners with organisations to design, deliver, and embed
+        operational transformation, analytics, and automation.
+    </p>
+</section>
 
+<!-- ABOUT SNAPSHOT -->
+<section class="section">
+    <div class="nav-inner grid-2">
+
+        <div class="card">
+            <h2>What We Do</h2>
             <p>
-                Strategic consulting for business transformation,
-                analytics, automation, and operational excellence
-                that drives measurable results.
+                We help organisations move from fragmented operations to
+                structured, scalable, data-driven operating models.
             </p>
+        </div>
 
-            <a href="contact.html" class="btn-cta">
-                Start Your Journey
-            </a>
+        <div class="values">
+
+            <div class="value">Operating Model Design</div>
+            <div class="value">Process Transformation</div>
+            <div class="value">Power BI & Analytics</div>
+            <div class="value">Automation Systems</div>
 
         </div>
 
-    </section>
-
-    <!-- =========================
-         SERVICES
-    ========================== -->
-
-    <section class="services-overview">
-
-        <div class="container">
-
-            <h2>Our Services</h2>
-
-            <div class="services-grid">
-
-                <div class="service-card">
-
-                    <div class="service-icon">🏢</div>
-
-                    <h3>Business Transformation</h3>
-
-                    <p>
-                        Operating models, governance,
-                        PMO leadership, and process redesign
-                        to streamline enterprise operations.
-                    </p>
-
-                    <a href="#">
-                        Learn More →
-                    </a>
-
-                </div>
-
-                <div class="service-card">
-
-                    <div class="service-icon">📊</div>
-
-                    <h3>Power BI & Analytics</h3>
-
-                    <p>
-                        Executive dashboards, reporting frameworks,
-                        and insights that support strategic decisions.
-                    </p>
-
-                    <a href="#">
-                        Learn More →
-                    </a>
-
-                </div>
-
-                <div class="service-card">
-
-                    <div class="service-icon">⚙️</div>
-
-                    <h3>Automation & Systems</h3>
-
-                    <p>
-                        Power Platform, SharePoint,
-                        workflow automation, and systems integration.
-                    </p>
-
-                    <a href="#">
-                        Learn More →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         CASE STUDIES
-    ========================== -->
-
-    <section class="case-studies-preview">
-
-        <div class="container">
-
-            <h2>Real Results. Real Impact.</h2>
-
-            <div class="case-studies-grid">
-
-                <div class="case-study-card">
-
-                    <h3>Fleet Transformation</h3>
-
-                    <p>
-                        <strong>80%+ downtime reduction</strong>
-                        through operational redesign and
-                        enterprise fleet optimisation.
-                    </p>
-
-                    <a href="#">
-                        View Case Study →
-                    </a>
-
-                </div>
-
-                <div class="case-study-card">
-
-                    <h3>Procurement Optimisation</h3>
-
-                    <p>
-                        <strong>9 months reduced to 8 weeks</strong>
-                        through workflow redesign and vendor management.
-                    </p>
-
-                    <a href="#">
-                        View Case Study →
-                    </a>
-
-                </div>
-
-                <div class="case-study-card">
-
-                    <h3>Digital Automation</h3>
-
-                    <p>
-                        <strong>30% reduction in manual workload</strong>
-                        through Power Platform and automation delivery.
-                    </p>
-
-                    <a href="#">
-                        View Case Study →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         TESTIMONIALS
-    ========================== -->
-
-    <section class="testimonials">
-
-        <div class="container">
-
-            <h2>What Clients Say</h2>
-
-            <div class="testimonials-grid">
-
-                <div class="testimonial-card">
-
-                    <p>
-                        “The operating model transformation fundamentally changed
-                        how we managed fleet operations across Australia and New Zealand.”
-                    </p>
-
-                    <strong>
-                        — Fleet Transformation Program
-                    </strong>
-
-                </div>
-
-                <div class="testimonial-card">
-
-                    <p>
-                        “The visibility, governance, and automation improvements
-                        created measurable efficiency gains almost immediately.”
-                    </p>
-
-                    <strong>
-                        — Enterprise Operations Leader
-                    </strong>
-
-                </div>
-
-                <div class="testimonial-card">
-
-                    <p>
-                        “Via Clara brought structure, clarity, and momentum
-                        to highly complex operational challenges.”
-                    </p>
-
-                    <strong>
-                        — Transformation Executive
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="cta-section">
-
-        <div class="container">
-
-            <h2>
-                Ready for Your Clear Path?
-            </h2>
-
-            <p>
-                Let's discuss how Via Clara can transform your business.
-            </p>
-
-            <a href="contact.html" class="btn-cta-light">
-                Get Started Today
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div class="container footer-content">
-
-            <div class="footer-section">
-
-                <h4>Via Clara</h4>
-
-                <p>
-                    Clear Path Consulting for business transformation,
-                    analytics, and automation.
-                </p>
-
-            </div>
-
-            <div class="footer-section">
-
-                <h4>Quick Links</h4>
-
-                <ul>
-
-                    <li><a href="#">Home</a></li>
-
-                    <li><a href="#">Services</a></li>
-
-                    <li><a href="#">Case Studies</a></li>
-
-                    <li><a href="#">Resources</a></li>
-
-                </ul>
-
-            </div>
-
-            <div class="footer-section">
-
-                <h4>Contact</h4>
-
-                <p>Email: contact@viaclara.co.nz</p>
-
-                <p>Phone: 027 802 4143</p>
-
-            </div>
-
-            <div class="footer-section">
-
-                <h4>Follow</h4>
-
-                <div class="social-links">
-
-                    <a href="#">LinkedIn</a>
-
-                    <a href="#">Email</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Via Clara. All rights reserved.
-            </p>
-
-        </div>
-
-    </footer>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Build your clear path</h2>
+    <p>Start a conversation about transformation opportunities.</p>
+    <a href="contact.html">Contact Via Clara</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div>Via Clara Consulting</div>
+        <div>contact@viaclara.co.nz</div>
+        <div>© 2026 Via Clara</div>
+    </div>
+</footer>
 
 </body>
 </html>
