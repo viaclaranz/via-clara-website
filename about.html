@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Clara</title>
+    <title>Via Clara — Clear Path</title>
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,6 @@
             --text-light: #A79F98;
             --accent: #B89B7A;
             --border: #E6DDD4;
-            --white: #ffffff;
             --shadow: rgba(111, 98, 88, 0.08);
         }
 
@@ -46,9 +45,7 @@
             margin: auto;
         }
 
-        /* =========================
-           NAVBAR
-        ========================== */
+        /* ================= NAV ================= */
 
         .navbar {
             position: fixed;
@@ -67,7 +64,6 @@
             padding: 22px 0;
         }
 
-        /* BIGGER LOGO */
         .logo {
             display: flex;
             align-items: center;
@@ -75,8 +71,7 @@
         }
 
         .logo img {
-            width: 90px; /* ⬅️ increased size */
-            height: auto;
+            width: 95px;
         }
 
         .logo-text {
@@ -93,7 +88,6 @@
             font-size: 12px;
             letter-spacing: 5px;
             color: var(--text-light);
-            margin-top: 4px;
         }
 
         .nav-links {
@@ -103,35 +97,29 @@
             font-size: 14px;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: inherit;
-        }
-
         .btn-primary {
             background: var(--accent);
-            color: white;
+            color: #fff;
             padding: 10px 16px;
             border-radius: 8px;
+            text-decoration: none;
         }
 
-        /* =========================
-           HERO
-        ========================== */
+        /* ================= HERO ================= */
 
         .hero {
             position: relative;
-            padding: 220px 0 160px;
+            padding: 240px 0 170px;
             text-align: center;
         }
 
-        /* WATERMARK LOGO */
+        /* WATERMARK */
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: url('logo.png') center/320px no-repeat;
-            opacity: 0.5; /* ⬅️ requested */
+            background: url('logo.png') center/340px no-repeat;
+            opacity: 0.5;
             z-index: 0;
         }
 
@@ -141,76 +129,81 @@
         }
 
         .hero h1 {
-            font-size: 86px;
+            font-size: 92px;
             letter-spacing: 2px;
         }
 
         .hero h2 {
-            font-size: 28px;
+            font-size: 26px;
+            letter-spacing: 6px;
             color: var(--accent);
             margin-top: 10px;
-            letter-spacing: 4px;
         }
 
         .hero p {
             margin-top: 30px;
             font-size: 20px;
             color: var(--text-light);
-            max-width: 700px;
+            max-width: 720px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .hero .cta {
-            margin-top: 40px;
+        .hero a {
             display: inline-block;
+            margin-top: 40px;
             background: var(--accent);
             color: white;
-            padding: 14px 26px;
+            padding: 14px 28px;
             border-radius: 10px;
+            text-decoration: none;
         }
 
-        /* =========================
-           SECTIONS (preview)
-        ========================== */
+        /* ================= SECTION ================= */
 
         .section {
-            padding: 100px 0;
+            padding: 110px 0;
         }
 
         .section h2 {
-            font-size: 52px;
+            font-size: 54px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 26px;
         }
 
         .card {
             background: white;
             border: 1px solid var(--border);
-            padding: 26px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px var(--shadow);
+            padding: 28px;
+            border-radius: 18px;
         }
 
-        /* =========================
-           FOOTER
-        ========================== */
+        .card h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-light);
+        }
+
+        /* ================= FOOTER ================= */
 
         footer {
             background: var(--bg-secondary);
-            padding: 70px 0 20px;
+            padding: 80px 0 30px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .footer-bottom {
@@ -262,19 +255,18 @@
 
         <p>
             Business transformation, analytics, and automation
-            designed to create clarity, efficiency, and scalable growth.
+            designed to create clarity, control, and scalable performance.
         </p>
 
-        <a class="cta" href="services.html">
-            Explore Services
-        </a>
+        <a href="services.html">Explore Services</a>
 
     </div>
 
 </section>
 
-<!-- SERVICES PREVIEW -->
+<!-- SERVICES -->
 <section class="section">
+
     <div class="container">
 
         <h2>What We Do</h2>
@@ -288,17 +280,18 @@
 
             <div class="card">
                 <h3>Analytics</h3>
-                <p>Power BI dashboards and decision-grade reporting systems.</p>
+                <p>Decision-grade Power BI dashboards and performance visibility.</p>
             </div>
 
             <div class="card">
                 <h3>Automation</h3>
-                <p>Power Platform workflows and operational system integration.</p>
+                <p>Workflow systems and Microsoft Power Platform solutions.</p>
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -308,7 +301,7 @@
 
         <div>
             <h3>Via Clara</h3>
-            <p>Clear Path to operational excellence.</p>
+            <p>Clear Path to clarity and operational performance.</p>
         </div>
 
         <div>
