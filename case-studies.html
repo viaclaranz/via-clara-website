@@ -4,503 +4,418 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies - Via Clara</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23B89B7A'>VC</text></svg>">
+
+    <style>
+
+        :root {
+            --bg: #F7F3EE;
+            --bg-secondary: #EFE7DF;
+            --text: #6F6258;
+            --text-light: #A79F98;
+            --accent: #B89B7A;
+            --border: #E6DDD4;
+            --white: #ffffff;
+            --shadow: rgba(111, 98, 88, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        /* NAV */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 238, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo img {
+            width: 90px;
+        }
+
+        .logo-text span:first-child {
+            font-size: 32px;
+            letter-spacing: 4px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 11px;
+            letter-spacing: 6px;
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        /* HEADER */
+
+        .page-header {
+            text-align: center;
+            padding: 140px 20px 90px;
+        }
+
+        .page-header h1 {
+            font-size: 68px;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-light);
+        }
+
+        /* CASE STUDIES */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .case-study-full {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-study-full:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        .case-study-header h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .case-study-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin: 25px 0 10px;
+        }
+
+        p, li {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* RESULTS BOX */
+
+        .results-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .results-box h3 {
+            margin-top: 0;
+        }
+
+        .result-metric {
+            margin: 18px 0;
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 26px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* CTA */
+
+        .cta-section {
+            background: var(--text);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 46px;
+            margin-bottom: 18px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 30px;
+        }
+
+        .btn-cta-light {
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 46px;
+            }
+
+            .case-study-header h2 {
+                font-size: 36px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <text x="50" y="70" font-size="60" font-family="serif" font-weight="300" text-anchor="middle" fill="#8B8B7A">VC</text>
-                </svg>
-                <span>Via Clara</span>
-            </div>
+<!-- NAV -->
+<nav class="navbar">
+    <div class="container nav-container">
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="case-studies.html" class="active">Case Studies</a></li>
-                <li><a href="blog.html">Resources</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html" class="btn-primary">Contact</a></li>
-            </ul>
+        <div class="logo">
+            <img src="logo.png" alt="Via Clara">
+            <div class="logo-text">
+                <span>VIA CLARA</span>
+                <span>CLEAR PATH</span>
+            </div>
         </div>
-    </nav>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Case Studies</h1>
-            <p>Real transformations, measurable results, lasting impact.</p>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html" class="active">Case Studies</a></li>
+            <li><a href="blog.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="btn-primary">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<!-- HEADER -->
+<section class="page-header">
+    <div class="container">
+        <h1>Case Studies</h1>
+        <p>Real transformations, measurable outcomes, lasting impact</p>
+    </div>
+</section>
+
+<!-- CASE STUDY 1 -->
+<section class="case-study-full">
+    <div class="container">
+
+        <div class="case-study-header">
+            <h2>Fleet Operating Model Transformation</h2>
+            <div class="case-study-meta">
+                <span class="tag">Operations</span>
+                <span class="tag">Transformation</span>
+                <span class="tag">Fleet</span>
+            </div>
         </div>
-    </section>
 
-    <!-- CASE STUDY 1 -->
+        <div class="case-study-grid">
 
-    <section class="case-study-full" id="fleet-operating-model">
-        <div class="container">
+            <div>
+                <h3>Challenge</h3>
+                <p>Fragmented AU/NZ operations, inconsistent processes, low visibility.</p>
 
-            <div class="case-study-header">
-                <h2>Trans-Tasman Fleet Operating Model Transformation</h2>
-
-                <div class="case-study-meta">
-                    <span class="tag">Operations Transformation</span>
-                    <span class="tag">Operating Model Design</span>
-                    <span class="tag">Fleet Operations</span>
-                </div>
-            </div>
-
-            <div class="case-study-grid">
-
-                <div class="case-study-left">
-
-                    <h3>The Challenge</h3>
-
-                    <p>
-                        A large Australasian organisation faced fragmented fleet operations across New Zealand and Australia, resulting in:
-                    </p>
-
-                    <ul>
-                        <li>Inconsistent regional operating practices</li>
-                        <li>High fleet downtime and low asset utilisation</li>
-                        <li>Limited operational visibility for leadership</li>
-                        <li>Slow turnaround across maintenance and servicing</li>
-                    </ul>
-
-                    <h3>Approach</h3>
-
-                    <ul>
-                        <li>Designed and implemented a unified trans-Tasman operating model</li>
-                        <li>Standardised maintenance, compliance, and asset workflows</li>
-                        <li>Aligned operations, procurement, and finance functions</li>
-                        <li>Embedded continuous improvement into operational delivery</li>
-                    </ul>
-
-                </div>
-
-                <div class="case-study-right">
-
-                    <div class="results-box">
-
-                        <h3>The Results</h3>
-
-                        <div class="result-metric">
-                            <span class="metric-value">25%</span>
-                            <span class="metric-label">Permanent Workforce Reduction</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">80%+</span>
-                            <span class="metric-label">Downtime Reduction</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">16,000+</span>
-                            <span class="metric-label">Assets Managed</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">AU/NZ</span>
-                            <span class="metric-label">Integrated Operations</span>
-                        </div>
-
-                    </div>
-
-                    <p style="margin-top: 20px; font-style: italic; color: #555;">
-                        “The move to a unified operating model fundamentally changed how we operated across Australia and New Zealand.”
-                        <br><strong>— Composite stakeholder feedback</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CASE STUDY 2 -->
-
-    <section class="case-study-full" id="procurement-transformation" style="background: #f9f9f9;">
-        <div class="container">
-
-            <div class="case-study-header">
-                <h2>Asset Lifecycle & Procurement Transformation</h2>
-
-                <div class="case-study-meta">
-                    <span class="tag">Procurement Optimisation</span>
-                    <span class="tag">Asset Lifecycle</span>
-                    <span class="tag">Workflow Redesign</span>
-                </div>
-            </div>
-
-            <div class="case-study-grid">
-
-                <div class="case-study-left">
-
-                    <h3>The Challenge</h3>
-
-                    <ul>
-                        <li>Procurement lead times up to 9 months</li>
-                        <li>Approval and scheduling bottlenecks</li>
-                        <li>Vendor delays impacting operations</li>
-                        <li>Limited lifecycle visibility across assets</li>
-                    </ul>
-
-                    <h3>Approach</h3>
-
-                    <ul>
-                        <li>Redesigned procurement and approval workflows</li>
-                        <li>Improved vendor coordination and scheduling</li>
-                        <li>Standardised asset replacement processes</li>
-                        <li>Optimised operational planning and asset utilisation</li>
-                    </ul>
-
-                </div>
-
-                <div class="case-study-right">
-
-                    <div class="results-box">
-
-                        <h3>The Results</h3>
-
-                        <div class="result-metric">
-                            <span class="metric-value">9 Months → 8 Weeks</span>
-                            <span class="metric-label">Procurement Reduction</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">3 Months</span>
-                            <span class="metric-label">Faster Special Builds</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">40,000</span>
-                            <span class="metric-label">Maintenance Tasks Annually</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">95%</span>
-                            <span class="metric-label">Same-Day Quoting</span>
-                        </div>
-
-                    </div>
-
-                    <p style="margin-top: 20px; font-style: italic; color: #555;">
-                        “Procurement cycles that previously took months were reduced to weeks, dramatically improving operational readiness.”
-                        <br><strong>— Composite stakeholder feedback</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CASE STUDY 3 -->
-
-    <section class="case-study-full" id="safety-risk-reduction">
-        <div class="container">
-
-            <div class="case-study-header">
-                <h2>Fleet Safety, Compliance & Risk Reduction</h2>
-
-                <div class="case-study-meta">
-                    <span class="tag">Safety Transformation</span>
-                    <span class="tag">Telematics</span>
-                    <span class="tag">Compliance Systems</span>
-                </div>
-            </div>
-
-            <div class="case-study-grid">
-
-                <div class="case-study-left">
-
-                    <h3>The Challenge</h3>
-
-                    <ul>
-                        <li>High annual accident rates</li>
-                        <li>Reactive safety management processes</li>
-                        <li>Limited visibility into driver behaviour</li>
-                        <li>Compliance issues across servicing and defects</li>
-                    </ul>
-
-                    <h3>Approach</h3>
-
-                    <ul>
-                        <li>Optimised telematics and driver scoring systems</li>
-                        <li>Introduced structured driver training programs</li>
-                        <li>Implemented lockout systems for overdue servicing and defects</li>
-                        <li>Created proactive safety and compliance reporting</li>
-                    </ul>
-
-                </div>
-
-                <div class="case-study-right">
-
-                    <div class="results-box">
-
-                        <h3>The Results</h3>
-
-                        <div class="result-metric">
-                            <span class="metric-value">220 → 25</span>
-                            <span class="metric-label">Annual Accidents</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">24 Months</span>
-                            <span class="metric-label">Transformation Period</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">650</span>
-                            <span class="metric-label">Fleet Vehicles</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">Thousands</span>
-                            <span class="metric-label">Compliance Issues Resolved</span>
-                        </div>
-
-                    </div>
-
-                    <p style="margin-top: 20px; font-style: italic; color: #555;">
-                        “The organisation shifted from reactive incident management to proactive prevention.”
-                        <br><strong>— Composite stakeholder feedback</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CASE STUDY 4 -->
-
-    <section class="case-study-full" id="cost-vendor-transformation" style="background: #f9f9f9;">
-        <div class="container">
-
-            <div class="case-study-header">
-                <h2>Cost Optimisation & Vendor Transformation</h2>
-
-                <div class="case-study-meta">
-                    <span class="tag">Commercial Optimisation</span>
-                    <span class="tag">Vendor Management</span>
-                    <span class="tag">Cost Reduction</span>
-                </div>
-            </div>
-
-            <div class="case-study-grid">
-
-                <div class="case-study-left">
-
-                    <h3>The Challenge</h3>
-
-                    <ul>
-                        <li>Rising operational expenditure</li>
-                        <li>Fragmented vendor management processes</li>
-                        <li>High insurance and fuel costs</li>
-                        <li>Limited financial visibility across fleet operations</li>
-                    </ul>
-
-                    <h3>Approach</h3>
-
-                    <ul>
-                        <li>Led vendor negotiations and KPI management</li>
-                        <li>Optimised insurance and fuel strategies</li>
-                        <li>Improved operational reporting and visibility</li>
-                        <li>Implemented stronger vendor accountability frameworks</li>
-                    </ul>
-
-                </div>
-
-                <div class="case-study-right">
-
-                    <div class="results-box">
-
-                        <h3>The Results</h3>
-
-                        <div class="result-metric">
-                            <span class="metric-value">$5M+</span>
-                            <span class="metric-label">Annual Recurring Savings</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">$1.7M</span>
-                            <span class="metric-label">Insurance Savings</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">$2M</span>
-                            <span class="metric-label">Fuel Savings</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">Enterprise</span>
-                            <span class="metric-label">Vendor Transformation</span>
-                        </div>
-
-                    </div>
-
-                    <p style="margin-top: 20px; font-style: italic; color: #555;">
-                        “The financial impact was substantial, particularly in insurance and fuel optimisation.”
-                        <br><strong>— Composite stakeholder feedback</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CASE STUDY 5 -->
-
-    <section class="case-study-full" id="digital-workflow-automation">
-        <div class="container">
-
-            <div class="case-study-header">
-                <h2>Digital Workflow Automation (Power Platform)</h2>
-
-                <div class="case-study-meta">
-                    <span class="tag">Power Platform</span>
-                    <span class="tag">Workflow Automation</span>
-                    <span class="tag">Digital Transformation</span>
-                </div>
-            </div>
-
-            <div class="case-study-grid">
-
-                <div class="case-study-left">
-
-                    <h3>The Challenge</h3>
-
-                    <ul>
-                        <li>Manual email-based ordering workflows</li>
-                        <li>Slow vendor response and tracking</li>
-                        <li>Invoice accuracy issues</li>
-                        <li>High operational administration workload</li>
-                    </ul>
-
-                    <h3>Approach</h3>
-
-                    <ul>
-                        <li>Built in-house Power Platform workflow system</li>
-                        <li>Automated work orders, approvals, and tracking</li>
-                        <li>Integrated vendor ETAs and invoice visibility</li>
-                        <li>Eliminated manual email ordering processes</li>
-                    </ul>
-
-                </div>
-
-                <div class="case-study-right">
-
-                    <div class="results-box">
-
-                        <h3>The Results</h3>
-
-                        <div class="result-metric">
-                            <span class="metric-value">30%</span>
-                            <span class="metric-label">Manual Workload Reduction</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">80% → 99.9%</span>
-                            <span class="metric-label">Invoice Accuracy</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">2 Days → Immediate</span>
-                            <span class="metric-label">Order Processing</span>
-                        </div>
-
-                        <div class="result-metric">
-                            <span class="metric-value">12-Person</span>
-                            <span class="metric-label">Operations Function</span>
-                        </div>
-
-                    </div>
-
-                    <p style="margin-top: 20px; font-style: italic; color: #555;">
-                        “The move away from email-based workflows completely changed operational efficiency.”
-                        <br><strong>— Composite stakeholder feedback</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CTA -->
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Your Transformation Could Be Next</h2>
-
-            <p>
-                Via Clara helps organisations improve operations, reduce cost,
-                increase visibility, and build scalable systems for long-term growth.
-            </p>
-
-            <a href="contact.html" class="btn-cta-light">
-                Schedule a Consultation
-            </a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="container footer-content">
-
-            <div class="footer-section">
-                <h4>Via Clara</h4>
-                <p>
-                    Clear Path Consulting for operational transformation,
-                    automation, analytics, and scalable business improvement.
-                </p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-
+                <h3>Approach</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="blog.html">Resources</a></li>
+                    <li>Unified operating model</li>
+                    <li>Standardised workflows</li>
+                    <li>Governance alignment</li>
                 </ul>
             </div>
 
-            <div class="footer-section">
-                <h4>Contact</h4>
+            <div class="results-box">
+                <h3>Results</h3>
 
-                <p>
-                    Email:
-                    <a href="mailto:contact@viaclara.co.nz">
-                        contact@viaclara.co.nz
-                    </a>
-                </p>
+                <div class="result-metric">
+                    <span class="metric-value">80%+</span>
+                    <span class="metric-label">Downtime Reduction</span>
+                </div>
 
-                <p>
-                    Phone:
-                    <a href="tel:021657847">
-                        021 657 847
-                    </a>
-                </p>
+                <div class="result-metric">
+                    <span class="metric-value">16,000+</span>
+                    <span class="metric-label">Assets Managed</span>
+                </div>
             </div>
 
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Via Clara. All rights reserved.</p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Build Your Transformation Story</h2>
+        <p>Let’s create measurable impact in your organisation.</p>
+        <a href="contact.html" class="btn-cta-light">Get Started</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-content">
+
+        <div class="footer-section">
+            <h4>Via Clara</h4>
+            <p>Clear Path Consulting</p>
         </div>
 
-    </footer>
+        <div class="footer-section">
+            <h4>Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="services.html">Services</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Via Clara
+    </div>
+</footer>
 
 </body>
 </html>
