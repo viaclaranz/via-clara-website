@@ -9,10 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- ICON -->
-    <link rel="icon" type="image/svg+xml"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23B89B7A'>VC</text></svg>">
-
     <style>
 
         :root {
@@ -84,10 +80,6 @@
             gap: 18px;
         }
 
-        .logo img {
-            width: 90px;
-        }
-
         .logo-text span:first-child {
             font-size: 32px;
             letter-spacing: 4px;
@@ -103,10 +95,6 @@
             display: flex;
             gap: 28px;
             align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 14px;
         }
 
         .nav-links a:hover,
@@ -138,14 +126,10 @@
             color: var(--text-light);
         }
 
-        /* CASE STUDIES */
+        /* SECTIONS */
 
         section {
             padding: 90px 0;
-        }
-
-        .case-study-full {
-            border-bottom: 1px solid var(--border);
         }
 
         .case-study-full:nth-child(even) {
@@ -153,23 +137,23 @@
         }
 
         .case-study-header h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 46px;
+            margin-bottom: 18px;
         }
 
         .case-study-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .tag {
             font-size: 12px;
             padding: 6px 12px;
             border-radius: 20px;
-            background: white;
             border: 1px solid var(--border);
+            background: white;
             color: var(--text-light);
         }
 
@@ -180,8 +164,8 @@
         }
 
         h3 {
-            font-size: 28px;
-            margin: 25px 0 10px;
+            font-size: 26px;
+            margin: 20px 0 10px;
         }
 
         p, li {
@@ -189,15 +173,11 @@
             font-size: 15px;
         }
 
-        ul {
-            margin-top: 10px;
-        }
-
         li {
             margin-bottom: 8px;
         }
 
-        /* RESULTS BOX */
+        /* RESULTS */
 
         .results-box {
             background: white;
@@ -205,14 +185,6 @@
             border-radius: 16px;
             padding: 26px;
             box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .results-box h3 {
-            margin-top: 0;
-        }
-
-        .result-metric {
-            margin: 18px 0;
         }
 
         .metric-value {
@@ -227,6 +199,10 @@
             color: var(--text-light);
         }
 
+        .result-metric {
+            margin: 16px 0;
+        }
+
         /* CTA */
 
         .cta-section {
@@ -236,7 +212,7 @@
         }
 
         .cta-section h2 {
-            font-size: 46px;
+            font-size: 44px;
             margin-bottom: 18px;
         }
 
@@ -286,19 +262,13 @@
             color: var(--text-light);
         }
 
-        /* RESPONSIVE */
-
         @media(max-width: 900px) {
             .case-study-grid {
                 grid-template-columns: 1fr;
             }
 
             .page-header h1 {
-                font-size: 46px;
-            }
-
-            .case-study-header h2 {
-                font-size: 36px;
+                font-size: 44px;
             }
         }
 
@@ -312,11 +282,10 @@
     <div class="container nav-container">
 
         <div class="logo">
-            <img src="logo.png" alt="Via Clara">
-            <div class="logo-text">
-                <span>VIA CLARA</span>
+            <span class="logo-text">
+                <span>VIA CLARA</span><br>
                 <span>CLEAR PATH</span>
-            </div>
+            </span>
         </div>
 
         <ul class="nav-links">
@@ -335,86 +304,213 @@
 <section class="page-header">
     <div class="container">
         <h1>Case Studies</h1>
-        <p>Real transformations, measurable outcomes, lasting impact</p>
+        <p>Real transformations, measurable results, lasting impact</p>
     </div>
 </section>
 
-<!-- CASE STUDY 1 -->
+<!-- 1 -->
 <section class="case-study-full">
-    <div class="container">
+<div class="container">
+<h2>Fleet Operating Model Transformation</h2>
 
-        <div class="case-study-header">
-            <h2>Fleet Operating Model Transformation</h2>
-            <div class="case-study-meta">
-                <span class="tag">Operations</span>
-                <span class="tag">Transformation</span>
-                <span class="tag">Fleet</span>
-            </div>
-        </div>
+<div class="case-study-meta">
+<span class="tag">Operations</span><span class="tag">Transformation</span>
+</div>
 
-        <div class="case-study-grid">
+<div class="case-study-grid">
 
-            <div>
-                <h3>Challenge</h3>
-                <p>Fragmented AU/NZ operations, inconsistent processes, low visibility.</p>
+<div>
+<h3>Challenge</h3>
+<p>Fragmented AU/NZ fleet operations with low visibility and inefficiency.</p>
 
-                <h3>Approach</h3>
-                <ul>
-                    <li>Unified operating model</li>
-                    <li>Standardised workflows</li>
-                    <li>Governance alignment</li>
-                </ul>
-            </div>
+<h3>Approach</h3>
+<ul>
+<li>Unified operating model</li>
+<li>Standardised workflows</li>
+</ul>
+</div>
 
-            <div class="results-box">
-                <h3>Results</h3>
+<div class="results-box">
+<h3>Results</h3>
+<div class="result-metric">
+<span class="metric-value">80%+</span>
+<span class="metric-label">Downtime Reduction</span>
+</div>
+<div class="result-metric">
+<span class="metric-value">16,000+</span>
+<span class="metric-label">Assets Managed</span>
+</div>
+</div>
 
-                <div class="result-metric">
-                    <span class="metric-value">80%+</span>
-                    <span class="metric-label">Downtime Reduction</span>
-                </div>
+</div>
+</div>
+</section>
 
-                <div class="result-metric">
-                    <span class="metric-value">16,000+</span>
-                    <span class="metric-label">Assets Managed</span>
-                </div>
-            </div>
+<!-- 2 -->
+<section class="case-study-full">
+<div class="container">
+<h2>Procurement & Asset Transformation</h2>
 
-        </div>
+<div class="case-study-grid">
 
-    </div>
+<div>
+<h3>Challenge</h3>
+<p>Procurement delays up to 9 months and inefficient workflows.</p>
+
+<h3>Approach</h3>
+<ul>
+<li>Workflow redesign</li>
+<li>Vendor optimisation</li>
+</ul>
+</div>
+
+<div class="results-box">
+<h3>Results</h3>
+<div class="result-metric">
+<span class="metric-value">9 Months → 8 Weeks</span>
+<span class="metric-label">Lead Time Reduction</span>
+</div>
+<div class="result-metric">
+<span class="metric-value">95%</span>
+<span class="metric-label">Same-Day Quoting</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 3 -->
+<section class="case-study-full">
+<div class="container">
+<h2>Safety & Risk Reduction</h2>
+
+<div class="case-study-grid">
+
+<div>
+<h3>Challenge</h3>
+<p>High accident rates and reactive safety systems.</p>
+
+<h3>Approach</h3>
+<ul>
+<li>Telematics systems</li>
+<li>Driver training</li>
+</ul>
+</div>
+
+<div class="results-box">
+<h3>Results</h3>
+<div class="result-metric">
+<span class="metric-value">220 → 25</span>
+<span class="metric-label">Annual Accidents</span>
+</div>
+<div class="result-metric">
+<span class="metric-value">650</span>
+<span class="metric-label">Fleet Vehicles</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 4 -->
+<section class="case-study-full">
+<div class="container">
+<h2>Cost Optimisation & Vendor Transformation</h2>
+
+<div class="case-study-grid">
+
+<div>
+<h3>Challenge</h3>
+<p>Rising costs and fragmented vendor management.</p>
+
+<h3>Approach</h3>
+<ul>
+<li>Vendor KPI management</li>
+<li>Cost optimisation strategy</li>
+</ul>
+</div>
+
+<div class="results-box">
+<h3>Results</h3>
+<div class="result-metric">
+<span class="metric-value">$5M+</span>
+<span class="metric-label">Annual Savings</span>
+</div>
+<div class="result-metric">
+<span class="metric-value">$2M</span>
+<span class="metric-label">Fuel Savings</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 5 -->
+<section class="case-study-full">
+<div class="container">
+<h2>Digital Workflow Automation</h2>
+
+<div class="case-study-grid">
+
+<div>
+<h3>Challenge</h3>
+<p>Manual workflows and email-based operations.</p>
+
+<h3>Approach</h3>
+<ul>
+<li>Power Platform automation</li>
+<li>Workflow digitisation</li>
+</ul>
+</div>
+
+<div class="results-box">
+<h3>Results</h3>
+<div class="result-metric">
+<span class="metric-value">30%</span>
+<span class="metric-label">Workload Reduction</span>
+</div>
+<div class="result-metric">
+<span class="metric-value">99.9%</span>
+<span class="metric-label">Invoice Accuracy</span>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-    <div class="container">
-        <h2>Build Your Transformation Story</h2>
-        <p>Let’s create measurable impact in your organisation.</p>
-        <a href="contact.html" class="btn-cta-light">Get Started</a>
-    </div>
+<div class="container">
+<h2>Your Transformation Starts Here</h2>
+<p>Let’s build measurable operational impact together.</p>
+<a class="btn-cta-light" href="contact.html">Get Started</a>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="container footer-content">
+<div class="container footer-content">
+<div class="footer-section">
+<h4>Via Clara</h4>
+<p>Clear Path Consulting</p>
+</div>
 
-        <div class="footer-section">
-            <h4>Via Clara</h4>
-            <p>Clear Path Consulting</p>
-        </div>
+<div class="footer-section">
+<h4>Links</h4>
+<p><a href="index.html">Home</a></p>
+<p><a href="services.html">Services</a></p>
+<p><a href="contact.html">Contact</a></p>
+</div>
 
-        <div class="footer-section">
-            <h4>Links</h4>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="services.html">Services</a></p>
-            <p><a href="contact.html">Contact</a></p>
-        </div>
+</div>
 
-    </div>
-
-    <div class="footer-bottom">
-        © 2026 Via Clara
-    </div>
+<div class="footer-bottom">
+© 2026 Via Clara
+</div>
 </footer>
 
 </body>
