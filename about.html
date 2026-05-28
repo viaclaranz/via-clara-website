@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Via Clara</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -32,6 +31,18 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
+            position: relative;
+        }
+
+        /* ================= WATERMARK (30%) ================= */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: url("logo.png") center / 600px no-repeat;
+            opacity: 0.30; /* 30% as requested */
+            z-index: -1;
+            pointer-events: none;
         }
 
         h1,h2,h3 {
@@ -62,31 +73,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 28px 0; /* bigger */
+            padding: 50px 0; /* 🔥 BIGGER HEADER HEIGHT */
         }
+
+        /* ================= BRAND (3x bigger) ================= */
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 28px;
         }
 
         .logo img {
-            width: 110px; /* bigger logo */
+            width: 180px; /* 🔥 ~3x bigger */
             height: auto;
         }
 
         .brand-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 34px; /* 3x feel */
-            letter-spacing: 3px;
+            font-size: 72px; /* 🔥 ~3x bigger */
+            letter-spacing: 2px;
+            line-height: 1;
         }
 
         .nav-links {
             display: flex;
             gap: 26px;
             list-style: none;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .nav-links a:hover {
@@ -96,45 +110,33 @@
         .btn-primary {
             background: var(--accent);
             color: white;
-            padding: 10px 16px;
+            padding: 12px 18px;
             border-radius: 8px;
-        }
-
-        /* ================= WATERMARK ================= */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: url("logo.png") center/420px no-repeat;
-            opacity: 0.04;
-            z-index: -1;
         }
 
         /* ================= HERO ================= */
 
         .hero {
             text-align: center;
-            padding: 160px 20px 120px; /* BIGGER HEADER */
-            position: relative;
+            padding: 180px 20px 140px;
         }
 
         .hero h1 {
-            font-size: 72px;
+            font-size: 82px; /* slightly elevated */
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--text-light);
-            max-width: 760px;
+            max-width: 780px;
             margin: auto;
         }
 
-        /* ================= SECTION ================= */
+        /* ================= SECTIONS ================= */
 
         section {
-            padding: 90px 0;
+            padding: 100px 0;
         }
 
         .grid {
@@ -144,44 +146,42 @@
         }
 
         h2 {
-            font-size: 48px;
+            font-size: 52px;
             margin-bottom: 20px;
         }
 
         p {
             color: var(--text-light);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
-        /* VALUES */
-
-        .value-card {
+        .card {
             background: white;
             border: 1px solid var(--border);
-            padding: 22px;
-            border-radius: 14px;
+            padding: 26px;
+            border-radius: 16px;
             box-shadow: 0 10px 30px var(--shadow);
         }
 
-        /* CTA */
+        /* ================= CTA ================= */
 
         .cta {
             background: var(--text);
             color: white;
             text-align: center;
-            padding: 120px 20px;
+            padding: 140px 20px;
         }
 
         .cta a {
             display: inline-block;
             margin-top: 20px;
             background: var(--accent);
-            padding: 12px 22px;
+            padding: 14px 26px;
             border-radius: 8px;
             color: white;
         }
 
-        /* FOOTER */
+        /* ================= FOOTER ================= */
 
         footer {
             background: var(--bg-secondary);
@@ -191,12 +191,30 @@
             color: var(--text-light);
         }
 
-        /* RESPONSIVE */
+        /* ================= RESPONSIVE ================= */
 
         @media(max-width: 900px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 44px; }
-            .brand-text { font-size: 26px; }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-text {
+                font-size: 44px;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
 
     </style>
@@ -228,66 +246,58 @@
 <!-- HERO -->
 <section class="hero">
     <h1>About Via Clara</h1>
-    <p>We design and deliver clear, structured transformation for organisations seeking operational excellence and scalable growth.</p>
+    <p>
+        A consulting practice focused on clarity, structure, and execution across transformation, analytics, and automation.
+    </p>
 </section>
 
-<!-- MISSION -->
+<!-- CONTENT -->
 <section>
     <div class="container grid">
 
         <div>
             <h2>Our Mission</h2>
             <p>
-                To bring clarity to complexity — helping organisations transform operations,
-                improve decision-making, and build systems that scale.
+                We help organisations move from complexity to clarity through structured transformation and measurable execution.
             </p>
             <p>
-                We focus on outcomes, not activity — ensuring every initiative drives measurable business value.
+                Our focus is not theory — it is operational change that sticks.
             </p>
         </div>
 
-        <div>
-            <div class="value-card">
-                <h3>Strategic Clarity</h3>
-                <p>Turning ambiguity into structured, executable roadmaps.</p>
-            </div>
-
-            <br>
-
-            <div class="value-card">
-                <h3>Execution Focus</h3>
-                <p>We don’t just design — we deliver transformation outcomes.</p>
-            </div>
+        <div class="card">
+            <h3>Core Principle</h3>
+            <p>Clarity before complexity. Structure before scale. Execution before expansion.</p>
         </div>
 
     </div>
 </section>
 
-<!-- VALUES -->
+<!-- APPROACH -->
 <section style="background: var(--bg-secondary);">
     <div class="container">
         <h2>How We Work</h2>
 
         <div class="grid">
 
-            <div class="value-card">
+            <div class="card">
                 <h3>Understand</h3>
-                <p>Deep diagnostic of systems, people, and processes.</p>
+                <p>Deep diagnostic of systems, people, and performance constraints.</p>
             </div>
 
-            <div class="value-card">
+            <div class="card">
                 <h3>Design</h3>
-                <p>Build future-state operating models and workflows.</p>
+                <p>Future-state operating models, workflows, and governance structures.</p>
             </div>
 
-            <div class="value-card">
+            <div class="card">
                 <h3>Implement</h3>
-                <p>Deliver transformation with precision and adoption focus.</p>
+                <p>Execution-focused delivery with measurable outcomes.</p>
             </div>
 
-            <div class="value-card">
+            <div class="card">
                 <h3>Sustain</h3>
-                <p>Ensure improvements stick through governance and capability uplift.</p>
+                <p>Embed capability, governance, and continuous improvement.</p>
             </div>
 
         </div>
@@ -297,7 +307,7 @@
 <!-- CTA -->
 <section class="cta">
     <h2>Let’s Build Your Clear Path</h2>
-    <p>Partner with Via Clara to transform how your organisation operates.</p>
+    <p>Transformation that actually delivers measurable operational improvement.</p>
     <a href="contact.html">Start a Conversation</a>
 </section>
 
