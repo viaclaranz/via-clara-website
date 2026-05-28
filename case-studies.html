@@ -1,372 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Studies - Via Clara</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Via Clara</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-:root{
-    --bg:#F7F3EE;
-    --panel:#FFFFFF;
-    --text:#5F564F;
-    --muted:#9B9189;
-    --accent:#B89B7A;
-    --border:#E7DED5;
-}
+    <style>
 
-*{margin:0;padding:0;box-sizing:border-box}
+        :root {
+            --bg: #F7F3EE;
+            --bg-secondary: #EFE7DF;
+            --text: #6F6258;
+            --text-light: #A79F98;
+            --accent: #B89B7A;
+            --border: #E6DDD4;
+            --white: #ffffff;
+            --shadow: rgba(111, 98, 88, 0.08);
+        }
 
-body{
-    font-family:Inter,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.7;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1,h2,h3{
-    font-family:"Cormorant Garamond",serif;
-    font-weight:500;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
+        h1,h2,h3,h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
 
-/* NAV */
-.navbar{
-    position:sticky;
-    top:0;
-    background:rgba(247,243,238,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-.nav-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
-}
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+        }
 
-.logo{
-    font-family:"Cormorant Garamond";
-    font-size:28px;
-}
+        /* ================= NAV ================= */
 
-.nav a{
-    margin-left:20px;
-    font-size:14px;
-    text-decoration:none;
-    color:var(--text);
-}
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 238, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
 
-.nav a:hover{color:var(--accent)}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+        }
 
-.btn{
-    background:var(--accent);
-    color:white;
-    padding:10px 16px;
-    border-radius:8px;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
 
-/* HERO */
-.hero{
-    text-align:center;
-    padding:120px 20px 70px;
-}
+        .logo img {
+            width: 80px; /* 2x bigger than typical compact nav */
+        }
 
-.hero h1{
-    font-size:64px;
-    margin-bottom:16px;
-}
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
 
-.hero p{
-    color:var(--muted);
-    max-width:720px;
-    margin:auto;
-}
+        .logo-text span:first-child {
+            font-size: 32px;
+            letter-spacing: 4px;
+        }
 
-/* CASE GRID */
-.grid{
-    display:grid;
-    gap:30px;
-    margin-top:40px;
-}
+        .logo-text span:last-child {
+            font-size: 12px;
+            letter-spacing: 6px;
+            color: var(--text-light);
+        }
 
-.case{
-    background:var(--panel);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:40px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.04);
-}
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+            font-size: 14px;
+        }
 
-.case-header{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:20px;
-}
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+        }
 
-.case h2{
-    font-size:34px;
-}
+        /* ================= HEADER ================= */
 
-.meta{
-    font-size:13px;
-    color:var(--muted);
-}
+        .page-header {
+            position: relative;
+            text-align: center;
+            padding: 140px 20px 100px;
+            overflow: hidden;
+        }
 
-/* LAYOUT */
-.case-body{
-    display:grid;
-    grid-template-columns:1.2fr 0.8fr;
-    gap:40px;
-    margin-top:20px;
-}
+        .page-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("logo.png") center/contain no-repeat;
+            opacity: 0.4; /* REQUIRED CHANGE */
+            transform: scale(1.2);
+        }
 
-.section h3{
-    font-size:22px;
-    margin-bottom:10px;
-}
+        .page-header h1 {
+            font-size: 72px;
+            position: relative;
+            z-index: 2;
+        }
 
-.section p, .section li{
-    color:var(--muted);
-}
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
 
-ul{padding-left:18px}
+        /* ================= CASE STUDIES ================= */
 
-/* RESULTS */
-.results{
-    background:#FAF7F3;
-    border:1px solid var(--border);
-    padding:20px;
-    border-radius:14px;
-}
+        .case-study {
+            padding: 90px 0;
+        }
 
-.metric{
-    margin-bottom:14px;
-}
+        .case-study:nth-child(even) {
+            background: var(--bg-secondary);
+        }
 
-.metric strong{
-    display:block;
-    font-size:22px;
-    color:var(--text);
-}
+        .case-title {
+            font-size: 46px;
+            margin-bottom: 20px;
+        }
 
-/* CTA */
-.cta{
-    background:#3E3530;
-    color:white;
-    text-align:center;
-    padding:100px 20px;
-    margin-top:80px;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+        }
 
-.cta h2{
-    font-size:52px;
-    margin-bottom:10px;
-}
+        h3 {
+            font-size: 26px;
+            margin-top: 20px;
+        }
 
-.cta p{
-    opacity:0.75;
-    margin-bottom:20px;
-}
+        ul {
+            margin-left: 18px;
+            margin-top: 10px;
+        }
 
-.cta a{
-    background:var(--accent);
-    color:white;
-    padding:12px 20px;
-    border-radius:8px;
-    text-decoration:none;
-}
+        li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
 
-/* FOOTER */
-footer{
-    padding:60px 0;
-    border-top:1px solid var(--border);
-}
+        .results {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
 
-.footer{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-    font-size:14px;
-    color:var(--muted);
-}
-</style>
+        .metric {
+            margin-bottom: 16px;
+        }
+
+        .metric strong {
+            font-size: 22px;
+            display: block;
+            color: var(--text);
+        }
+
+        .metric span {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 110px 20px;
+        }
+
+        .cta h2 {
+            font-size: 54px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: auto;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .btn {
+            margin-top: 25px;
+            display: inline-block;
+            background: var(--accent);
+            padding: 14px 26px;
+            border-radius: 8px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 60px 0 20px;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        @media(max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 48px;
+            }
+
+            .logo img {
+                width: 60px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<div class="navbar">
-    <div class="container nav-inner">
-        <div class="logo">Via Clara</div>
-        <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="blog.html">Insights</a>
-            <a href="about.html">About</a>
-            <a class="btn" href="contact.html">Contact</a>
-        </div>
-    </div>
-</div>
+<!-- NAV -->
+<nav class="navbar">
+    <div class="container nav-container">
 
-<section class="hero">
+        <div class="logo">
+            <img src="logo.png" alt="Via Clara Logo">
+            <div class="logo-text">
+                <span>VIA CLARA</span>
+                <span>CLEAR PATH</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog.html">Resources</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="btn-primary" href="contact.html">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+<!-- HEADER -->
+<section class="page-header">
     <div class="container">
         <h1>Case Studies</h1>
-        <p>Real-world transformation outcomes across operations, analytics, automation, and strategy.</p>
+        <p>Real transformation. Measurable outcomes. Lasting impact.</p>
     </div>
 </section>
 
-<section class="container">
+<!-- CASE 1 -->
+<section class="case-study">
+    <div class="container grid">
 
-    <!-- CASE 1 -->
-    <div class="case">
-        <div class="case-header">
-            <h2>Trans-Tasman Fleet Operating Model Transformation</h2>
-            <div class="meta">Operations · Strategy · 24 months</div>
+        <div>
+            <h2 class="case-title">Fleet Operating Model Transformation</h2>
+
+            <h3>Challenge</h3>
+            <ul>
+                <li>Fragmented AU/NZ operations</li>
+                <li>Low asset utilisation</li>
+                <li>Poor visibility</li>
+            </ul>
+
+            <h3>Approach</h3>
+            <ul>
+                <li>Unified operating model</li>
+                <li>Standardised workflows</li>
+                <li>Governance alignment</li>
+            </ul>
         </div>
 
-        <div class="case-body">
-
-            <div class="section">
-                <h3>Context</h3>
-                <p>Fragmented fleet operations across AU/NZ with inconsistent processes and limited visibility.</p>
-
-                <h3 style="margin-top:20px;">Intervention</h3>
-                <ul>
-                    <li>Unified operating model design</li>
-                    <li>Standardised maintenance and compliance</li>
-                    <li>Integrated procurement & finance alignment</li>
-                </ul>
+        <div class="results">
+            <div class="metric">
+                <strong>80%+</strong>
+                <span>Downtime reduction</span>
             </div>
-
-            <div class="results">
-                <div class="metric">
-                    <strong>80%+</strong>
-                    Downtime reduction
-                </div>
-
-                <div class="metric">
-                    <strong>25%</strong>
-                    Workforce optimisation
-                </div>
-
-                <div class="metric">
-                    <strong>16,000+</strong>
-                    Assets standardised
-                </div>
+            <div class="metric">
+                <strong>25%</strong>
+                <span>Workforce efficiency gain</span>
             </div>
-
+            <div class="metric">
+                <strong>16,000+</strong>
+                <span>Assets optimised</span>
+            </div>
         </div>
+
     </div>
-
-    <!-- CASE 2 -->
-    <div class="case">
-        <div class="case-header">
-            <h2>Procurement & Asset Lifecycle Transformation</h2>
-            <div class="meta">Procurement · Operations</div>
-        </div>
-
-        <div class="case-body">
-
-            <div class="section">
-                <h3>Context</h3>
-                <p>Long procurement cycles and fragmented vendor coordination impacting operational readiness.</p>
-
-                <h3 style="margin-top:20px;">Intervention</h3>
-                <ul>
-                    <li>Workflow redesign</li>
-                    <li>Vendor performance frameworks</li>
-                    <li>Asset lifecycle optimisation</li>
-                </ul>
-            </div>
-
-            <div class="results">
-                <div class="metric">
-                    <strong>9 weeks</strong>
-                    From 9 months procurement
-                </div>
-
-                <div class="metric">
-                    <strong>95%</strong>
-                    Same-day quoting
-                </div>
-
-                <div class="metric">
-                    <strong>40,000+</strong>
-                    Annual maintenance tasks
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- CASE 3 -->
-    <div class="case">
-        <div class="case-header">
-            <h2>Fleet Safety & Risk Reduction Program</h2>
-            <div class="meta">Safety · Compliance</div>
-        </div>
-
-        <div class="case-body">
-
-            <div class="section">
-                <h3>Context</h3>
-                <p>High accident rates and reactive safety management approach.</p>
-
-                <h3 style="margin-top:20px;">Intervention</h3>
-                <ul>
-                    <li>Telematics optimisation</li>
-                    <li>Driver behaviour scoring</li>
-                    <li>Proactive compliance systems</li>
-                </ul>
-            </div>
-
-            <div class="results">
-                <div class="metric">
-                    <strong>220 → 25</strong>
-                    Annual accidents reduced
-                </div>
-
-                <div class="metric">
-                    <strong>650</strong>
-                    Fleet vehicles managed
-                </div>
-
-                <div class="metric">
-                    <strong>Thousands</strong>
-                    Compliance issues resolved
-                </div>
-            </div>
-
-        </div>
-    </div>
-
 </section>
 
+<!-- CTA -->
 <section class="cta">
-    <div class="container">
-        <h2>Want similar results?</h2>
-        <p>Let’s discuss your transformation opportunity.</p>
-        <a href="contact.html">Contact Via Clara</a>
-    </div>
+    <h2>Let’s build your transformation story</h2>
+    <p>We help organisations redesign operations, unlock efficiency, and deliver measurable results.</p>
+    <a class="btn" href="contact.html">Start a conversation</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
     <div class="container footer">
-        <div>Via Clara</div>
-        <div>contact@viaclara.co.nz</div>
-        <div>© 2026 Via Clara</div>
+        <div>
+            <h4>Via Clara</h4>
+            <p>Clear Path for transformation and operational excellence.</p>
+        </div>
+        <div>
+            <h4>Links</h4>
+            <p>Home<br>Services<br>Case Studies</p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>contact@viaclara.co.nz</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Via Clara
     </div>
 </footer>
 
