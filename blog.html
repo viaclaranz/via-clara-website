@@ -1,403 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - Via Clara</title>
-
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #F7F3EE;
-            --bg-secondary: #EFE7DF;
-            --text: #6F6258;
-            --text-light: #A79F98;
-            --accent: #B89B7A;
-            --border: #E6DDD4;
-            --white: #ffffff;
-            --shadow: rgba(111, 98, 88, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            position: relative;
-        }
-
-        /* WATERMARK */
-        body::before {
-            content: "VIA CLARA INSIGHTS";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 120px;
-            letter-spacing: 18px;
-            color: rgba(184, 155, 122, 0.06);
-            z-index: 0;
-            pointer-events: none;
-            white-space: nowrap;
-        }
-
-        h1,h2,h3,h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-        }
-
-        a { text-decoration: none; color: inherit; }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* NAV */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(247, 243, 238, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 26px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .logo svg {
-            width: 60px;
-            height: 60px;
-        }
-
-        .logo span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 30px;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white !important;
-            padding: 10px 16px;
-            border-radius: 8px;
-        }
-
-        /* HEADER */
-        .page-header {
-            text-align: center;
-            padding: 140px 20px 90px;
-        }
-
-        .page-header h1 {
-            font-size: 62px;
-        }
-
-        .page-header p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 14px auto 0;
-            font-size: 18px;
-        }
-
-        /* LAYOUT */
-        .layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
-            padding-bottom: 80px;
-        }
-
-        /* POSTS */
-        .posts {
-            display: grid;
-            gap: 26px;
-        }
-
-        .post {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: 0.3s ease;
-        }
-
-        .post:hover {
-            transform: translateY(-5px);
-        }
-
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-        }
-
-        .post h3 {
-            font-size: 28px;
-        }
-
-        .date {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        .post p {
-            color: var(--text-light);
-            margin: 14px 0;
-        }
-
-        .tags {
-            margin-top: 12px;
-        }
-
-        .tag {
-            display: inline-block;
-            font-size: 12px;
-            padding: 4px 10px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            margin-right: 6px;
-            color: var(--text-light);
-        }
-
-        .read-more {
-            display: inline-block;
-            margin-top: 14px;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .widget {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-        }
-
-        .widget h4 {
-            margin-bottom: 12px;
-        }
-
-        .widget ul {
-            list-style: none;
-        }
-
-        .widget li {
-            margin-bottom: 10px;
-            color: var(--text-light);
-        }
-
-        .newsletter input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            margin-bottom: 10px;
-        }
-
-        /* CTA */
-        .cta {
-            background: var(--text);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .btn-cta {
-            background: var(--accent);
-            padding: 12px 22px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 16px;
-        }
-
-        footer {
-            background: var(--bg-secondary);
-            padding: 60px 0 20px;
-            text-align: center;
-        }
-
-        .footer-bottom {
-            margin-top: 30px;
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        @media(max-width: 900px) {
-            .layout {
-                grid-template-columns: 1fr;
-            }
-
-            .page-header h1 {
-                font-size: 44px;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 18px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<title>Resources</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F3EE;--text:#6F6258;--accent:#B89B7A;--text-light:#A79F98;}
+body{font-family:Inter;background:var(--bg);color:var(--text);}
+body::before{content:"";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:url('logo.png') no-repeat center;background-size:contain;opacity:.25;z-index:0;}
+.container{width:90%;max-width:1100px;margin:auto;}
+header{text-align:center;padding:100px 20px;}
+h1{font-family:"Cormorant Garamond";font-size:60px;}
+.card{background:white;padding:25px;margin:20px 0;border:1px solid #E6DDD4;}
+.card h3{font-family:"Cormorant Garamond";}
+.card p{color:var(--text-light);}
+</style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar">
-    <div class="container nav-container">
+<header>
+<h1>Resources & Insights</h1>
+<p>Guides, frameworks, and transformation thinking</p>
+</header>
 
-        <div class="logo">
-            <svg viewBox="0 0 100 100">
-                <text x="50" y="70" font-size="60" text-anchor="middle" fill="#B89B7A">VC</text>
-            </svg>
-            <span>Via Clara</span>
-        </div>
+<div class="container">
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="blog.html" class="active">Insights</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="btn-primary">Contact</a></li>
-        </ul>
+<div class="card">
+<h3>Transformation Playbook</h3>
+<p>Strategy and execution framework for enterprise transformation.</p>
+</div>
 
-    </div>
-</nav>
+<div class="card">
+<h3>Automation in Operations</h3>
+<p>How organisations eliminate manual work using Power Platform.</p>
+</div>
 
-<!-- HEADER -->
-<section class="page-header">
-    <h1>Insights & Resources</h1>
-    <p>Practical thinking on transformation, automation, and operational excellence.</p>
-</section>
+<div class="card">
+<h3>Data & Analytics Strategy</h3>
+<p>Building dashboards that drive real decisions.</p>
+</div>
 
-<!-- CONTENT -->
-<section class="container layout">
+</div>
 
-    <!-- POSTS -->
-    <div class="posts">
-
-        <div class="post">
-            <div class="post-header">
-                <h3>Business Transformation Playbook</h3>
-                <span class="date">May 24, 2026</span>
-            </div>
-            <p>A structured guide to planning and executing successful transformation initiatives.</p>
-            <div class="tags">
-                <span class="tag">Strategy</span>
-                <span class="tag">Transformation</span>
-            </div>
-            <a class="read-more" href="#">Download →</a>
-        </div>
-
-        <div class="post">
-            <div class="post-header">
-                <h3>Power Automate in Modern Operations</h3>
-                <span class="date">May 20, 2026</span>
-            </div>
-            <p>How automation is reshaping operational efficiency across organisations.</p>
-            <div class="tags">
-                <span class="tag">Automation</span>
-                <span class="tag">Microsoft</span>
-            </div>
-            <a class="read-more" href="#">Read →</a>
-        </div>
-
-        <div class="post">
-            <div class="post-header">
-                <h3>Executive Dashboards That Actually Work</h3>
-                <span class="date">May 15, 2026</span>
-            </div>
-            <p>Design principles for dashboards that improve decision-making, not just reporting.</p>
-            <div class="tags">
-                <span class="tag">Analytics</span>
-                <span class="tag">BI</span>
-            </div>
-            <a class="read-more" href="#">Read →</a>
-        </div>
-
-    </div>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-        <div class="widget">
-            <h4>Free Tools</h4>
-            <ul>
-                <li>Transformation Checklist</li>
-                <li>ROI Calculator</li>
-                <li>Process Audit Template</li>
-            </ul>
-        </div>
-
-        <div class="widget newsletter">
-            <h4>Subscribe</h4>
-            <p>Get insights directly in your inbox.</p>
-            <input type="email" placeholder="Email address">
-            <button class="btn-primary">Subscribe</button>
-        </div>
-
-    </aside>
-
-</section>
-
-<!-- CTA -->
-<section class="cta">
-    <h2>Need strategic clarity?</h2>
-    <p>We help leadership teams turn complexity into execution.</p>
-    <a href="contact.html" class="btn-cta">Get in Touch</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="footer-bottom">
-        © 2026 Via Clara. All rights reserved.
-    </div>
-</footer>
+<footer style="text-align:center;padding:40px;">© 2026 Via Clara</footer>
 
 </body>
 </html>
