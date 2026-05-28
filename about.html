@@ -4,166 +4,461 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Via Clara</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --bg: #F7F3EE;
+            --bg-secondary: #EFE7DF;
+            --text: #6F6258;
+            --text-light: #A79F98;
+            --accent: #B89B7A;
+            --border: #E6DDD4;
+            --white: #ffffff;
+            --shadow: rgba(111, 98, 88, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        /* NAV */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 238, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        /* HEADER */
+
+        .page-header {
+            text-align: center;
+            padding: 140px 20px 90px;
+        }
+
+        .page-header h1 {
+            font-size: 64px;
+            margin-bottom: 14px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--text-light);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
+
+        /* MISSION */
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+        }
+
+        .mission-content p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .value-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 14px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .value-box h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .value-box p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* APPROACH */
+
+        .approach-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .approach-step {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .step-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .approach-step p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* WHY */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .why-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta-section {
+            background: var(--text);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 30px;
+        }
+
+        .btn-cta-light {
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section p,
+        .footer-section a,
+        .footer-section li {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        @media(max-width: 900px) {
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 42px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <text x="50" y="70" font-size="60" font-family="serif" font-weight="300" text-anchor="middle" fill="%238B8B7A">VC</text>
-                </svg>
-                <span>Via Clara</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="blog.html">Resources</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="contact.html" class="btn-primary">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>About Via Clara</h1>
-            <p>Clear Path Consulting for Business Transformation</p>
-        </div>
-    </section>
+<!-- NAV -->
+<nav class="navbar">
+    <div class="container nav-container">
 
-    <section class="about-mission">
-        <div class="container">
-            <div class="mission-grid">
-                <div class="mission-content">
-                    <h2>Our Mission</h2>
-                    <p>At Via Clara, we believe every organization deserves a clear path to excellence. We're committed to helping businesses transform through strategic consulting, advanced analytics, and intelligent automation.</p>
-                    <p>We don't just implement solutions—we partner with you to drive lasting change that improves operations, empowers decision-making, and creates sustainable competitive advantage.</p>
-                </div>
-                <div class="mission-values">
-                    <div class="value-box">
-                        <h3>🎯 Client-Focused</h3>
-                        <p>Your success is our success. We align every initiative with your business objectives and measurable outcomes.</p>
-                    </div>
-                    <div class="value-box">
-                        <h3>💡 Strategic Thinking</h3>
-                        <p>We look beyond technology to understand your business model, industry dynamics, and growth aspirations.</p>
-                    </div>
-                    <div class="value-box">
-                        <h3>🛠️ Expert Execution</h3>
-                        <p>Our team brings deep expertise across transformation, analytics, and automation disciplines.</p>
-                    </div>
-                    <div class="value-box">
-                        <h3>🌱 Change Leadership</h3>
-                        <p>We guide organizational change, ensuring adoption and sustainable impact for the long term.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="logo">
+            <span>VIA CLARA</span>
         </div>
-    </section>
 
-    <section class="about-approach" style="background: #f9f9f9;">
-        <div class="container">
-            <h2>Our Approach</h2>
-            <p style="text-align: center; margin-bottom: 40px;">We combine strategic insight with technical expertise to deliver transformational results.</p>
-            
-            <div class="approach-steps">
-                <div class="approach-step">
-                    <div class="step-icon">🔍</div>
-                    <h3>Understand</h3>
-                    <p>We conduct thorough assessments to understand your business model, challenges, and opportunities for improvement.</p>
-                </div>
-                <div class="approach-step">
-                    <div class="step-icon">🎯</div>
-                    <h3>Plan</h3>
-                    <p>We develop clear strategies and roadmaps tailored to your specific needs and aligned with your business goals.</p>
-                </div>
-                <div class="approach-step">
-                    <div class="step-icon">⚙️</div>
-                    <h3>Execute</h3>
-                    <p>Our expert team implements solutions with precision, ensuring quality and adherence to best practices.</p>
-                </div>
-                <div class="approach-step">
-                    <div class="step-icon">📈</div>
-                    <h3>Sustain</h3>
-                    <p>We ensure your team is equipped to maintain and evolve the solutions for ongoing success and competitive advantage.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="blog.html">Resources</a></li>
+            <li><a href="about.html" class="btn-primary">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
 
-    <section class="about-why">
-        <div class="container">
-            <h2>Why Choose Via Clara?</h2>
-            <div class="why-grid">
-                <div class="why-card">
-                    <h3>Deep Domain Expertise</h3>
-                    <p>Our consultants bring years of experience across business transformation, analytics, and automation across various industries.</p>
-                </div>
-                <div class="why-card">
-                    <h3>Proven Methodologies</h3>
-                    <p>We leverage proven frameworks and best practices that have delivered results for organizations globally.</p>
-                </div>
-                <div class="why-card">
-                    <h3>Measurable Outcomes</h3>
-                    <p>Every engagement is structured around clear metrics and KPIs, with transparent reporting on progress and ROI.</p>
-                </div>
-                <div class="why-card">
-                    <h3>Partnership Approach</h3>
-                    <p>We view ourselves as an extension of your team, invested in your long-term success and sustainable transformation.</p>
-                </div>
-                <div class="why-card">
-                    <h3>Technology Leadership</h3>
-                    <p>We stay at the forefront of emerging technologies and best practices in our core competencies.</p>
-                </div>
-                <div class="why-card">
-                    <h3>Change Management Excellence</h3>
-                    <p>We prioritize organizational adoption and change management, ensuring solutions stick and deliver lasting value.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</nav>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Start Your Clear Path?</h2>
-            <p>Let's explore how Via Clara can help your organization transform and thrive.</p>
-            <a href="contact.html" class="btn-cta-light">Get In Touch</a>
-        </div>
-    </section>
+<!-- HEADER -->
+<section class="page-header">
+    <div class="container">
+        <h1>About Via Clara</h1>
+        <p>Clear Path Consulting for Business Transformation</p>
+    </div>
+</section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-section">
-                <h4>Via Clara</h4>
-                <p>Clear Path Consulting for business transformation, analytics, and automation.</p>
+<!-- MISSION -->
+<section class="about-mission">
+    <div class="container">
+
+        <div class="mission-grid">
+
+            <div class="mission-content">
+
+                <h2>Our Mission</h2>
+
+                <p>At Via Clara, we believe every organization deserves a clear path to excellence. We're committed to helping businesses transform through strategic consulting, advanced analytics, and intelligent automation.</p>
+
+                <p>We don't just implement solutions—we partner with you to drive lasting change that improves operations, empowers decision-making, and creates sustainable competitive advantage.</p>
+
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="blog.html">Resources</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Email: <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a></p>
-                <p>Phone: <a href="tel:0278024143">027 802 4143</a></p>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
+
+            <div class="mission-values">
+
+                <div class="value-box">
+                    <h3>Client-Focused</h3>
+                    <p>Your success is our success.</p>
                 </div>
+
+                <div class="value-box">
+                    <h3>Strategic Thinking</h3>
+                    <p>We align tech with business outcomes.</p>
+                </div>
+
+                <div class="value-box">
+                    <h3>Expert Execution</h3>
+                    <p>Deep consulting and delivery expertise.</p>
+                </div>
+
+                <div class="value-box">
+                    <h3>Change Leadership</h3>
+                    <p>We ensure adoption and sustainability.</p>
+                </div>
+
             </div>
+
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Via Clara. All rights reserved.</p>
+
+    </div>
+</section>
+
+<!-- APPROACH -->
+<section class="about-approach">
+    <div class="container">
+
+        <h2>Our Approach</h2>
+
+        <div class="approach-steps">
+
+            <div class="approach-step">
+                <div class="step-icon">🔍</div>
+                <h3>Understand</h3>
+                <p>We assess your business and challenges.</p>
+            </div>
+
+            <div class="approach-step">
+                <div class="step-icon">🎯</div>
+                <h3>Plan</h3>
+                <p>We design a clear transformation roadmap.</p>
+            </div>
+
+            <div class="approach-step">
+                <div class="step-icon">⚙️</div>
+                <h3>Execute</h3>
+                <p>We deliver with precision and quality.</p>
+            </div>
+
+            <div class="approach-step">
+                <div class="step-icon">📈</div>
+                <h3>Sustain</h3>
+                <p>We ensure long-term adoption and impact.</p>
+            </div>
+
         </div>
-    </footer>
+
+    </div>
+</section>
+
+<!-- WHY -->
+<section class="about-why">
+    <div class="container">
+
+        <h2>Why Choose Via Clara?</h2>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <h3>Deep Expertise</h3>
+                <p>Years of transformation experience.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Proven Methods</h3>
+                <p>Structured, repeatable frameworks.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Measured Outcomes</h3>
+                <p>Clear KPIs and measurable ROI.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Partnership</h3>
+                <p>We act as part of your team.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Technology Leadership</h3>
+                <p>Modern Microsoft ecosystem expertise.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Change Focus</h3>
+                <p>We ensure adoption, not just delivery.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Start Your Clear Path?</h2>
+        <p>Let’s explore how Via Clara can help your organization transform.</p>
+        <a href="contact.html" class="btn-cta-light">Get In Touch</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-content">
+
+        <div class="footer-section">
+            <h4>Via Clara</h4>
+            <p>Clear Path Consulting</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="services.html">Services</a></p>
+            <p><a href="case-studies.html">Case Studies</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Via Clara
+    </div>
+</footer>
+
 </body>
 </html>
