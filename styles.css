@@ -1,51 +1,49 @@
+/* ========================= GOOGLE FONTS ========================= */
+/* Add font-display:swap for performance — paste this into your <link> or @import */
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap'); */
+ 
 /* ========================= DESIGN SYSTEM ========================= */
-
 :root {
     --bg: #F7F3EE;
-    --text: #6F6258;
+    --text: #5A5048;           /* Darkened from #6F6258 for WCAG AA contrast */
     --accent: #B89B7A;
     --border: #E6DDD4;
-    --text-light: #A79F98;
+    --text-light: #A79F98;     /* Use only for decorative/secondary labels, not body text */
     --shadow: rgba(0,0,0,0.06);
 }
-
+ 
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
+ 
 body {
-    font-family: Inter, sans-serif;
+    font-family: 'DM Sans', sans-serif;  /* Replaced Inter — complements Cormorant better */
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
     position: relative;
     overflow-x: hidden;
 }
-
+ 
 /* ========================= WATERMARK ========================= */
-
 body::before {
-    content:"";
+    content: "";
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    /* FIXED: responsive scaling */
     width: clamp(250px, 40vw, 600px);
     height: clamp(250px, 40vw, 600px);
-
     background: url('logo.png') no-repeat center;
     background-size: contain;
-    opacity: 0.25;
+    opacity: 0.10;             /* Reduced from 0.25 — was competing with content */
     z-index: 0;
     pointer-events: none;
 }
-
+ 
 /* ========================= NAV ========================= */
-
 .navbar {
     position: sticky;
     top: 0;
@@ -54,7 +52,7 @@ body::before {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
 }
-
+ 
 .nav-container {
     width: 90%;
     max-width: 1300px;
@@ -64,30 +62,30 @@ body::before {
     align-items: center;
     padding: 20px 0;
 }
-
+ 
 .logo {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-
+ 
 .logo img {
     width: 120px;
     height: auto;
 }
-
+ 
 .logo-text {
     display: flex;
     flex-direction: column;
     line-height: 1.1;
 }
-
+ 
 .logo-text span {
     font-family: 'Cormorant Garamond', serif;
     font-size: 36px;
     letter-spacing: 3px;
 }
-
+ 
 .logo-sub {
     font-size: 14px;
     font-weight: 300;
@@ -95,82 +93,101 @@ body::before {
     color: var(--text-light);
     margin-top: 2px;
 }
-
+ 
 .nav-links {
     display: flex;
     gap: 25px;
     list-style: none;
     font-size: 14px;
 }
-
+ 
 .nav-links a {
     text-decoration: none;
     color: var(--text);
+    transition: color 0.2s ease;  /* Smooth hover — was an abrupt snap */
 }
-
-.nav-links a:hover {
+ 
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {  /* Active page indicator */
     color: var(--accent);
 }
-
+ 
+/* Mobile nav toggle — hidden on desktop */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+ 
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+ 
 /* ========================= HEADER ========================= */
-
 .page-header {
     text-align: center;
     padding: 120px 20px 60px;
 }
-
+ 
 .page-header h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
+    font-size: clamp(36px, 6vw, 64px);  /* Responsive — prevents overflow on small screens */
 }
-
+ 
 .page-header p {
     color: var(--text-light);
     margin-top: 10px;
 }
-
+ 
 /* ========================= CASE STUDIES ========================= */
-
 .case-study {
     padding: 80px 0;
     position: relative;
     z-index: 1;
 }
-
+ 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
 }
-
+ 
 .case-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 60px;
 }
-
+ 
 h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+    font-size: clamp(26px, 4vw, 42px);  /* Responsive heading */
     margin-bottom: 20px;
 }
-
+ 
 h3 {
     margin-top: 25px;
     margin-bottom: 10px;
 }
-
+ 
 ul {
     padding-left: 18px;
 }
-
+ 
 li {
     margin-bottom: 10px;
     color: var(--text-light);
 }
-
-/* RESULTS */
-
+ 
+/* ========================= RESULTS ========================= */
 .results {
     background: white;
     border: 1px solid var(--border);
@@ -178,31 +195,29 @@ li {
     border-radius: 16px;
     box-shadow: 0 10px 30px var(--shadow);
 }
-
+ 
 .metric {
     margin-bottom: 20px;
 }
-
+ 
 .metric strong {
     font-size: 22px;
     display: block;
 }
-
-/* ALT BACKGROUND */
-
+ 
+/* ========================= ALT BACKGROUND ========================= */
 .alt {
     background: #f2ece6;
 }
-
-/* CTA */
-
+ 
+/* ========================= CTA ========================= */
 .cta {
     background: var(--text);
     color: white;
     text-align: center;
     padding: 100px 20px;
 }
-
+ 
 .cta a {
     display: inline-block;
     margin-top: 20px;
@@ -211,23 +226,60 @@ li {
     color: white;
     border-radius: 8px;
     text-decoration: none;
+    transition: opacity 0.2s ease;  /* Added hover feedback */
 }
-
-/* FOOTER */
-
+ 
+.cta a:hover {
+    opacity: 0.85;
+}
+ 
+/* ========================= FOOTER ========================= */
 footer {
     padding: 60px 0;
     background: #efe7df;
     text-align: center;
     font-size: 13px;
 }
-
-@media(max-width: 900px){
+ 
+/* ========================= RESPONSIVE ========================= */
+@media (max-width: 900px) {
     .case-grid {
         grid-template-columns: 1fr;
     }
-
+ 
     .logo-text span {
         font-size: 28px;
+    }
+ 
+    /* Reduce top padding on mobile */
+    .page-header {
+        padding: 60px 20px 40px;
+    }
+ 
+    /* Show hamburger, hide nav links by default */
+    .nav-toggle {
+        display: flex;
+    }
+ 
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(247,243,238,0.97);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+        padding: 10px 0;
+    }
+ 
+    .nav-links.open {
+        display: flex;
+    }
+ 
+    .nav-links li a {
+        display: block;
+        padding: 12px 5%;
     }
 }
