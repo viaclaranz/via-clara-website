@@ -42,7 +42,7 @@ body::before {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-translate(-50%, -50%));
+    transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
     background: url('logo.png') no-repeat center;
@@ -73,7 +73,6 @@ body::before {
     padding: 20px 0;
 }
 
-/* UPDATED LOGO SECTION */
 .logo {
     display: flex;
     align-items: center;
@@ -85,14 +84,14 @@ body::before {
     height: auto;
 }
 
-/* NEW WRAPPER FOR TEXT */
+/* NEW STACKED BRAND TEXT */
 .logo-text {
     display: flex;
     flex-direction: column;
     line-height: 1.1;
 }
 
-.logo span {
+.logo-text span {
     font-family: 'Cormorant Garamond', serif;
     font-size: 36px;
     letter-spacing: 3px;
@@ -106,7 +105,6 @@ body::before {
     margin-top: 2px;
 }
 
-/* NAV LINKS */
 .nav-links {
     display: flex;
     gap: 25px;
@@ -181,6 +179,7 @@ li {
 }
 
 /* RESULTS */
+
 .results {
     background: white;
     border: 1px solid var(--border);
@@ -199,11 +198,13 @@ li {
 }
 
 /* ALT BACKGROUND */
+
 .alt {
     background: #f2ece6;
 }
 
 /* CTA */
+
 .cta {
     background: var(--text);
     color: white;
@@ -222,6 +223,7 @@ li {
 }
 
 /* FOOTER */
+
 footer {
     padding: 60px 0;
     background: #efe7df;
@@ -234,7 +236,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .logo span {
+    .logo-text span {
         font-size: 28px;
     }
 }
@@ -254,6 +256,7 @@ footer {
     <span>Via Clara</span>
     <div class="logo-sub">Clear Path</div>
 </div>
+
 </div>
 
 <ul class="nav-links">
@@ -274,7 +277,175 @@ footer {
 <p>Real transformations, measurable outcomes, lasting impact</p>
 </section>
 
-<!-- (rest of your content unchanged) -->
+<!-- CASE STUDY 1 -->
+<section class="case-study">
+<div class="container">
+<div class="case-grid">
+
+<div>
+<h2>Trans-Tasman Fleet Operating Model Transformation</h2>
+
+<h3>The Challenge</h3>
+<ul>
+<li>Fragmented fleet operations across AU/NZ</li>
+<li>High downtime and poor utilisation</li>
+<li>Limited visibility for leadership</li>
+</ul>
+
+<h3>Approach</h3>
+<ul>
+<li>Unified operating model design</li>
+<li>Standardised workflows</li>
+<li>Integrated governance</li>
+</ul>
+</div>
+
+<div class="results">
+<h3>The Results</h3>
+<div class="metric"><strong>25%</strong> Workforce reduction</div>
+<div class="metric"><strong>80%+</strong> Downtime reduction</div>
+<div class="metric"><strong>16,000+</strong> Assets managed</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CASE STUDY 2 -->
+<section class="case-study alt">
+<div class="container">
+<div class="case-grid">
+
+<div>
+<h2>Asset Lifecycle & Procurement Transformation</h2>
+
+<h3>The Challenge</h3>
+<ul>
+<li>9-month procurement cycles</li>
+<li>Vendor bottlenecks</li>
+</ul>
+
+<h3>Approach</h3>
+<ul>
+<li>Workflow redesign</li>
+<li>Vendor optimisation</li>
+</ul>
+</div>
+
+<div class="results">
+<h3>The Results</h3>
+<div class="metric"><strong>9 months → 8 weeks</strong> Procurement</div>
+<div class="metric"><strong>95%</strong> Same-day quoting</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CASE STUDY 3 -->
+<section class="case-study">
+<div class="container">
+<div class="case-grid">
+
+<div>
+<h2>Fleet Safety & Risk Reduction</h2>
+
+<h3>The Challenge</h3>
+<ul>
+<li>High accident rates</li>
+<li>Reactive safety systems</li>
+</ul>
+
+<h3>Approach</h3>
+<ul>
+<li>Telematics + training</li>
+<li>Compliance systems</li>
+</ul>
+</div>
+
+<div class="results">
+<h3>The Results</h3>
+<div class="metric"><strong>220 → 25</strong> Annual accidents</div>
+<div class="metric"><strong>650</strong> Vehicles managed</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CASE STUDY 4 -->
+<section class="case-study alt">
+<div class="container">
+<div class="case-grid">
+
+<div>
+<h2>Cost Optimisation & Vendor Transformation</h2>
+
+<h3>The Challenge</h3>
+<ul>
+<li>Rising operational costs</li>
+<li>Fragmented vendors</li>
+</ul>
+
+<h3>Approach</h3>
+<ul>
+<li>Negotiation strategy</li>
+<li>Cost optimisation programs</li>
+</ul>
+</div>
+
+<div class="results">
+<h3>The Results</h3>
+<div class="metric"><strong>$5M+</strong> Annual savings</div>
+<div class="metric"><strong>$1.7M</strong> Insurance savings</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CASE STUDY 5 -->
+<section class="case-study">
+<div class="container">
+<div class="case-grid">
+
+<div>
+<h2>Digital Workflow Automation</h2>
+
+<h3>The Challenge</h3>
+<ul>
+<li>Manual email workflows</li>
+<li>Slow approvals</li>
+</ul>
+
+<h3>Approach</h3>
+<ul>
+<li>Power Platform build</li>
+<li>Workflow automation</li>
+</ul>
+</div>
+
+<div class="results">
+<h3>The Results</h3>
+<div class="metric"><strong>30%</strong> workload reduction</div>
+<div class="metric"><strong>99.9%</strong> invoice accuracy</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Your Transformation Could Be Next</h2>
+<p>Let’s build something meaningful together.</p>
+<a href="contact.html">Contact Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Via Clara
+</footer>
 
 </body>
 </html>
