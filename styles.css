@@ -31,7 +31,8 @@ body::before {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-translate(-50%, -50%));
+    /* FIXED BUG HERE */
+    transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
     background: url('logo.png') no-repeat center;
@@ -73,7 +74,6 @@ body::before {
     height: auto;
 }
 
-/* NEW STACKED BRAND TEXT */
 .logo-text {
     display: flex;
     flex-direction: column;
