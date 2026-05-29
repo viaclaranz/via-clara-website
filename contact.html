@@ -1,219 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Via Clara</title>
-
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/svg+xml"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23B89B7A'>VC</text></svg>">
-
-    <!-- EXTERNAL STYLES -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav class="navbar">
-    <div class="container nav-container">
-
-        <div class="logo">
-            <img src="logo.png" alt="Via Clara Logo">
-            <div class="logo-text">
-                <span>VIA CLARA</span>
-                <span>CLEAR PATH</span>
-            </div>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="blog.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="active btn-primary">Contact</a></li>
-        </ul>
-
-    </div>
-</nav>
-
-<!-- HEADER -->
 <section class="page-header">
-    <div class="container">
-        <h1>Get in Touch</h1>
-        <p>Let's discuss how Via Clara can help transform your business</p>
-    </div>
+<div class="container">
+<h1>Contact</h1>
+<p>Let’s build something meaningful</p>
+</div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section">
-    <div class="container">
+<section class="section">
+<div class="container grid-2">
 
-        <div class="contact-grid">
+<div>
 
-            <!-- FORM -->
-            <div class="contact-form-wrapper">
+<h2>Contact Form</h2>
 
-                <h2>Contact Form</h2>
+<form>
+<div class="form-group">
+<label>Name</label>
+<input>
+</div>
 
-                <form class="contact-form" onsubmit="handleSubmit(event)">
+<div class="form-group">
+<label>Email</label>
+<input>
+</div>
 
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input required>
-                    </div>
+<div class="form-group">
+<label>Message</label>
+<textarea rows="6"></textarea>
+</div>
 
-                    <div class="form-group">
-                        <label>Email *</label>
-                        <input type="email" required>
-                    </div>
+<button class="btn">Send</button>
+</form>
 
-                    <div class="form-group">
-                        <label>Company *</label>
-                        <input required>
-                    </div>
+</div>
 
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input>
-                    </div>
+<div>
 
-                    <div class="form-group">
-                        <label>Service Interest *</label>
-                        <select required>
-                            <option value="">Select</option>
-                            <option>Transformation</option>
-                            <option>Analytics</option>
-                            <option>Automation</option>
-                        </select>
-                    </div>
+<h2>Info</h2>
 
-                    <div class="form-group">
-                        <label>Message *</label>
-                        <textarea rows="6" required></textarea>
-                    </div>
+<div class="card">
+<p>Email: contact@viaclara.co.nz</p>
+<p>Phone: 027 802 4143</p>
+</div>
 
-                    <button class="btn-cta">Send Message</button>
+</div>
 
-                    <p class="form-note">
-                        We respond within 24 hours.
-                    </p>
-
-                </form>
-
-                <div id="success-message" class="success-message" style="display:none;">
-                    ✓ Message sent successfully
-                </div>
-
-            </div>
-
-            <!-- INFO -->
-            <div class="contact-info-wrapper">
-
-                <h2>Contact Info</h2>
-
-                <div class="contact-info-box">
-                    <h3>Email</h3>
-                    <p>contact@viaclara.co.nz</p>
-                </div>
-
-                <div class="contact-info-box">
-                    <h3>Phone</h3>
-                    <p>027 802 4143</p>
-                </div>
-
-                <div class="contact-info-box">
-                    <h3>Services</h3>
-                    <ul>
-                        <li>Transformation</li>
-                        <li>Analytics</li>
-                        <li>Automation</li>
-                    </ul>
-                </div>
-
-                <div class="contact-info-box">
-                    <h3>Response Time</h3>
-                    <p>Within 24 hours (business days)</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 </section>
-
-<!-- FAQ -->
-<section class="faq-section">
-
-    <div class="container">
-
-        <h2>FAQs</h2>
-
-        <div class="faq-grid">
-
-            <div class="faq-item">
-                <h3>Consultation?</h3>
-                <p>Tailored business review and roadmap.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Project length?</h3>
-                <p>Typically 3–6 months.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Industries?</h3>
-                <p>Finance, retail, manufacturing, public sector.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="container footer-content">
-
-        <div class="footer-section">
-            <h4>Via Clara</h4>
-            <p>Clear Path Consulting for transformation.</p>
-        </div>
-
-        <div class="footer-section">
-            <h4>Links</h4>
-            <p><a href="index.html">Home</a></p>
-            <p><a href="services.html">Services</a></p>
-            <p><a href="case-studies.html">Case Studies</a></p>
-        </div>
-
-        <div class="footer-section">
-            <h4>Contact</h4>
-            <p>contact@viaclara.co.nz</p>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        © 2026 Via Clara
-    </div>
-</footer>
-
-<script>
-function handleSubmit(event) {
-    event.preventDefault();
-    document.getElementById('success-message').style.display = 'block';
-    event.target.reset();
-}
-</script>
-
-</body>
-</html>
