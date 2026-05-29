@@ -3,236 +3,268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Via Clara</title>
+<link rel="canonical" href="https://www.viaclara.co.nz/">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<title>Via Clara | Execution Transformation Consulting — Australia & New Zealand</title>
+<meta name="description" content="Via Clara helps organisations eliminate execution fragmentation and build clear, scalable operating systems. Proven across large-scale operational, infrastructure, and procurement environments in Australia and New Zealand.">
+
+<meta property="og:title" content="Via Clara | Execution Transformation Consulting">
+<meta property="og:description" content="We help leadership teams restore control by aligning strategy, operations, and delivery into a single system of execution.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.viaclara.co.nz">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
 
 <!-- NAV -->
-<nav class="navbar">
-<div class="nav-container">
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
 
-<div class="logo">
-<img src="logo.png" alt="Logo">
+    <a href="index.html" class="logo" aria-label="Via Clara home">
+      <img src="logo.png" alt="Via Clara logo" width="120" height="auto">
+      <div class="logo-text">
+        <span>Via Clara</span>
+        <div class="logo-sub">Clear Path</div>
+      </div>
+    </a>
 
-<div class="logo-text">
-    <span>Via Clara</span>
-    <div class="logo-sub">Clear Path</div>
-</div>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-</div>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="blog.html">Insights</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
 
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="case-studies.html">Case Studies</a></li>
-<li><a href="blog.html">Resources</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-
-</div>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="page-header">
-<h1>Via Clara</h1>
-<p>We help organisations eliminate execution fragmentation and build clear, scalable operating systems that deliver measurable performance</p>
-</section>
+<header class="page-header">
+  <h1>Your strategy is sound.<br>Your execution isn't.<br>We fix that.</h1>
+  <p class="hero-sub">Via Clara works with leadership teams across Australia and New Zealand to eliminate execution breakdown and build operating systems that deliver — measurably, permanently.</p>
+  <div class="hero-actions">
+    <a href="contact.html" class="btn-primary">Start a conversation</a>
+    <a href="case-studies.html" class="btn-secondary">See our work</a>
+  </div>
+</header>
 
 <!-- INTRO SECTION -->
-<section class="case-study">
-<div class="container">
-<div class="case-grid">
+<section class="case-study" aria-labelledby="intro-heading">
+  <div class="container">
+    <div class="case-grid">
 
-<div>
-<h2>Execution is the real constraint</h2>
+      <div>
+        <h2 id="intro-heading">Most transformations fail in delivery. That's where we work.</h2>
 
-<p>
-Most transformation initiatives do not fail at strategy — they fail when execution becomes fragmented across systems, teams, and priorities.
-</p>
+        <p>Strategy is rarely the problem. The problem is what happens after the strategy is agreed — when execution fragments across teams, systems, and competing priorities and nothing actually changes.</p>
 
-<p>
-We help leadership teams restore control by aligning strategy, operations, and delivery into a single system of execution.
-</p>
+        <p>We restore control by building a single, aligned system of execution across strategy, operations, and delivery.</p>
 
-<h3>We focus on four transformation levers</h3>
-<ul>
-<li>Operating model clarity and organisational alignment</li>
-<li>Operational performance and efficiency improvement</li>
-<li>Digital enablement and workflow automation</li>
-<li>Procurement and cost structure optimisation</li>
-</ul>
+        <h3>You may recognise this:</h3>
+        <ul>
+          <li>You have a strategy, but results are inconsistent</li>
+          <li>Transformation activity is happening, but outcomes aren't</li>
+          <li>Teams are working hard, but the system isn't working</li>
+          <li>Performance isn't improving despite significant effort</li>
+        </ul>
 
-<h3>Is this you?</h3>
-<ul>
-<li>Transformation activity exists but outcomes are inconsistent</li>
-<li>Execution is fragmented across teams or business units</li>
-<li>Performance is not improving despite significant effort</li>
-</ul>
+        <p class="emphasis">If that sounds familiar, the problem isn't effort or intent — it's execution architecture.</p>
 
-<p><strong>If so, you are dealing with an execution problem — not a strategy problem.</strong></p>
+        <h3>We work across four transformation levers:</h3>
+        <ul>
+          <li>Operating model clarity and organisational alignment</li>
+          <li>Operational performance and efficiency improvement</li>
+          <li>Digital enablement and workflow automation</li>
+          <li>Procurement and cost structure optimisation</li>
+        </ul>
+      </div>
 
-</div>
+      <div>
+        <!-- Results panel -->
+        <div class="results" role="complementary" aria-label="Core outcomes">
+          <h3>What changes</h3>
+          <div class="metric">
+            <strong>You see clearly</strong>
+            Where execution is breaking down and why
+          </div>
+          <div class="metric">
+            <strong>You cut waste</strong>
+            Duplication, friction, and effort that doesn't convert to outcomes
+          </div>
+          <div class="metric">
+            <strong>You deliver</strong>
+            Strategy becomes measurable, repeatable performance
+          </div>
+        </div>
 
-<div class="results">
+        <!-- Testimonial -->
+        <blockquote class="testimonial">
+          <p>"Via Clara gave us the clarity we didn't know we were missing. Within three months we had visibility across the entire operation for the first time."</p>
+          <cite>— Operations Director, Infrastructure Services</cite>
+        </blockquote>
+      </div>
 
-<h3>Core Outcomes</h3>
-
-<div class="metric">
-<strong>Clarity</strong>
-Replace fragmented operations with structured systems
-</div>
-
-<div class="metric">
-<strong>Efficiency</strong>
-Eliminate waste, duplication, and operational friction
-</div>
-
-<div class="metric">
-<strong>Execution</strong>
-Convert strategy into measurable delivery performance
-</div>
-
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
-<!-- SERVICES / METHODOLOGY -->
-<section class="case-study alt">
-<div class="container">
-<div class="case-grid">
+<!-- METHODOLOGY -->
+<section class="case-study alt" aria-labelledby="method-heading">
+  <div class="container">
+    <div class="case-grid">
 
-<div>
-<h2>How we create transformation impact</h2>
+      <div>
+        <h2 id="method-heading">We don't optimise parts of the system. We fix the system itself.</h2>
 
-<p>
-We do not deliver isolated services. We build end-to-end transformation systems that move organisations from diagnosis to execution with measurable outcomes.
-</p>
+        <p>Most consultants hand you a report. We build the execution system and stay until it works.</p>
 
-<h3>Diagnose</h3>
-<ul>
-<li>Identify execution breakdowns across systems and workflows</li>
-<li>Map operational inefficiencies and structural constraints</li>
-</ul>
+        <div class="method-step">
+          <h3>Diagnose</h3>
+          <ul>
+            <li>Find exactly where execution is breaking down: systems, workflows, structure, and accountability</li>
+            <li>Map operational inefficiencies and structural constraints</li>
+          </ul>
+        </div>
 
-<h3>Design</h3>
-<ul>
-<li>Build operating models that align strategy to delivery</li>
-<li>Define governance, accountability, and performance structure</li>
-</ul>
+        <div class="method-step">
+          <h3>Design</h3>
+          <ul>
+            <li>Build an operating model that connects strategy directly to delivery</li>
+            <li>Define governance, accountability, and performance structure</li>
+          </ul>
+        </div>
 
-<h3>Deliver</h3>
-<ul>
-<li>Execute change across teams, systems, and processes</li>
-<li>Embed measurable performance improvements</li>
-</ul>
+        <div class="method-step">
+          <h3>Deliver</h3>
+          <ul>
+            <li>Execute the change across teams and systems</li>
+            <li>Embed performance improvements so they hold</li>
+          </ul>
+        </div>
+      </div>
 
-<p><strong>We don’t optimise parts of the system — we fix the system itself.</strong></p>
+      <div class="results" role="complementary" aria-label="Impact profile">
+        <h3>The difference it makes</h3>
+        <div class="metric">
+          <strong>Faster</strong>
+          Transformation that delivers in months, not years
+        </div>
+        <div class="metric">
+          <strong>Visible</strong>
+          Leadership has real-time control across operations and decisions
+        </div>
+        <div class="metric">
+          <strong>Scalable</strong>
+          Systems built to grow with your organisation, not break under it
+        </div>
+      </div>
 
-</div>
-
-<div class="results">
-
-<h3>Impact Profile</h3>
-
-<div class="metric">
-<strong>Speed</strong>
-Accelerated transformation delivery cycles
-</div>
-
-<div class="metric">
-<strong>Control</strong>
-Improved visibility across operations and decisions
-</div>
-
-<div class="metric">
-<strong>Scalability</strong>
-Systems designed to grow with organisational complexity
-</div>
-
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
-<!-- CREDIBILITY STRIP -->
-<section class="case-study">
-<div class="container">
-<div class="case-grid">
+<!-- CREDIBILITY -->
+<section class="case-study" aria-labelledby="credibility-heading">
+  <div class="container">
+    <div class="case-grid">
 
-<div>
-<h2>Proven in complex operational environments</h2>
+      <div>
+        <h2 id="credibility-heading">Proven where it's hardest to execute</h2>
 
-<p>
-Delivered across large-scale operational, infrastructure, and procurement environments across Australia and New Zealand.
-</p>
+        <p>We've delivered in large-scale operational, infrastructure, and procurement environments — the kind where complexity is high, tolerance for disruption is low, and results have to be real.</p>
 
-<h3>Measured outcomes include</h3>
-<ul>
-<li>80%+ reduction in operational downtime in fleet environments</li>
-<li>Procurement cycle reduction from 9 months to 8 weeks</li>
-<li>$5M+ annual cost reduction through structural optimisation</li>
-<li>Visibility across 16,000+ managed assets</li>
-</ul>
+        <h3>Measured outcomes from past engagements:</h3>
+        <ul>
+          <li>80%+ reduction in operational downtime in fleet environments</li>
+          <li>Procurement cycle cut from 9 months to 8 weeks</li>
+          <li>$5M+ in annual cost reduction through structural optimisation</li>
+          <li>Visibility and control across 16,000+ managed assets</li>
+        </ul>
 
-</div>
+        <a href="case-studies.html" class="text-link">Read the case studies →</a>
+      </div>
 
-<div class="results">
+      <div class="results" role="complementary" aria-label="Engagement options">
+        <h3>How we engage</h3>
+        <div class="metric">
+          <strong>Advisory</strong>
+          Diagnostic and transformation planning for leadership teams who need clarity before commitment
+        </div>
+        <div class="metric">
+          <strong>Delivery</strong>
+          End-to-end execution support from design through to embedded performance
+        </div>
+        <div class="metric">
+          <strong>Embedded</strong>
+          Our people inside your operation, driving improvement from the ground up
+        </div>
+      </div>
 
-<h3>Engagement Options</h3>
-
-<div class="metric">
-<strong>Advisory</strong>
-Strategic diagnostic and transformation planning
-</div>
-
-<div class="metric">
-<strong>Delivery</strong>
-End-to-end execution support
-</div>
-
-<div class="metric">
-<strong>Embedded</strong>
-Hands-on operational improvement delivery
-</div>
-
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA / LEAD MAGNET -->
-<section class="cta">
-<h2>Download the Execution Clarity Diagnostic</h2>
-
-<p>
-A structured diagnostic framework used to identify where execution breaks down in complex organisations and how to restore clarity, alignment, and measurable performance.
-</p>
-
-<p>
-Includes a practical checklist and transformation breakdown model used to assess operational health.
-</p>
-
-<a href="execution_clarity_diagnostic.pdf" download>
-Download Free Diagnostic
-</a>
+<section class="cta" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">Find out where your execution is breaking down</h2>
+  <p>The Execution Clarity Diagnostic is a structured framework we use at the start of every engagement. It identifies exactly where execution is failing — and gives you a clear model for what to fix first.</p>
+  <p>Takes 20 minutes. No obligation.</p>
+  <a href="execution_clarity_diagnostic.pdf" download class="btn-download">Download the free diagnostic</a>
 </section>
 
 <!-- FOOTER -->
-<footer>
-© 2026 Via Clara
+<footer role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Via Clara</span>
+      <p>Execution transformation consulting<br>across Australia and New Zealand.</p>
+    </div>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a>
+      <a href="tel:+61278024143">+61 278 024 143</a>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>© 2026 Via Clara · <a href="privacy.html">Privacy Policy</a></p>
+  </div>
 </footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
 
 </body>
 </html>
