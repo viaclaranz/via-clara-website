@@ -1,325 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Clara — Clear Path</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Via Clara</title>
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg: #F7F3EE;
-            --bg-secondary: #EFE7DF;
-            --text: #6F6258;
-            --text-light: #A79F98;
-            --accent: #B89B7A;
-            --border: #E6DDD4;
-            --shadow: rgba(111, 98, 88, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        h1,h2,h3,h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1300px;
-            margin: auto;
-        }
-
-        /* ================= NAV ================= */
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(247, 243, 238, 0.92);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .logo img {
-            width: 95px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text .title {
-            font-size: 38px;
-            letter-spacing: 3px;
-        }
-
-        .logo-text .tagline {
-            font-size: 12px;
-            letter-spacing: 5px;
-            color: var(--text-light);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        /* ================= HERO ================= */
-
-        .hero {
-            position: relative;
-            padding: 240px 0 170px;
-            text-align: center;
-        }
-
-        /* WATERMARK */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url('logo.png') center/340px no-repeat;
-            opacity: 0.5;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 92px;
-            letter-spacing: 2px;
-        }
-
-        .hero h2 {
-            font-size: 26px;
-            letter-spacing: 6px;
-            color: var(--accent);
-            margin-top: 10px;
-        }
-
-        .hero p {
-            margin-top: 30px;
-            font-size: 20px;
-            color: var(--text-light);
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero a {
-            display: inline-block;
-            margin-top: 40px;
-            background: var(--accent);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-        }
-
-        /* ================= SECTION ================= */
-
-        .section {
-            padding: 110px 0;
-        }
-
-        .section h2 {
-            font-size: 54px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 26px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 18px;
-        }
-
-        .card h3 {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--text-light);
-        }
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            background: var(--bg-secondary);
-            padding: 80px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            font-size: 13px;
-            color: var(--text-light);
-        }
-
-    </style>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav class="navbar">
-    <div class="container nav-container">
-
-        <div class="logo">
-            <img src="logo.png" alt="Via Clara Logo">
-            <div class="logo-text">
-                <div class="title">VIA CLARA</div>
-                <div class="tagline">CLEAR PATH</div>
-            </div>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="blog.html">Resources</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a class="btn-primary" href="contact.html">Contact</a></li>
-        </ul>
-
+<div class="container nav-container">
+    <div class="logo">
+        <img src="logo.png">
+        <span>Via Clara</span>
     </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h1>Via Clara</h1>
-
-        <h2>Clear Path</h2>
-
-        <p>
-            Business transformation, analytics, and automation
-            designed to create clarity, control, and scalable performance.
-        </p>
-
-        <a href="services.html">Explore Services</a>
-
-    </div>
-
+<section class="page-header">
+<div class="container">
+    <h1>Clear Path to Transformation</h1>
+    <p>Strategy, analytics, and automation that deliver measurable outcomes</p>
+    <a class="btn" href="contact.html">Get in Touch</a>
+</div>
 </section>
 
-<!-- SERVICES -->
 <section class="section">
+<div class="container grid-3">
 
-    <div class="container">
-
-        <h2>What We Do</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <h3>Transformation</h3>
-                <p>Operating models, governance, and enterprise change delivery.</p>
-            </div>
-
-            <div class="card">
-                <h3>Analytics</h3>
-                <p>Decision-grade Power BI dashboards and performance visibility.</p>
-            </div>
-
-            <div class="card">
-                <h3>Automation</h3>
-                <p>Workflow systems and Microsoft Power Platform solutions.</p>
-            </div>
-
-        </div>
-
+    <div class="card">
+        <h3>Strategy</h3>
+        <p>Operating models and transformation design.</p>
     </div>
 
+    <div class="card">
+        <h3>Analytics</h3>
+        <p>Power BI and decision intelligence.</p>
+    </div>
+
+    <div class="card">
+        <h3>Automation</h3>
+        <p>Power Platform workflows and optimisation.</p>
+    </div>
+
+</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-
-    <div class="container footer-grid">
-
-        <div>
-            <h3>Via Clara</h3>
-            <p>Clear Path to clarity and operational performance.</p>
-        </div>
-
-        <div>
-            <h4>Links</h4>
-            <p>Services<br>Case Studies<br>Resources</p>
-        </div>
-
-        <div>
-            <h4>Contact</h4>
-            <p>contact@viaclara.co.nz</p>
-        </div>
-
+<div class="container footer-content">
+    <div class="footer-section">
+        <h4>Via Clara</h4>
+        <p>Transformation consulting</p>
     </div>
-
-    <div class="footer-bottom">
-        © 2026 Via Clara
-    </div>
-
+</div>
+<div class="footer-bottom">© 2026 Via Clara</div>
 </footer>
 
 </body>
