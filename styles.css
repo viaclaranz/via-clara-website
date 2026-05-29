@@ -1,14 +1,13 @@
 /* ========================= GOOGLE FONTS ========================= */
-/* Add font-display:swap for performance — paste this into your <link> or @import */
-/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap'); */
  
 /* ========================= DESIGN SYSTEM ========================= */
 :root {
     --bg: #F7F3EE;
-    --text: #5A5048;           /* Darkened from #6F6258 for WCAG AA contrast */
+    --text: #5A5048;
     --accent: #B89B7A;
     --border: #E6DDD4;
-    --text-light: #A79F98;     /* Use only for decorative/secondary labels, not body text */
+    --text-light: #A79F98;
     --shadow: rgba(0,0,0,0.06);
 }
  
@@ -19,7 +18,7 @@
 }
  
 body {
-    font-family: 'DM Sans', sans-serif;  /* Replaced Inter — complements Cormorant better */
+    font-family: 'DM Sans', sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -38,7 +37,7 @@ body::before {
     height: clamp(250px, 40vw, 600px);
     background: url('logo.png') no-repeat center;
     background-size: contain;
-    opacity: 0.10;             /* Reduced from 0.25 — was competing with content */
+    opacity: 0.10;
     z-index: 0;
     pointer-events: none;
 }
@@ -67,6 +66,8 @@ body::before {
     display: flex;
     align-items: center;
     gap: 20px;
+    text-decoration: none;
+    color: var(--text);  /* Prevents browser default blue link colour */
 }
  
 .logo img {
@@ -104,15 +105,29 @@ body::before {
 .nav-links a {
     text-decoration: none;
     color: var(--text);
-    transition: color 0.2s ease;  /* Smooth hover — was an abrupt snap */
+    transition: color 0.2s ease;
 }
  
 .nav-links a:hover,
-.nav-links a[aria-current="page"] {  /* Active page indicator */
+.nav-links a[aria-current="page"] {
     color: var(--accent);
 }
  
-/* Mobile nav toggle — hidden on desktop */
+/* Contact link styled as button in nav */
+.nav-links a.nav-cta {
+    background: var(--accent);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: opacity 0.2s ease;
+}
+ 
+.nav-links a.nav-cta:hover {
+    opacity: 0.85;
+    color: white;
+}
+ 
+/* Hamburger */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -132,23 +147,68 @@ body::before {
     transition: all 0.2s ease;
 }
  
-/* ========================= HEADER ========================= */
+/* ========================= HERO ========================= */
 .page-header {
     text-align: center;
     padding: 120px 20px 60px;
+    position: relative;
+    z-index: 1;
 }
  
 .page-header h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 6vw, 64px);  /* Responsive — prevents overflow on small screens */
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.15;
+    margin-bottom: 24px;
 }
  
-.page-header p {
+.hero-sub {
     color: var(--text-light);
-    margin-top: 10px;
+    font-size: 18px;
+    max-width: 640px;
+    margin: 0 auto 36px;
 }
  
-/* ========================= CASE STUDIES ========================= */
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+ 
+.btn-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    transition: opacity 0.2s ease;
+}
+ 
+.btn-primary:hover {
+    opacity: 0.85;
+}
+ 
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--text);
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-size: 15px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+ 
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+ 
+/* ========================= SECTIONS ========================= */
 .case-study {
     padding: 80px 0;
     position: relative;
@@ -169,13 +229,17 @@ body::before {
  
 h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(26px, 4vw, 42px);  /* Responsive heading */
+    font-size: clamp(26px, 4vw, 42px);
     margin-bottom: 20px;
+    line-height: 1.2;
 }
  
 h3 {
     margin-top: 25px;
     margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
 }
  
 ul {
@@ -187,22 +251,82 @@ li {
     color: var(--text-light);
 }
  
-/* ========================= RESULTS ========================= */
+p {
+    margin-bottom: 16px;
+}
+ 
+.emphasis {
+    font-weight: 500;
+    color: var(--text);
+    margin-top: 20px;
+}
+ 
+.method-step {
+    margin-top: 8px;
+}
+ 
+.text-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.2s ease;
+}
+ 
+.text-link:hover {
+    opacity: 0.75;
+}
+ 
+/* ========================= RESULTS PANEL ========================= */
 .results {
     background: white;
     border: 1px solid var(--border);
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 10px 30px var(--shadow);
+    height: fit-content;
 }
  
 .metric {
     margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+ 
+.metric:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
  
 .metric strong {
-    font-size: 22px;
+    font-size: 17px;
     display: block;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+ 
+/* ========================= TESTIMONIAL ========================= */
+.testimonial {
+    margin-top: 24px;
+    padding: 24px;
+    border-left: 3px solid var(--accent);
+    background: white;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+}
+ 
+.testimonial p {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+ 
+.testimonial cite {
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: normal;
 }
  
 /* ========================= ALT BACKGROUND ========================= */
@@ -216,29 +340,102 @@ li {
     color: white;
     text-align: center;
     padding: 100px 20px;
+    position: relative;
+    z-index: 1;
 }
  
-.cta a {
+.cta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+}
+ 
+.cta p {
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto 16px;
+}
+ 
+.btn-download {
     display: inline-block;
     margin-top: 20px;
     background: var(--accent);
-    padding: 12px 24px;
+    padding: 14px 28px;
     color: white;
     border-radius: 8px;
     text-decoration: none;
-    transition: opacity 0.2s ease;  /* Added hover feedback */
+    font-size: 15px;
+    transition: opacity 0.2s ease;
 }
  
-.cta a:hover {
+.btn-download:hover {
     opacity: 0.85;
 }
  
 /* ========================= FOOTER ========================= */
 footer {
-    padding: 60px 0;
     background: #efe7df;
-    text-align: center;
     font-size: 13px;
+    position: relative;
+    z-index: 1;
+}
+ 
+.footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding: 60px 0 40px;
+    align-items: start;
+}
+ 
+.footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+ 
+.footer-brand p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+ 
+.footer-links,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 4px;
+}
+ 
+.footer-links a,
+.footer-contact a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+ 
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--accent);
+}
+ 
+.footer-legal {
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--text-light);
+}
+ 
+.footer-legal a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+ 
+.footer-legal a:hover {
+    color: var(--accent);
 }
  
 /* ========================= RESPONSIVE ========================= */
@@ -247,16 +444,19 @@ footer {
         grid-template-columns: 1fr;
     }
  
+    /* Show results panel before body copy on mobile */
+    .case-grid > div:last-child {
+        order: -1;
+    }
+ 
     .logo-text span {
         font-size: 28px;
     }
  
-    /* Reduce top padding on mobile */
     .page-header {
         padding: 60px 20px 40px;
     }
  
-    /* Show hamburger, hide nav links by default */
     .nav-toggle {
         display: flex;
     }
@@ -282,4 +482,16 @@ footer {
         display: block;
         padding: 12px 5%;
     }
+ 
+    .nav-links a.nav-cta {
+        margin: 8px 5%;
+        text-align: center;
+    }
+ 
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 40px 0 24px;
+    }
 }
+ 
