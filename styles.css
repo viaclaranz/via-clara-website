@@ -1,20 +1,39 @@
 /* =========================
-   DESIGN SYSTEM
+   VIA CLARA DESIGN SYSTEM
+   MASTER STYLESHEET
+========================= */
+
+/* =========================
+   ROOT TOKENS
 ========================= */
 
 :root {
     --bg: #F7F3EE;
+    --surface: #FFFFFF;
+    --surface-alt: #EFE7DF;
+
     --text: #6F6258;
+    --text-light: #A79F98;
+
     --accent: #B89B7A;
     --border: #E6DDD4;
-    --text-light: #A79F98;
-    --shadow: rgba(0,0,0,0.06);
+
+    --shadow: rgba(111, 98, 88, 0.08);
+
+    --radius: 12px;
+    --radius-lg: 16px;
+
+    --container: 1200px;
 }
 
+/* =========================
+   RESET + BASE
+========================= */
+
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -22,16 +41,60 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
-    position: relative;
     overflow-x: hidden;
 }
 
 /* =========================
-   WATERMARK
+   TYPOGRAPHY
+========================= */
+
+h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    color: var(--text);
+}
+
+h1 { font-size: 64px; }
+h2 { font-size: 42px; margin-bottom: 20px; }
+h3 { font-size: 22px; }
+
+p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+/* =========================
+   CONTAINERS + LAYOUT
+========================= */
+
+.container {
+    width: 90%;
+    max-width: var(--container);
+    margin: auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* =========================
+   WATERMARK (GLOBAL BRAND MARK)
 ========================= */
 
 body::before {
-    content:"";
+    content: "";
     position: fixed;
     top: 50%;
     left: 50%;
@@ -41,53 +104,49 @@ body::before {
     background: url('logo.png') no-repeat center;
     background-size: contain;
     opacity: 0.25;
-    z-index: 0;
     pointer-events: none;
+    z-index: 0;
 }
 
 /* =========================
-   NAV
+   NAVIGATION
 ========================= */
 
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247,243,238,0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(247, 243, 238, 0.92);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1300px;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 18px 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
 }
 
 .logo img {
-    width: 120px;
-    height: auto;
+    width: 110px;
 }
 
 .logo span {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
+    font-size: 34px;
     letter-spacing: 3px;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 26px;
     list-style: none;
     font-size: 14px;
 }
@@ -95,6 +154,7 @@ body::before {
 .nav-links a {
     text-decoration: none;
     color: var(--text);
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -102,56 +162,63 @@ body::before {
 }
 
 /* =========================
-   HEADER
+   HERO / PAGE HEADER
 ========================= */
 
 .page-header {
     text-align: center;
-    padding: 120px 20px 60px;
-}
-
-.page-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
+    padding: 140px 20px 80px;
+    position: relative;
 }
 
 .page-header p {
-    color: var(--text-light);
-    margin-top: 10px;
+    font-size: 18px;
 }
 
 /* =========================
-   CASE STUDIES
+   BUTTONS
 ========================= */
 
-.case-study {
-    padding: 80px 0;
-    position: relative;
-    z-index: 1;
+.btn,
+.btn-primary,
+.btn-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 12px 22px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+.btn:hover,
+.btn-primary:hover,
+.btn-cta:hover {
+    opacity: 0.9;
 }
 
-.case-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
+/* =========================
+   CARDS (GLOBAL SYSTEM)
+========================= */
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
-h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    margin-bottom: 20px;
+.card p,
+.card li {
+    color: var(--text-light);
 }
 
-h3 {
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
+/* =========================
+   LISTS
+========================= */
 
 ul {
     padding-left: 18px;
@@ -162,17 +229,46 @@ li {
     color: var(--text-light);
 }
 
-/* RESULTS */
-.results {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px var(--shadow);
+/* =========================
+   FORM SYSTEM
+========================= */
+
+label {
+    font-size: 14px;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 6px;
 }
 
-.metric {
-    margin-bottom: 20px;
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    background: white;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* =========================
+   RESULTS / METRICS
+========================= */
+
+.results {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
 .metric strong {
@@ -180,43 +276,81 @@ li {
     display: block;
 }
 
-/* ALT BACKGROUND */
+/* =========================
+   SECTIONS BACKGROUND VARIANTS
+========================= */
+
 .alt {
-    background: #f2ece6;
+    background: var(--surface-alt);
 }
 
-/* CTA */
-.cta {
-    background: var(--text);
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
+/* =========================
+   FAQ
+========================= */
+
+.faq-section {
+    background: var(--surface-alt);
+    padding: 90px 0;
 }
 
-.cta a {
-    display: inline-block;
-    margin-top: 20px;
-    background: var(--accent);
-    padding: 12px 24px;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-/* FOOTER */
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
-    padding: 60px 0;
-    background: #efe7df;
-    text-align: center;
-    font-size: 13px;
+    background: var(--surface-alt);
+    padding: 80px 0 30px;
 }
 
-@media(max-width: 900px){
-    .case-grid {
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h4 {
+    margin-bottom: 14px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* =========================
+   RESPONSIVE SYSTEM
+========================= */
+
+@media (max-width: 900px) {
+
+    h1 { font-size: 48px; }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-3 {
         grid-template-columns: 1fr;
     }
 
     .logo span {
-        font-size: 28px;
+        font-size: 26px;
     }
 }
