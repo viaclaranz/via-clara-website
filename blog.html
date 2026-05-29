@@ -1,49 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Resources</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F7F3EE;--text:#6F6258;--accent:#B89B7A;--text-light:#A79F98;}
-body{font-family:Inter;background:var(--bg);color:var(--text);}
-body::before{content:"";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:url('logo.png') no-repeat center;background-size:contain;opacity:.25;z-index:0;}
-.container{width:90%;max-width:1100px;margin:auto;}
-header{text-align:center;padding:100px 20px;}
-h1{font-family:"Cormorant Garamond";font-size:60px;}
-.card{background:white;padding:25px;margin:20px 0;border:1px solid #E6DDD4;}
-.card h3{font-family:"Cormorant Garamond";}
-.card p{color:var(--text-light);}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources - Via Clara</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-<header>
-<h1>Resources & Insights</h1>
-<p>Guides, frameworks, and transformation thinking</p>
-</header>
+<!-- NAV -->
+<nav class="navbar">
+<div class="nav-container">
 
+<div class="logo">
+<img src="logo.png" alt="Logo">
+
+<div class="logo-text">
+    <span>Via Clara</span>
+    <div class="logo-sub">Clear Path</div>
+</div>
+
+</div>
+
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="case-studies.html">Case Studies</a></li>
+<li><a href="blog.html">Resources</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+<!-- HEADER -->
+<section class="page-header">
+<h1>Resources</h1>
+<p>Insights, frameworks, and thinking on transformation and operations</p>
+</section>
+
+<!-- BLOG CONTENT -->
+<section class="case-study">
 <div class="container">
 
-<div class="card">
-<h3>Transformation Playbook</h3>
-<p>Strategy and execution framework for enterprise transformation.</p>
+<div class="case-grid">
+
+<div>
+<h2>Latest Insights</h2>
+
+<h3>Building Scalable Operating Models</h3>
+<ul>
+<li>Why most transformations fail at execution stage</li>
+<li>Designing governance that actually works</li>
+<li>Aligning teams across regions and functions</li>
+</ul>
+
+<h3>Automation in Practice</h3>
+<ul>
+<li>Where automation delivers real ROI</li>
+<li>Common mistakes in Power Platform builds</li>
+<li>Balancing control and flexibility</li>
+</ul>
+
+<h3>Procurement Transformation Lessons</h3>
+<ul>
+<li>Reducing cycle time without losing compliance</li>
+<li>Vendor consolidation strategies</li>
+<li>Shifting from reactive to strategic procurement</li>
+</ul>
+
 </div>
 
-<div class="card">
-<h3>Automation in Operations</h3>
-<p>How organisations eliminate manual work using Power Platform.</p>
+<div class="results">
+<h3>Featured Frameworks</h3>
+
+<div class="metric">
+<strong>Clarity Model</strong>
+A structured approach to removing operational complexity
 </div>
 
-<div class="card">
-<h3>Data & Analytics Strategy</h3>
-<p>Building dashboards that drive real decisions.</p>
+<div class="metric">
+<strong>Execution Loop</strong>
+Turning strategy into repeatable delivery cycles
+</div>
+
+<div class="metric">
+<strong>Value Map</strong>
+Identifying where transformation actually creates ROI
 </div>
 
 </div>
 
-<footer style="text-align:center;padding:40px;">© 2026 Via Clara</footer>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Want More Insights?</h2>
+<p>Let’s talk about how these ideas apply to your organisation.</p>
+<a href="contact.html">Get in Touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Via Clara
+</footer>
 
 </body>
 </html>
