@@ -31,10 +31,12 @@ body::before {
     position: fixed;
     top: 50%;
     left: 50%;
-    /* FIXED BUG HERE */
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
+
+    /* FIXED: responsive scaling */
+    width: clamp(250px, 40vw, 600px);
+    height: clamp(250px, 40vw, 600px);
+
     background: url('logo.png') no-repeat center;
     background-size: contain;
     opacity: 0.25;
