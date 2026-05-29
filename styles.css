@@ -66,8 +66,23 @@ body::before {
     display: flex;
     align-items: center;
     gap: 20px;
-    text-decoration: none;
-    color: var(--text);  /* Prevents browser default blue link colour */
+    text-decoration: none !important;
+    color: var(--text) !important;
+}
+
+.logo:visited,
+.logo:hover,
+.logo:active {
+    color: var(--text) !important;
+    text-decoration: none !important;
+}
+
+.logo .logo-text span {
+    color: var(--text) !important;
+}
+
+.logo .logo-sub {
+    color: var(--text-light) !important;
 }
 
 .logo img {
