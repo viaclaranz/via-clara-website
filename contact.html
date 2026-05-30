@@ -5,8 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://www.viaclara.co.nz/contact.html">
 <link rel="icon" type="image/png" href="favicon.png">
-<title>Contact | Via Clara — Get in Touch</title>
+<title>Contact | Via Clara &mdash; Get in Touch</title>
 <meta name="description" content="Contact Via Clara to discuss your transformation challenges. We respond within 24–48 hours and work across Australia and New Zealand.">
+<meta property="og:title" content="Contact | Via Clara &mdash; Get in Touch">
+<meta property="og:description" content="Contact Via Clara to discuss your transformation challenges. We respond within 24–48 hours and work across Australia and New Zealand.">
+<meta property="og:url" content="https://www.viaclara.co.nz/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.viaclara.co.nz/og-image.png">
+<meta property="og:site_name" content="Via Clara">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -38,133 +44,125 @@
 </nav>
 
 <header class="page-header">
-  <h1>Let's talk</h1>
-  <p class="hero-sub">Every engagement starts with a conversation. Tell us what's not working — we'll tell you honestly whether and how we can help.</p>
+  <h1>Let&rsquo;s talk</h1>
+  <p class="hero-sub">Every engagement starts with a conversation. Tell us what&rsquo;s not working &mdash; we&rsquo;ll tell you honestly whether and how we can help.</p>
 </header>
 
-<!-- CONTACT -->
 <section class="case-study" aria-labelledby="contact-heading">
   <div class="container">
     <div class="case-grid">
-
       <div>
-        <h2 id="contact-heading">Get in touch</h2>
+        <h2 id="contact-heading">Send us a message</h2>
+        <p>Tell us about the challenge you&rsquo;re facing &mdash; what&rsquo;s not working, what you&rsquo;ve already tried, and what you&rsquo;re hoping to achieve. We&rsquo;ll come back to you with an honest view and a suggested next step.</p>
 
-        <p>We work with leadership teams across Australia and New Zealand. Whether you're exploring a transformation program, need advisory support on a specific challenge, or want to start with our free diagnostic — reach out and we'll respond promptly.</p>
-
-        <h3>The best way to start</h3>
-        <p>Send us a brief description of the challenge you're facing — what's not working, what you've already tried, and what you're hoping to achieve. We'll come back to you with an honest view and a suggested next step.</p>
-
-        <h3>What we can help with</h3>
-        <ul>
-          <li>Business transformation strategy and operating model design</li>
-          <li>Operational performance and process improvement programs</li>
-          <li>Automation and digital enablement (Power Platform and beyond)</li>
-          <li>Procurement optimisation and vendor performance improvement</li>
-          <li>Diagnostic engagements for leadership teams who need clarity before committing</li>
-        </ul>
-
-        <h3>What happens after you reach out</h3>
-        <ul>
-          <li>We'll respond within 24–48 hours</li>
-          <li>We'll ask a few questions to understand the situation properly</li>
-          <li>We'll suggest a way forward — whether that's a conversation, a diagnostic, or a structured proposal</li>
-          <li>There's no obligation and no sales process — just an honest discussion</li>
-        </ul>
+        <form class="contact-form" action="https://formspree.io/f/contact@viaclara.co.nz" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="org">Organisation</label>
+              <input type="text" id="org" name="organisation" placeholder="Acme Corp">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="jane@acmecorp.com" required>
+          </div>
+          <div class="form-group">
+            <label for="topic">What can we help with?</label>
+            <select id="topic" name="topic">
+              <option value="">Select an area&hellip;</option>
+              <option>Operating model &amp; transformation strategy</option>
+              <option>Operational performance &amp; process improvement</option>
+              <option>Digital enablement &amp; automation</option>
+              <option>Procurement &amp; vendor optimisation</option>
+              <option>Not sure yet &mdash; exploring options</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about the challenge</label>
+            <textarea id="message" name="message" placeholder="What&rsquo;s not working, what you&rsquo;ve tried, and what a good outcome looks like&hellip;" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send message</button>
+          <p class="form-note">We respond within 24&ndash;48 hours. No sales process &mdash; just an honest conversation.</p>
+        </form>
       </div>
 
       <div class="results" role="complementary">
         <h3>Contact details</h3>
-
         <div class="metric">
           <strong>Email</strong>
-          <a href="mailto:contact@viaclara.co.nz" style="color: var(--accent); text-decoration: none;">contact@viaclara.co.nz</a>
+          <a href="mailto:contact@viaclara.co.nz" class="accent-link">contact@viaclara.co.nz</a>
         </div>
-
         <div class="metric">
           <strong>Phone</strong>
-          <a href="tel:+64278024143" style="color: var(--accent); text-decoration: none;">+64 27 802 4143</a>
+          <a href="tel:+64278024143" class="accent-link">+64 27 802 4143</a>
         </div>
-
+        <div class="metric">
+          <strong>LinkedIn</strong>
+          <a href="https://www.linkedin.com/company/via-clara" target="_blank" rel="noopener" class="accent-link">linkedin.com/company/via-clara</a>
+        </div>
         <div class="metric">
           <strong>Location</strong>
-          New Zealand &amp; Australia — we work on-site and remotely across both markets
+          New Zealand &amp; Australia &mdash; on-site and remote across both markets
         </div>
-
-        <div class="metric">
-          <strong>Response time</strong>
-          Within 24–48 hours for all enquiries
-        </div>
-
         <div class="metric">
           <strong>Free diagnostic</strong>
-          <a href="execution_clarity_diagnostic.pdf" download style="color: var(--accent); text-decoration: none;">Download the Execution Clarity Diagnostic →</a>
+          <a href="execution_clarity_diagnostic.pdf" download class="accent-link">Download the Execution Clarity Diagnostic &rarr;</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="case-study alt" aria-labelledby="faq-heading">
   <div class="container">
     <div class="case-grid">
-
       <div>
         <h2 id="faq-heading">Common questions</h2>
-
         <h3>How do you typically structure an engagement?</h3>
-        <p>Most engagements start with a diagnostic — a structured assessment of where execution is breaking down. This gives both of us clarity on the problem before we agree on the scope and approach. From there, we move into design and delivery. We don't start with a fixed scope — we scope based on what the diagnosis reveals.</p>
-
+        <p>Most engagements start with a diagnostic &mdash; a structured assessment of where execution is breaking down. This gives both of us clarity on the problem before we agree on scope and approach. We don&rsquo;t start with a fixed scope; we scope based on what the diagnosis reveals.</p>
         <h3>How long does a typical engagement take?</h3>
-        <p>It depends on what we're fixing. An advisory diagnostic typically takes 2–6 weeks. A full transformation program — from design through to embedded change — is typically 3–12 months. We'll give you a clear estimate once we understand the problem.</p>
-
+        <p>An advisory diagnostic typically takes 2&ndash;6 weeks. A full transformation program &mdash; from design through to embedded change &mdash; is typically 3&ndash;12 months. We&rsquo;ll give you a clear estimate once we understand the problem.</p>
         <h3>Do you work remotely or on-site?</h3>
-        <p>Both, depending on what the work requires. Some phases — particularly diagnostic work and stakeholder engagement — benefit from being on-site. Other phases can be delivered effectively remotely. We'll be clear about what each phase needs.</p>
-
+        <p>Both, depending on what the work requires. Diagnostic work and stakeholder engagement benefit from being on-site. Other phases can be delivered effectively remotely. We&rsquo;ll be clear about what each phase needs.</p>
         <h3>What size of organisation do you work with?</h3>
-        <p>We work best in complex organisations with operational scale — typically mid-to-large enterprises operating across multiple sites or regions. We've worked with organisations managing teams of 50 to several hundred, and assets ranging from a few hundred to 16,000+. If you're not sure whether your situation fits, just ask.</p>
-
-        <h3>What's your approach to measuring success?</h3>
-        <p>Every engagement is scoped around specific, measurable outcomes — agreed upfront. We don't measure success by deliverables or consulting days. We measure it by whether the problem is actually solved: cost reduced, cycle time shortened, performance improved, and change embedded.</p>
-
+        <p>We work best in complex organisations with operational scale &mdash; typically mid-to-large enterprises operating across multiple sites or regions. We&rsquo;ve worked with organisations managing teams of 50 to several hundred, and assets from a few hundred to 16,000+. If you&rsquo;re not sure whether your situation fits, just ask.</p>
+        <h3>How do you measure success?</h3>
+        <p>Every engagement is scoped around specific, measurable outcomes agreed upfront. We don&rsquo;t measure success by deliverables or consulting days. We measure it by whether the problem is actually solved: cost reduced, cycle time shortened, performance improved, change embedded.</p>
         <h3>Can we start with something small?</h3>
-        <p>Yes. A diagnostic engagement is a low-commitment way to get a clear picture of the problem before deciding on a larger program. Many clients start there before committing to a full engagement.</p>
+        <p>Yes. A diagnostic engagement is a low-commitment way to get a clear picture of the problem before committing to a larger program. Many clients start there before committing to a full engagement.</p>
       </div>
-
       <div class="results" role="complementary">
         <h3>Not sure where to start?</h3>
-
         <div class="metric">
           <strong>Download the diagnostic</strong>
           The Execution Clarity Diagnostic takes 20 minutes and gives you a clear picture of where execution is breaking down. Free, no obligation.
           <br><br>
-          <a href="execution_clarity_diagnostic.pdf" download style="color: var(--accent); text-decoration: none; font-size: 14px;">Download →</a>
+          <a href="execution_clarity_diagnostic.pdf" download class="accent-link">Download &rarr;</a>
         </div>
-
         <div class="metric">
           <strong>Read the case studies</strong>
-          See how we've delivered measurable transformation across fleet, procurement, digital, and cost programs.
+          See how we&rsquo;ve delivered measurable transformation across fleet, procurement, digital, and cost programs.
           <br><br>
-          <a href="case-studies.html" style="color: var(--accent); text-decoration: none; font-size: 14px;">View case studies →</a>
+          <a href="case-studies.html" class="accent-link">View case studies &rarr;</a>
         </div>
-
         <div class="metric">
           <strong>Just reach out</strong>
-          If you're not sure whether your situation fits what we do — just ask. We'll give you an honest answer.
+          If you&rsquo;re not sure whether your situation fits what we do &mdash; just ask. We&rsquo;ll give you an honest answer.
           <br><br>
-          <a href="mailto:contact@viaclara.co.nz" style="color: var(--accent); text-decoration: none; font-size: 14px;">contact@viaclara.co.nz</a>
+          <a href="mailto:contact@viaclara.co.nz" class="accent-link">contact@viaclara.co.nz</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <section class="cta" aria-labelledby="cta-heading">
   <h2 id="cta-heading">Start the conversation</h2>
-  <p>Every transformation begins with clarity. Let's find yours.</p>
+  <p>Every transformation begins with clarity. Let&rsquo;s find yours.</p>
   <a href="mailto:contact@viaclara.co.nz" class="btn-download">Email us directly</a>
 </section>
 
@@ -184,13 +182,16 @@
     <div class="footer-contact">
       <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a>
       <a href="tel:+64278024143">+64 27 802 4143</a>
+      <a href="https://www.linkedin.com/company/via-clara" target="_blank" rel="noopener" class="footer-linkedin">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
     </div>
   </div>
   <div class="footer-legal">
-    <p>© 2026 Via Clara · <a href="privacy.html">Privacy Policy</a></p>
+    <p>&copy; 2026 Via Clara &middot; <a href="privacy.html">Privacy Policy</a></p>
   </div>
 </footer>
-
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -205,6 +206,8 @@
     });
   });
 </script>
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Via Clara","url":"https://www.viaclara.co.nz","logo":"https://www.viaclara.co.nz/logo.png","email":"contact@viaclara.co.nz","telephone":"+64-27-802-4143","areaServed":["AU","NZ"],"description":"Execution transformation consulting across Australia and New Zealand.","sameAs":["https://www.linkedin.com/company/via-clara"]}
+</script>
 </body>
 </html>
