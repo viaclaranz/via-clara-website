@@ -889,11 +889,12 @@ footer {
 
 /* ========================= INSIGHT DOWNLOAD BUTTON ========================= */
 .insight-download {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 7px;
-    margin-top: 12px;
-    padding: 9px 18px;
+    width: fit-content;
+    margin-top: 14px;
+    padding: 10px 20px;
     background: white;
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -911,5 +912,4 @@ footer {
 
 .insight-download svg {
     flex-shrink: 0;
-    transition: color 0.2s ease;
 }
