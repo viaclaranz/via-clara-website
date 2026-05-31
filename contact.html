@@ -55,24 +55,24 @@
         <h2 id="contact-heading">Send us a message</h2>
         <p>Tell us about the challenge you&rsquo;re facing &mdash; what&rsquo;s not working, what you&rsquo;ve already tried, and what you&rsquo;re hoping to achieve. We&rsquo;ll come back to you with an honest view and a suggested next step.</p>
 
-        <form class="contact-form" action="https://formspree.io/f/contact@viaclara.co.nz" method="POST">
+        <div class="contact-form" id="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+              <input type="text" id="name" placeholder="Jane Smith">
             </div>
             <div class="form-group">
               <label for="org">Organisation</label>
-              <input type="text" id="org" name="organisation" placeholder="Acme Corp">
+              <input type="text" id="org" placeholder="Acme Corp">
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="jane@acmecorp.com" required>
+            <label for="email">Your email address</label>
+            <input type="email" id="email" placeholder="jane@acmecorp.com">
           </div>
           <div class="form-group">
             <label for="topic">What can we help with?</label>
-            <select id="topic" name="topic">
+            <select id="topic">
               <option value="">Select an area&hellip;</option>
               <option>Operating model &amp; transformation strategy</option>
               <option>Operational performance &amp; process improvement</option>
@@ -83,11 +83,45 @@
           </div>
           <div class="form-group">
             <label for="message">Tell us about the challenge</label>
-            <textarea id="message" name="message" placeholder="What&rsquo;s not working, what you&rsquo;ve tried, and what a good outcome looks like&hellip;" required></textarea>
+            <textarea id="message" placeholder="What's not working, what you've tried, and what a good outcome looks like&hellip;"></textarea>
           </div>
-          <button type="submit" class="form-submit">Send message</button>
-          <p class="form-note">We respond within 24&ndash;48 hours. No sales process &mdash; just an honest conversation.</p>
-        </form>
+          <button class="form-submit" onclick="sendEmail()">Send message</button>
+          <p class="form-note" id="form-note">This will open your email client with your message pre-filled and addressed to us. We respond within 24&ndash;48 hours.</p>
+        </div>
+
+        <script>
+        function sendEmail() {
+          var name    = document.getElementById('name').value.trim();
+          var org     = document.getElementById('org').value.trim();
+          var email   = document.getElementById('email').value.trim();
+          var topic   = document.getElementById('topic').value;
+          var message = document.getElementById('message').value.trim();
+
+          if (!name || !email || !message) {
+            document.getElementById('form-note').textContent =
+              'Please fill in your name, email, and message before sending.';
+            document.getElementById('form-note').style.color = '#B89B7A';
+            return;
+          }
+
+          var subject = topic
+            ? 'Via Clara Enquiry — ' + topic
+            : 'Via Clara Enquiry';
+
+          var body =
+            'Name: ' + name + '\n' +
+            (org     ? 'Organisation: ' + org + '\n' : '') +
+            'Email: ' + email + '\n' +
+            (topic   ? 'Area of interest: ' + topic + '\n' : '') +
+            '\n' +
+            message;
+
+          window.location.href =
+            'mailto:contact@viaclara.co.nz' +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body='    + encodeURIComponent(body);
+        }
+        </script>
       </div>
 
       <div class="results" role="complementary">
