@@ -886,3 +886,30 @@ footer {
         justify-content: center;
     }
 }
+
+/* ========================= INSIGHT DOWNLOAD BUTTON ========================= */
+.insight-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    padding: 9px 18px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.insight-download:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.insight-download svg {
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
