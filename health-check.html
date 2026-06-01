@@ -6,9 +6,9 @@
 <link rel="canonical" href="https://www.viaclara.co.nz/health-check.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <title>Execution Health Check | Via Clara</title>
-<meta name="description" content="How healthy is your execution? Take Via Clara's free 3-minute Execution Health Check and find out where your organisation is drifting — before it shows up in the results.">
+<meta name="description" content="How healthy is your execution? Take Via Clara's free Execution Health Check — 14 questions across the Seven Drift Signals™. Find out where your organisation is drifting before it shows up in the results.">
 <meta property="og:title" content="Execution Health Check — Via Clara">
-<meta property="og:description" content="3 minutes. 12 questions. Find out where your execution is drifting before it shows up in the results.">
+<meta property="og:description" content="14 questions across the Seven Drift Signals™. Find out where your execution is drifting before it shows up in the results.">
 <meta property="og:image" content="https://www.viaclara.co.nz/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Via Clara">
@@ -405,21 +405,21 @@
 
 <!-- HERO -->
 <div class="hero" id="hero-section">
-  <div class="hero-eyebrow">Free · 3 minutes · No obligation</div>
+  <div class="hero-eyebrow">Free · 5 minutes · No obligation</div>
   <h1>Execution<br>Health Check</h1>
-  <p>12 questions. An honest score. Find out where your execution is drifting — before it shows up in the results.</p>
+  <p>14 questions across the Seven Drift Signals™. An honest score. Find out where your execution is drifting — before it shows up in the results.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      3–5 minutes
+      4–5 minutes
     </div>
     <div class="hero-meta-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-      12 questions
+      14 questions
     </div>
     <div class="hero-meta-item">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Instant score
+      7 drift signals
     </div>
   </div>
 </div>
@@ -428,7 +428,7 @@
 <div class="progress-wrap" id="progress-section" style="display:none">
   <div class="progress-info">
     <span id="progress-text">Question 1 of 12</span>
-    <span id="lever-label">Operating Model</span>
+    <span id="lever-label">Priority Drift™</span>
   </div>
   <div class="progress-track">
     <div class="progress-fill" id="progress-fill" style="width:0%"></div>
@@ -441,7 +441,7 @@
   <!-- START CARD -->
   <div class="question-card" id="start-card">
     <div class="q-lever">Via Clara · Execution Health Check</div>
-    <div class="q-text">How healthy is your organisation&rsquo;s execution? Answer 12 honest questions and find out.</div>
+    <div class="q-text">How healthy is your organisation&rsquo;s execution? Answer 14 honest questions across the Seven Drift Signals™ and find out.</div>
     <div style="font-size:14px;color:var(--light);margin-bottom:28px;line-height:1.7">
       There are no right or wrong answers. Score based on how your organisation actually operates — not how it&rsquo;s designed to, or how you&rsquo;d like it to. Honest scoring produces useful results.
     </div>
@@ -452,7 +452,7 @@
 
   <!-- QUESTION CARD (hidden initially) -->
   <div class="question-card" id="question-card" style="display:none">
-    <div class="q-lever" id="q-lever">Operating Model</div>
+    <div class="q-lever" id="q-lever">Priority Drift™</div>
     <div class="q-text" id="q-text"></div>
     <div class="answer-group" id="answer-group"></div>
     <div class="nav-btns">
@@ -492,7 +492,7 @@
   <div class="cta-strip">
     <div class="cta-text">
       <h3>Go deeper with the full Diagnostic</h3>
-      <p>30 questions. 6 drift signals. A precise map of where to focus first.</p>
+      <p>30 questions. 7 drift signals. A precise map of where to focus first.</p>
     </div>
     <div class="cta-btns">
       <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-primary">Download the Diagnostic</a>
@@ -518,166 +518,205 @@
 <script>
 // ── Questions ──────────────────────────────────────────────────────────────
 const QUESTIONS = [
-  // Operating Model (3)
+  // 01 Priority Drift (2)
   {
-    lever: 'Operating Model',
-    text: 'Leadership teams across the organisation work from the same priorities — not competing ones.',
+    signal: 'Priority Drift™',
+    text: 'Strategic priorities are understood consistently across all leadership teams — not just at the top.',
     answers: [
-      { label: 'Yes', desc: 'Consistently true across the organisation', score: 8 },
-      { label: 'Somewhat', desc: 'True in some areas, inconsistent in others', score: 4 },
+      { label: 'Yes', desc: 'Teams at every level are working from the same priorities', score: 7 },
+      { label: 'Somewhat', desc: 'Clear at the top, inconsistent further down', score: 3 },
       { label: 'No', desc: 'Teams regularly pull in different directions', score: 0 },
     ]
   },
   {
-    lever: 'Operating Model',
-    text: 'When decisions need to be made, it\'s clear who owns them — and they get made quickly.',
+    signal: 'Priority Drift™',
+    text: 'When priorities compete, there is a clear and trusted way to resolve the conflict — without escalating to leadership every time.',
     answers: [
-      { label: 'Yes', desc: 'Decision rights are clear and decisions happen fast', score: 8 },
-      { label: 'Somewhat', desc: 'Some decisions are clear, others cause delays', score: 4 },
-      { label: 'No', desc: 'Decisions are slow, escalated, or relitigated', score: 0 },
-    ]
-  },
-  {
-    lever: 'Operating Model',
-    text: 'Our operating model would still work effectively if key individuals changed roles or left.',
-    answers: [
-      { label: 'Yes', desc: 'The structure holds regardless of who\'s in it', score: 9 },
-      { label: 'Somewhat', desc: 'Some parts depend heavily on specific people', score: 4 },
-      { label: 'No', desc: 'Key knowledge and authority sit with individuals', score: 0 },
+      { label: 'Yes', desc: 'Trade-off decisions are made at the right level, quickly', score: 8 },
+      { label: 'Somewhat', desc: 'Sometimes resolved well, sometimes left unresolved', score: 3 },
+      { label: 'No', desc: 'Competing priorities create confusion or paralysis', score: 0 },
     ]
   },
 
-  // Operational Performance (3)
+  // 02 Decision Drift (2)
   {
-    lever: 'Operational Performance',
-    text: 'Our core processes are followed consistently — not worked around.',
+    signal: 'Decision Drift™',
+    text: 'When a decision is needed, it is made within an expected timeframe — not left pending.',
     answers: [
-      { label: 'Yes', desc: 'Processes are clear, followed, and trusted', score: 9 },
-      { label: 'Somewhat', desc: 'Followed mostly, with occasional workarounds', score: 4 },
-      { label: 'No', desc: 'Workarounds have become standard practice', score: 0 },
+      { label: 'Yes', desc: 'Decisions happen at the right speed consistently', score: 8 },
+      { label: 'Somewhat', desc: 'Some decisions are timely, others stall without explanation', score: 3 },
+      { label: 'No', desc: 'Decisions regularly sit pending, slowing execution', score: 0 },
     ]
   },
   {
-    lever: 'Operational Performance',
-    text: 'We know our cycle times — and they\'re consistently met across teams and sites.',
+    signal: 'Decision Drift™',
+    text: 'Governance forums consistently produce clear decisions and assigned actions — not just discussion.',
     answers: [
-      { label: 'Yes', desc: 'Predictable and consistent across the organisation', score: 8 },
-      { label: 'Somewhat', desc: 'Known but variable — depends on the team or site', score: 4 },
-      { label: 'No', desc: 'Unpredictable or not tracked meaningfully', score: 0 },
-    ]
-  },
-  {
-    lever: 'Operational Performance',
-    text: 'Teams spend more time delivering value than managing complexity and exceptions.',
-    answers: [
-      { label: 'Yes', desc: 'Exceptions are rare and handled without disruption', score: 9 },
-      { label: 'Somewhat', desc: 'A meaningful portion of time goes to exception-handling', score: 4 },
-      { label: 'No', desc: 'Exception management consumes significant capacity', score: 0 },
+      { label: 'Yes', desc: 'Meetings close with clear owners and next steps', score: 7 },
+      { label: 'Somewhat', desc: 'Outcomes vary — some meetings decide, others don\'t', score: 3 },
+      { label: 'No', desc: 'The same issues recirculate without resolution', score: 0 },
     ]
   },
 
-  // Digital Enablement (3)
+  // 03 Accountability Drift (2)
   {
-    lever: 'Digital Enablement',
-    text: 'Leadership has real-time visibility of operational performance — not weekly reports compiled manually.',
+    signal: 'Accountability Drift™',
+    text: 'Every major initiative has a single, clearly identified owner — not a committee or shared responsibility.',
     answers: [
-      { label: 'Yes', desc: 'Live dashboards and reliable data available when needed', score: 8 },
-      { label: 'Somewhat', desc: 'Some visibility, but gaps or lags exist', score: 4 },
-      { label: 'No', desc: 'Reporting is manual, delayed, or inconsistent', score: 0 },
+      { label: 'Yes', desc: 'Ownership is named, visible, and respected', score: 8 },
+      { label: 'Somewhat', desc: 'Most things have owners, but accountability blurs on complex work', score: 3 },
+      { label: 'No', desc: 'Ownership is diffuse — everyone is responsible and no one is', score: 0 },
     ]
   },
   {
-    lever: 'Digital Enablement',
-    text: 'Our data is consistent across systems — the same question doesn\'t produce different answers.',
+    signal: 'Accountability Drift™',
+    text: 'When something goes wrong, it is clear who is responsible — and that person is held accountable.',
     answers: [
-      { label: 'Yes', desc: 'Single source of truth across the organisation', score: 9 },
-      { label: 'Somewhat', desc: 'Mostly consistent but some reconciliation required', score: 4 },
-      { label: 'No', desc: 'Data conflicts are common and undermine confidence', score: 0 },
-    ]
-  },
-  {
-    lever: 'Digital Enablement',
-    text: 'Repetitive manual processes have been automated — our team\'s time goes to higher-value work.',
-    answers: [
-      { label: 'Yes', desc: 'Automation is in place where it adds clear value', score: 8 },
-      { label: 'Somewhat', desc: 'Some automation exists but manual work remains significant', score: 4 },
-      { label: 'No', desc: 'Most processes are still manual and error-prone', score: 0 },
+      { label: 'Yes', desc: 'Accountability is consistent and applied fairly', score: 7 },
+      { label: 'Somewhat', desc: 'Accountability exists but isn\'t always enforced', score: 3 },
+      { label: 'No', desc: 'Poor outcomes are rarely traced to a clear owner', score: 0 },
     ]
   },
 
-  // Procurement (3)
+  // 04 Flow Drift (2)
   {
-    lever: 'Procurement & Vendors',
-    text: 'Our procurement process supports execution speed — it doesn\'t create bottlenecks.',
+    signal: 'Flow Drift™',
+    text: 'Core processes are followed consistently across teams and sites — not quietly worked around.',
     answers: [
-      { label: 'Yes', desc: 'Fast, clear, and rarely a constraint on delivery', score: 9 },
-      { label: 'Somewhat', desc: 'Manageable but slower than it should be', score: 4 },
-      { label: 'No', desc: 'Procurement regularly delays programmes and decisions', score: 0 },
+      { label: 'Yes', desc: 'Processes are clear, trusted, and followed as designed', score: 8 },
+      { label: 'Somewhat', desc: 'Followed mostly, with workarounds appearing at the edges', score: 3 },
+      { label: 'No', desc: 'Workarounds have become the de facto standard', score: 0 },
     ]
   },
   {
-    lever: 'Procurement & Vendors',
-    text: 'We have clear visibility of what we spend with vendors — and confidence we\'re getting value.',
+    signal: 'Flow Drift™',
+    text: 'Handoffs between teams happen with minimal friction — work doesn\'t stall at the boundaries.',
     answers: [
-      { label: 'Yes', desc: 'Full spend visibility with performance accountability', score: 8 },
-      { label: 'Somewhat', desc: 'Partial visibility — some areas are opaque', score: 4 },
-      { label: 'No', desc: 'Spend is fragmented and difficult to interrogate', score: 0 },
+      { label: 'Yes', desc: 'Handoffs are clean and rarely cause delay or information loss', score: 7 },
+      { label: 'Somewhat', desc: 'Some handoffs work well, others are a consistent friction point', score: 3 },
+      { label: 'No', desc: 'Handoffs are a significant source of delay and rework', score: 0 },
+    ]
+  },
+
+  // 05 Information Drift (2)
+  {
+    signal: 'Information Drift™',
+    text: 'Leadership has genuine confidence in operational reporting — the data reflects reality and arrives when it\'s needed.',
+    answers: [
+      { label: 'Yes', desc: 'Reporting is timely, trusted, and acted on', score: 8 },
+      { label: 'Somewhat', desc: 'Mostly reliable but gaps or lags reduce confidence', score: 3 },
+      { label: 'No', desc: 'Reports are delayed, inconsistent, or not trusted', score: 0 },
     ]
   },
   {
-    lever: 'Procurement & Vendors',
-    text: 'Procurement is treated as a strategic function — not just a processing team.',
+    signal: 'Information Drift™',
+    text: 'When performance data shows a problem, it consistently produces a decision and a clear action — not just a discussion.',
     answers: [
-      { label: 'Yes', desc: 'Actively shapes demand and creates commercial value', score: 9 },
-      { label: 'Somewhat', desc: 'Moving in the right direction but not there yet', score: 4 },
-      { label: 'No', desc: 'Primarily reactive — approves and processes requests', score: 0 },
+      { label: 'Yes', desc: 'Data drives decisions reliably across the organisation', score: 7 },
+      { label: 'Somewhat', desc: 'Sometimes acted on, sometimes discussed without resolution', score: 3 },
+      { label: 'No', desc: 'Problems are visible in the data but rarely produce clear action', score: 0 },
+    ]
+  },
+
+  // 06 Alignment Drift (2)
+  {
+    signal: 'Alignment Drift™',
+    text: 'Agreed ways of working are followed consistently in practice — not just on paper.',
+    answers: [
+      { label: 'Yes', desc: 'What was agreed is what actually happens across the organisation', score: 8 },
+      { label: 'Somewhat', desc: 'Followed in some areas, quietly varied in others', score: 3 },
+      { label: 'No', desc: 'Significant gap between agreed standards and actual practice', score: 0 },
+    ]
+  },
+  {
+    signal: 'Alignment Drift™',
+    text: 'When practices drift from agreed standards, it is identified and corrected quickly — not left to compound.',
+    answers: [
+      { label: 'Yes', desc: 'Drift is caught early and addressed before it embeds', score: 7 },
+      { label: 'Somewhat', desc: 'Sometimes caught, but often only noticed when it causes a problem', score: 3 },
+      { label: 'No', desc: 'Drift accumulates quietly and is rarely surfaced or resolved', score: 0 },
+    ]
+  },
+
+  // 07 Capacity Drift (2)
+  {
+    signal: 'Capacity Drift™',
+    text: 'Senior leaders spend most of their time on strategic and high-value work — not operational firefighting.',
+    answers: [
+      { label: 'Yes', desc: 'Leadership attention is directed at the right level consistently', score: 8 },
+      { label: 'Somewhat', desc: 'Intention exists but reactive demands regularly pull focus down', score: 3 },
+      { label: 'No', desc: 'Leadership is predominantly consumed by day-to-day operational issues', score: 0 },
+    ]
+  },
+  {
+    signal: 'Capacity Drift™',
+    text: 'The organisation has genuine capacity to absorb and deliver change — transformation isn\'t competing with keeping the lights on.',
+    answers: [
+      { label: 'Yes', desc: 'Change programmes are resourced and protected from operational drag', score: 7 },
+      { label: 'Somewhat', desc: 'Capacity exists in theory but is regularly consumed by other demands', score: 3 },
+      { label: 'No', desc: 'Transformation is consistently deprioritised when operational pressure rises', score: 0 },
     ]
   },
 ];
 
-const LEVERS = ['Operating Model', 'Operational Performance', 'Digital Enablement', 'Procurement & Vendors'];
-const MAX_PER_LEVER = 25;
+const SIGNALS = [
+  'Priority Drift™',
+  'Decision Drift™',
+  'Accountability Drift™',
+  'Flow Drift™',
+  'Information Drift™',
+  'Alignment Drift™',
+  'Capacity Drift™',
+];
 
-const LEVER_FINDINGS = {
+const SIGNAL_FINDINGS = {
   strong: [
-    'Your operating model is providing clear structure and alignment. Focus on maintaining consistency as the organisation scales.',
-    'Operational performance is a clear strength. The focus should be on sustaining and benchmarking as volume grows.',
-    'Digital enablement is working well. Prioritise keeping data quality high and expanding automation incrementally.',
-    'Procurement is operating strategically. Focus on deepening vendor relationships and forward demand planning.',
+    'Strategic priorities are landing clearly across the organisation. Focus on maintaining alignment as strategy evolves and new teams join.',
+    'Decisions are being made at the right speed and level. Protect this as the organisation grows — decision latency is one of the first things to degrade at scale.',
+    'Accountability is clear and respected. Ensure it remains structural rather than personal — tied to roles, not individuals.',
+    'Operational flow is strong. Monitor for workarounds emerging quietly at the edges, particularly when headcount or volume increases.',
+    'Information is reliable and driving action. Focus on expanding coverage to any blind spots and ensuring data quality holds as systems change.',
+    'Agreed ways of working are being followed. Invest in making drift detection systematic rather than dependent on individual observation.',
+    'Capacity is being directed well. Actively protect leadership time and change capacity as the organisation takes on more.',
   ],
   watch: [
-    'Some alignment gaps are emerging. Decision rights or priority clarity may need attention before they compound.',
-    'Operational friction exists and is manageable now — but will grow with scale. Map where workarounds are occurring.',
-    'Reporting and data gaps are creating blind spots. Identify the highest-cost manual processes first.',
-    'Procurement is functioning but is likely a constraint on speed. Approval workflows and vendor SLAs are the priority.',
+    'Priority alignment is inconsistent below the senior leadership level. Clarify how strategic priorities translate into team-level decisions before the gap widens.',
+    'Some decisions are stalling or being relitigated. Map where the latency is occurring — governance structure, approval levels, or unclear ownership.',
+    'Accountability is present but not fully reliable. Identify where ownership blurs — typically at cross-functional handoffs or during periods of change.',
+    'Process adherence is variable. Identify which workarounds are genuinely necessary versus which have become habit. Fix the process, not just the behaviour.',
+    'Reporting gaps or trust issues are creating blind spots. Identify the highest-priority data gaps and address manual aggregation before it becomes the norm.',
+    'Drift between agreed and actual practice is occurring. Introduce lightweight monitoring before variations embed as the new standard.',
+    'Capacity is being consumed by the wrong things in some areas. Identify where firefighting is displacing strategic work and address the root cause.',
   ],
   act: [
-    'Operating model fragmentation is likely already affecting outcomes. Structural intervention is needed.',
-    'Operational friction is significant. Rework, exceptions, and workarounds are consuming capacity that should go elsewhere.',
-    'Data inconsistency and manual processes are creating real risk. A prioritised digital improvement plan is needed.',
-    'Procurement is reactive and creating drag across the organisation. Cycle time and spend visibility are the starting points.',
+    'Priority misalignment is active and likely already affecting outcomes. Rebuild priority clarity from the leadership level down before investing further in execution.',
+    'Decision latency is a structural problem. Approval bottlenecks and unclear escalation paths are slowing the organisation. Redesign governance before it compounds.',
+    'Accountability has diffused. Ownership is unclear, consequences are inconsistent, and the organisation cannot reliably identify who is responsible for outcomes. Structural reset required.',
+    'Flow has fragmented. Workarounds are the norm, cycle times are unpredictable, and process redesign is needed before any further automation or scaling.',
+    'Information cannot be trusted. Leaders are either making decisions without reliable data or spending significant time reconciling conflicting reports. Foundational data work is needed.',
+    'Alignment has broken down. The gap between agreed standards and actual practice is significant and compounding. Systemic intervention is required — not reminders or retraining.',
+    'Capacity is critically constrained. Firefighting has displaced strategic work and the organisation lacks the headroom to deliver change. Structural workload intervention is needed before transformation can succeed.',
   ],
 };
 
 // ── State ──────────────────────────────────────────────────────────────────
 let current = 0;
-let answers = new Array(12).fill(null);
+let answers = new Array(14).fill(null);
 let userName = '';
 let userEmail = '';
 
 // ── Helpers ────────────────────────────────────────────────────────────────
-function leverIndex(q) {
-  return Math.floor(q / 3);
+function signalIndex(q) {
+  return Math.floor(q / 2);
 }
 
-function calcLeverScore(li) {
+function calcSignalScore(si) {
   let total = 0;
-  for (let i = li * 3; i < li * 3 + 3; i++) {
+  const maxTotal = Math.max(...QUESTIONS[si*2].answers.map(a=>a.score)) +
+                   Math.max(...QUESTIONS[si*2+1].answers.map(a=>a.score));
+  for (let i = si * 2; i < si * 2 + 2; i++) {
     if (answers[i] !== null) total += QUESTIONS[i].answers[answers[i]].score;
   }
-  // Max possible per lever: sum of max scores (8+8+9=25 or similar)
-  const maxes = [0,1,2].map(j => Math.max(...QUESTIONS[li*3+j].answers.map(a=>a.score)));
-  const maxTotal = maxes.reduce((a,b)=>a+b,0);
   return { raw: total, max: maxTotal, pct: Math.round(total / maxTotal * 100) };
 }
 
@@ -691,26 +730,28 @@ function calcTotalScore() {
 }
 
 function getOutcome(score) {
-  if (score >= 80) return { label: 'Strong Execution', color: '#4A7C59', bg: 'rgba(74,124,89,0.15)',
+  if (score >= 80) return { label: 'Clear Execution™', color: '#4A7C59', bg: 'rgba(74,124,89,0.15)',
     summary: 'Your execution architecture is fundamentally sound. The focus should be on sustaining performance and catching early drift signals as the organisation grows.' };
-  if (score >= 60) return { label: 'Early Drift', color: '#B8860B', bg: 'rgba(184,134,11,0.15)',
-    summary: 'Drift is emerging but has not yet compounded. This is the ideal moment to act — targeted intervention in your lowest-scoring levers will produce fast, visible improvement.' };
-  if (score >= 40) return { label: 'Active Drift', color: '#C07020', bg: 'rgba(192,112,32,0.15)',
-    summary: 'Execution has drifted materially from strategic intent. Structured intervention across your lowest levers is needed before this compounds further.' };
-  return { label: 'Fragmented Execution', color: '#8B3A3A', bg: 'rgba(139,58,58,0.15)',
-    summary: 'Execution fragmentation is significant and likely already visible in your results. A full diagnostic engagement is recommended to map the intervention priorities.' };
+  if (score >= 66) return { label: 'Early Drift™', color: '#B8860B', bg: 'rgba(184,134,11,0.15)',
+    summary: 'Drift is emerging but has not yet compounded. This is the ideal moment to act — targeted intervention in your lowest-scoring signals will produce fast, visible improvement.' };
+  if (score >= 46) return { label: 'Active Drift™', color: '#C07020', bg: 'rgba(192,112,32,0.15)',
+    summary: 'Execution has drifted materially from strategic intent. Structured intervention across your priority drift signals is needed before this compounds further.' };
+  if (score >= 26) return { label: 'Fragmented Execution™', color: '#8B3A3A', bg: 'rgba(139,58,58,0.15)',
+    summary: 'Execution has fragmented significantly and is likely already visible in your results. A full diagnostic engagement is recommended to map intervention priorities.' };
+  return { label: 'Structural Realignment Required™', color: '#6B1F1F', bg: 'rgba(107,31,31,0.18)',
+    summary: 'Fundamental structural change is required before execution can improve. The drift signals are severe and compounding. Immediate structured engagement is recommended.' };
 }
 
-function getLeverStatus(pct) {
+function getSignalStatus(pct) {
   if (pct >= 80) return { label: 'Strong', color: '#4A7C59', bg: '#EAF3DE' };
   if (pct >= 55) return { label: 'Watch', color: '#B8860B', bg: '#FBF3E0' };
   return { label: 'Act', color: '#8B3A3A', bg: '#FCEBEB' };
 }
 
-function getLeverFinding(li, pct) {
-  if (pct >= 80) return LEVER_FINDINGS.strong[li];
-  if (pct >= 55) return LEVER_FINDINGS.watch[li];
-  return LEVER_FINDINGS.act[li];
+function getSignalFinding(si, pct) {
+  if (pct >= 80) return SIGNAL_FINDINGS.strong[si];
+  if (pct >= 55) return SIGNAL_FINDINGS.watch[si];
+  return SIGNAL_FINDINGS.act[si];
 }
 
 // ── UI functions ───────────────────────────────────────────────────────────
@@ -723,7 +764,7 @@ function startCheck() {
 
 function renderQuestion() {
   const q = QUESTIONS[current];
-  document.getElementById('q-lever').textContent = q.lever;
+  document.getElementById('q-lever').textContent = q.signal;
   document.getElementById('q-text').textContent = q.text;
 
   const group = document.getElementById('answer-group');
@@ -745,7 +786,7 @@ function renderQuestion() {
   const pct = (current / QUESTIONS.length) * 100;
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-text').textContent = `Question ${current + 1} of ${QUESTIONS.length}`;
-  document.getElementById('lever-label').textContent = q.lever;
+  document.getElementById('lever-label').textContent = q.signal;
 
   // Buttons
   document.getElementById('btn-prev').disabled = current === 0;
@@ -806,13 +847,13 @@ function submitGate() {
   // Send email notification
   const score = calcTotalScore();
   const outcome = getOutcome(score);
-  const leverLines = LEVERS.map((l,i) => {
-    const s = calcLeverScore(i);
-    return `${l}: ${s.pct}%`;
+  const signalLines = SIGNALS.map((s,i) => {
+    const sc = calcSignalScore(i);
+    return `${s}: ${sc.pct}%`;
   }).join(' | ');
 
   const subject = `Execution Health Check — ${name} scored ${score}/100`;
-  const body = `Name: ${name}\nEmail: ${email}\n\nScore: ${score}/100\nOutcome: ${outcome.label}\n\n${leverLines}\n\nCompleted: ${new Date().toLocaleString('en-NZ')}`;
+  const body = `Name: ${name}\nEmail: ${email}\n\nScore: ${score}/100\nOutcome: ${outcome.label}\n\n${signalLines}\n\nCompleted: ${new Date().toLocaleString('en-NZ')}`;
   const mailto = `mailto:contact@viaclara.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.open(mailto, '_blank');
 
@@ -846,18 +887,18 @@ function showResults() {
 
   document.getElementById('result-summary').textContent = outcome.summary;
 
-  // Lever cards
+  // Signal cards
   const grid = document.getElementById('levers-grid');
   grid.innerHTML = '';
-  LEVERS.forEach((lev, i) => {
-    const s   = calcLeverScore(i);
-    const st  = getLeverStatus(s.pct);
-    const fin = getLeverFinding(i, s.pct);
+  SIGNALS.forEach((sig, i) => {
+    const s   = calcSignalScore(i);
+    const st  = getSignalStatus(s.pct);
+    const fin = getSignalFinding(i, s.pct);
 
     const card = document.createElement('div');
     card.className = 'lever-card';
     card.innerHTML = `
-      <div class="lever-name">${lev}</div>
+      <div class="lever-name">${sig}</div>
       <div class="lever-score-line">
         <div class="lever-score-num">${s.pct}</div>
         <div class="lever-score-max">/ 100</div>
@@ -881,15 +922,15 @@ function showResults() {
 function shareScore() {
   const score   = calcTotalScore();
   const outcome = getOutcome(score);
-  let lowestLever = 0;
+  let lowestSignal = 0;
   let lowestPct = 101;
-  LEVERS.forEach((l, i) => {
-    const s = calcLeverScore(i);
-    if (s.pct < lowestPct) { lowestPct = s.pct; lowestLever = i; }
+  SIGNALS.forEach((s, i) => {
+    const sc = calcSignalScore(i);
+    if (sc.pct < lowestPct) { lowestPct = sc.pct; lowestSignal = i; }
   });
-  const worstName = LEVERS[lowestLever];
+  const worstName = SIGNALS[lowestSignal].replace('\u2122', '');
 
-  const msg = `I just took the Via Clara Execution Health Check and scored ${score}/100 — ${outcome.label}.\n\nMy biggest gap is ${worstName}.\n\nIf you lead operations, transformation, or procurement programmes — worth 3 minutes of your time:\nviaclara.co.nz/health-check.html\n\n#ExecutionDrift #BusinessTransformation`;
+  const msg = `I just took the Via Clara Execution Health Check and scored ${score}/100 — ${outcome.label.replace('\u2122','')}.\n\nMy highest-risk signal is ${worstName}.\n\nIf you lead operations, transformation, or procurement — worth 5 minutes of your time:\nviaclara.co.nz/health-check.html\n\n#ExecutionDrift #BusinessTransformation`;
 
   navigator.clipboard.writeText(msg).then(() => {
     document.getElementById('copied-msg').style.display = 'inline';
