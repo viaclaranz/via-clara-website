@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.viaclara.co.nz/health-check.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Execution Health Check | Via Clara</title>
+<meta name="description" content="How healthy is your execution? Take Via Clara's free 3-minute Execution Health Check and find out where your organisation is drifting — before it shows up in the results.">
+<meta property="og:title" content="Execution Health Check — Via Clara">
+<meta property="og:description" content="3 minutes. 12 questions. Find out where your execution is drifting before it shows up in the results.">
+<meta property="og:image" content="https://www.viaclara.co.nz/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Via Clara">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q47XYJ4CSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q47XYJ4CSQ');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  /* ── Design tokens ─────────────────────────────────────────────────── */
+  :root {
+    --bg:       #F7F3EE;
+    --text:     #5A5048;
+    --accent:   #B89B7A;
+    --dark:     #3D3530;
+    --light:    #A79F98;
+    --border:   #E6DDD4;
+    --white:    #ffffff;
+    --pull:     #F2ECE6;
+    --shadow:   rgba(0,0,0,0.06);
+    --green:    #4A7C59;
+    --amber:    #B8860B;
+    --red:      #8B3A3A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── Nav ───────────────────────────────────────────────────────────── */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,243,238,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-container {
+    width: 90%; max-width: 1200px; margin: auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0;
+  }
+  .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text); }
+  .logo img { width: 100px; height: auto; }
+  .logo-text span { font-family: 'Cormorant Garamond', serif; font-size: 28px; letter-spacing: 3px; }
+  .logo-sub { font-size: 12px; font-weight: 300; letter-spacing: 2px; color: var(--light); }
+  .nav-back { font-size: 13px; color: var(--light); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+  .nav-back:hover { color: var(--accent); }
+
+  /* ── Hero ──────────────────────────────────────────────────────────── */
+  .hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.1; color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 16px; color: var(--light);
+    max-width: 520px; margin: 0 auto 32px;
+  }
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px; flex-wrap: wrap;
+    font-size: 13px; color: var(--light);
+  }
+  .hero-meta-item { display: flex; align-items: center; gap: 7px; }
+  .hero-meta-item svg { color: var(--accent); }
+
+  /* ── Progress bar ──────────────────────────────────────────────────── */
+  .progress-wrap {
+    width: 90%; max-width: 680px; margin: 0 auto 40px;
+  }
+  .progress-info {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--light); margin-bottom: 8px;
+  }
+  .progress-track {
+    height: 4px; background: var(--border); border-radius: 4px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: var(--accent); border-radius: 4px;
+    transition: width .4s ease;
+  }
+
+  /* ── Question card ─────────────────────────────────────────────────── */
+  .question-wrap {
+    width: 90%; max-width: 680px; margin: 0 auto 60px;
+  }
+  .question-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 12px 40px var(--shadow);
+    animation: slideIn .35s ease;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .q-lever {
+    font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 12px;
+  }
+  .q-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    line-height: 1.3; color: var(--dark);
+    margin-bottom: 36px;
+  }
+  .answer-group {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .answer-btn {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    cursor: pointer;
+    transition: all .2s ease;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    width: 100%;
+  }
+  .answer-btn:hover {
+    border-color: var(--accent);
+    background: var(--white);
+    transform: translateX(4px);
+  }
+  .answer-btn.selected {
+    border-color: var(--accent);
+    background: #FBF7F3;
+  }
+  .answer-dot {
+    width: 20px; height: 20px; border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s;
+  }
+  .answer-btn.selected .answer-dot {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+  .answer-btn.selected .answer-dot::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  .answer-label { font-weight: 500; flex: 1; }
+  .answer-desc { font-size: 12px; color: var(--light); margin-top: 2px; }
+
+  .nav-btns {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 28px;
+  }
+  .btn-prev {
+    background: none; border: 1px solid var(--border);
+    color: var(--light); padding: 10px 20px; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-prev:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-prev:disabled { opacity: .3; cursor: default; }
+  .btn-next {
+    background: var(--accent); color: white;
+    border: none; padding: 12px 28px; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: opacity .2s;
+  }
+  .btn-next:hover { opacity: .85; }
+  .btn-next:disabled { opacity: .35; cursor: default; }
+
+  /* ── Email gate ────────────────────────────────────────────────────── */
+  .gate-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 40px;
+    box-shadow: 0 12px 40px var(--shadow);
+    text-align: center;
+    animation: slideIn .35s ease;
+  }
+  .gate-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4vw, 36px);
+    color: var(--dark); margin-bottom: 12px;
+  }
+  .gate-card p { color: var(--light); font-size: 15px; margin-bottom: 28px; }
+  .gate-form { display: flex; flex-direction: column; gap: 14px; max-width: 380px; margin: 0 auto; }
+  .gate-input {
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    color: var(--text); background: var(--bg);
+    border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 13px 16px; width: 100%;
+    transition: border-color .2s;
+  }
+  .gate-input:focus { outline: none; border-color: var(--accent); }
+  .gate-submit {
+    background: var(--dark); color: white;
+    border: none; padding: 14px; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: opacity .2s;
+  }
+  .gate-submit:hover { opacity: .85; }
+  .gate-note { font-size: 12px; color: var(--light); }
+
+  /* ── Results ───────────────────────────────────────────────────────── */
+  .results-wrap {
+    width: 90%; max-width: 780px; margin: 0 auto 80px;
+    animation: slideIn .4s ease;
+  }
+  .score-hero {
+    background: var(--dark);
+    border-radius: 20px;
+    padding: 48px 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .score-hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--accent);
+  }
+  .score-label {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 16px;
+  }
+  .score-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px; line-height: 1; font-weight: 300;
+    color: white; margin-bottom: 4px;
+  }
+  .score-denom { font-size: 20px; color: var(--light); margin-bottom: 20px; }
+  .score-outcome {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-style: italic;
+    padding: 8px 24px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+  }
+  .score-summary { font-size: 15px; color: rgba(255,255,255,.7); max-width: 480px; margin: 0 auto; }
+
+  /* ── Dial ──────────────────────────────────────────────────────────── */
+  .dial-wrap { margin: 0 auto 8px; width: 180px; }
+
+  /* ── Lever bars ────────────────────────────────────────────────────── */
+  .levers-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 20px;
+  }
+  .lever-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+  .lever-name {
+    font-size: 12px; font-weight: 500; letter-spacing: .04em;
+    color: var(--dark); margin-bottom: 4px;
+    text-transform: uppercase; font-size: 11px;
+  }
+  .lever-score-line {
+    display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px;
+  }
+  .lever-score-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; line-height: 1; color: var(--accent);
+  }
+  .lever-score-max { font-size: 13px; color: var(--light); }
+  .lever-bar-track {
+    height: 5px; background: var(--border); border-radius: 5px;
+    overflow: hidden; margin-bottom: 12px;
+  }
+  .lever-bar-fill {
+    height: 100%; border-radius: 5px;
+    transition: width 1s ease .3s;
+  }
+  .lever-finding { font-size: 12.5px; color: var(--light); line-height: 1.5; }
+  .lever-status {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    padding: 2px 8px; border-radius: 10px; margin-bottom: 8px;
+  }
+
+  /* ── CTAs ──────────────────────────────────────────────────────────── */
+  .cta-strip {
+    background: var(--pull);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 36px;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .cta-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--dark); margin-bottom: 4px;
+  }
+  .cta-text p { font-size: 13px; color: var(--light); }
+  .cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: white;
+    padding: 12px 22px; border-radius: 8px;
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    transition: opacity .2s; white-space: nowrap;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary:hover { opacity: .85; }
+  .btn-secondary {
+    background: var(--white); color: var(--text);
+    padding: 12px 22px; border-radius: 8px;
+    text-decoration: none; font-size: 14px;
+    border: 1px solid var(--border);
+    transition: border-color .2s, color .2s; white-space: nowrap;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .share-row {
+    text-align: center; font-size: 13px; color: var(--light); margin-top: 8px;
+  }
+  .share-link {
+    color: var(--accent); text-decoration: none; font-weight: 500;
+    cursor: pointer; background: none; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+  }
+  .share-link:hover { opacity: .75; }
+  .copied-msg { color: var(--green); font-size: 12px; display: none; }
+
+  /* ── Footer ────────────────────────────────────────────────────────── */
+  footer {
+    background: #EFE7DF; font-size: 13px;
+    border-top: 1px solid var(--border);
+    padding: 20px 0; text-align: center; color: var(--light);
+  }
+  footer a { color: var(--light); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ── Responsive ────────────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .question-card, .gate-card { padding: 28px 22px; }
+    .levers-grid { grid-template-columns: 1fr; }
+    .score-hero { padding: 36px 24px; }
+    .score-number { font-size: 72px; }
+    .cta-strip { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Via Clara logo">
+      <div class="logo-text">
+        <span>Via Clara</span>
+        <div class="logo-sub">Clear Path</div>
+      </div>
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to site
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero-section">
+  <div class="hero-eyebrow">Free · 3 minutes · No obligation</div>
+  <h1>Execution<br>Health Check</h1>
+  <p>12 questions. An honest score. Find out where your execution is drifting — before it shows up in the results.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      3–5 minutes
+    </div>
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      12 questions
+    </div>
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Instant score
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap" id="progress-section" style="display:none">
+  <div class="progress-info">
+    <span id="progress-text">Question 1 of 12</span>
+    <span id="lever-label">Operating Model</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+  </div>
+</div>
+
+<!-- QUESTION AREA -->
+<div class="question-wrap" id="question-section">
+
+  <!-- START CARD -->
+  <div class="question-card" id="start-card">
+    <div class="q-lever">Via Clara · Execution Health Check</div>
+    <div class="q-text">How healthy is your organisation&rsquo;s execution? Answer 12 honest questions and find out.</div>
+    <div style="font-size:14px;color:var(--light);margin-bottom:28px;line-height:1.7">
+      There are no right or wrong answers. Score based on how your organisation actually operates — not how it&rsquo;s designed to, or how you&rsquo;d like it to. Honest scoring produces useful results.
+    </div>
+    <button class="btn-next" onclick="startCheck()" style="width:100%;padding:16px;font-size:16px">
+      Start the Health Check &rarr;
+    </button>
+  </div>
+
+  <!-- QUESTION CARD (hidden initially) -->
+  <div class="question-card" id="question-card" style="display:none">
+    <div class="q-lever" id="q-lever">Operating Model</div>
+    <div class="q-text" id="q-text"></div>
+    <div class="answer-group" id="answer-group"></div>
+    <div class="nav-btns">
+      <button class="btn-prev" id="btn-prev" onclick="prevQ()" disabled>← Previous</button>
+      <button class="btn-next" id="btn-next" onclick="nextQ()" disabled>Next &rarr;</button>
+    </div>
+  </div>
+
+  <!-- EMAIL GATE (hidden initially) -->
+  <div class="gate-card" id="gate-card" style="display:none">
+    <div class="q-lever">Almost there</div>
+    <h2>Your results are ready</h2>
+    <p>Enter your details to unlock your score, lever breakdown, and personalised findings.</p>
+    <div class="gate-form">
+      <input type="text" class="gate-input" id="gate-name" placeholder="Your name">
+      <input type="email" class="gate-input" id="gate-email" placeholder="Your email address">
+      <button class="gate-submit" onclick="submitGate()">Show my results &rarr;</button>
+      <div class="gate-note">We&rsquo;ll also send a copy of the Execution Clarity Diagnostic to your inbox. No spam, ever.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RESULTS (hidden initially) -->
+<div class="results-wrap" id="results-section" style="display:none">
+
+  <div class="score-hero">
+    <div class="score-label">Your Execution Health Score</div>
+    <div class="score-number" id="result-score">0</div>
+    <div class="score-denom">out of 100</div>
+    <div class="score-outcome" id="result-outcome"></div>
+    <div class="score-summary" id="result-summary"></div>
+  </div>
+
+  <div class="levers-grid" id="levers-grid"></div>
+
+  <div class="cta-strip">
+    <div class="cta-text">
+      <h3>Go deeper with the full Diagnostic</h3>
+      <p>30 questions. 6 drift signals. A precise map of where to focus first.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-primary">Download the Diagnostic</a>
+      <a href="contact.html" class="btn-secondary">Book a call</a>
+    </div>
+  </div>
+
+  <div class="share-row">
+    Share your score:
+    <button class="share-link" onclick="shareScore()">Copy shareable message</button>
+    <span class="copied-msg" id="copied-msg">Copied to clipboard!</span>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html">Via Clara</a> &nbsp;&middot;&nbsp;
+  <a href="contact.html">contact@viaclara.co.nz</a> &nbsp;&middot;&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+  &copy; 2026 Via Clara
+</footer>
+
+<script>
+// ── Questions ──────────────────────────────────────────────────────────────
+const QUESTIONS = [
+  // Operating Model (3)
+  {
+    lever: 'Operating Model',
+    text: 'Leadership teams across the organisation work from the same priorities — not competing ones.',
+    answers: [
+      { label: 'Yes', desc: 'Consistently true across the organisation', score: 8 },
+      { label: 'Somewhat', desc: 'True in some areas, inconsistent in others', score: 4 },
+      { label: 'No', desc: 'Teams regularly pull in different directions', score: 0 },
+    ]
+  },
+  {
+    lever: 'Operating Model',
+    text: 'When decisions need to be made, it\'s clear who owns them — and they get made quickly.',
+    answers: [
+      { label: 'Yes', desc: 'Decision rights are clear and decisions happen fast', score: 8 },
+      { label: 'Somewhat', desc: 'Some decisions are clear, others cause delays', score: 4 },
+      { label: 'No', desc: 'Decisions are slow, escalated, or relitigated', score: 0 },
+    ]
+  },
+  {
+    lever: 'Operating Model',
+    text: 'Our operating model would still work effectively if key individuals changed roles or left.',
+    answers: [
+      { label: 'Yes', desc: 'The structure holds regardless of who\'s in it', score: 9 },
+      { label: 'Somewhat', desc: 'Some parts depend heavily on specific people', score: 4 },
+      { label: 'No', desc: 'Key knowledge and authority sit with individuals', score: 0 },
+    ]
+  },
+
+  // Operational Performance (3)
+  {
+    lever: 'Operational Performance',
+    text: 'Our core processes are followed consistently — not worked around.',
+    answers: [
+      { label: 'Yes', desc: 'Processes are clear, followed, and trusted', score: 9 },
+      { label: 'Somewhat', desc: 'Followed mostly, with occasional workarounds', score: 4 },
+      { label: 'No', desc: 'Workarounds have become standard practice', score: 0 },
+    ]
+  },
+  {
+    lever: 'Operational Performance',
+    text: 'We know our cycle times — and they\'re consistently met across teams and sites.',
+    answers: [
+      { label: 'Yes', desc: 'Predictable and consistent across the organisation', score: 8 },
+      { label: 'Somewhat', desc: 'Known but variable — depends on the team or site', score: 4 },
+      { label: 'No', desc: 'Unpredictable or not tracked meaningfully', score: 0 },
+    ]
+  },
+  {
+    lever: 'Operational Performance',
+    text: 'Teams spend more time delivering value than managing complexity and exceptions.',
+    answers: [
+      { label: 'Yes', desc: 'Exceptions are rare and handled without disruption', score: 9 },
+      { label: 'Somewhat', desc: 'A meaningful portion of time goes to exception-handling', score: 4 },
+      { label: 'No', desc: 'Exception management consumes significant capacity', score: 0 },
+    ]
+  },
+
+  // Digital Enablement (3)
+  {
+    lever: 'Digital Enablement',
+    text: 'Leadership has real-time visibility of operational performance — not weekly reports compiled manually.',
+    answers: [
+      { label: 'Yes', desc: 'Live dashboards and reliable data available when needed', score: 8 },
+      { label: 'Somewhat', desc: 'Some visibility, but gaps or lags exist', score: 4 },
+      { label: 'No', desc: 'Reporting is manual, delayed, or inconsistent', score: 0 },
+    ]
+  },
+  {
+    lever: 'Digital Enablement',
+    text: 'Our data is consistent across systems — the same question doesn\'t produce different answers.',
+    answers: [
+      { label: 'Yes', desc: 'Single source of truth across the organisation', score: 9 },
+      { label: 'Somewhat', desc: 'Mostly consistent but some reconciliation required', score: 4 },
+      { label: 'No', desc: 'Data conflicts are common and undermine confidence', score: 0 },
+    ]
+  },
+  {
+    lever: 'Digital Enablement',
+    text: 'Repetitive manual processes have been automated — our team\'s time goes to higher-value work.',
+    answers: [
+      { label: 'Yes', desc: 'Automation is in place where it adds clear value', score: 8 },
+      { label: 'Somewhat', desc: 'Some automation exists but manual work remains significant', score: 4 },
+      { label: 'No', desc: 'Most processes are still manual and error-prone', score: 0 },
+    ]
+  },
+
+  // Procurement (3)
+  {
+    lever: 'Procurement & Vendors',
+    text: 'Our procurement process supports execution speed — it doesn\'t create bottlenecks.',
+    answers: [
+      { label: 'Yes', desc: 'Fast, clear, and rarely a constraint on delivery', score: 9 },
+      { label: 'Somewhat', desc: 'Manageable but slower than it should be', score: 4 },
+      { label: 'No', desc: 'Procurement regularly delays programmes and decisions', score: 0 },
+    ]
+  },
+  {
+    lever: 'Procurement & Vendors',
+    text: 'We have clear visibility of what we spend with vendors — and confidence we\'re getting value.',
+    answers: [
+      { label: 'Yes', desc: 'Full spend visibility with performance accountability', score: 8 },
+      { label: 'Somewhat', desc: 'Partial visibility — some areas are opaque', score: 4 },
+      { label: 'No', desc: 'Spend is fragmented and difficult to interrogate', score: 0 },
+    ]
+  },
+  {
+    lever: 'Procurement & Vendors',
+    text: 'Procurement is treated as a strategic function — not just a processing team.',
+    answers: [
+      { label: 'Yes', desc: 'Actively shapes demand and creates commercial value', score: 9 },
+      { label: 'Somewhat', desc: 'Moving in the right direction but not there yet', score: 4 },
+      { label: 'No', desc: 'Primarily reactive — approves and processes requests', score: 0 },
+    ]
+  },
+];
+
+const LEVERS = ['Operating Model', 'Operational Performance', 'Digital Enablement', 'Procurement & Vendors'];
+const MAX_PER_LEVER = 25;
+
+const LEVER_FINDINGS = {
+  strong: [
+    'Your operating model is providing clear structure and alignment. Focus on maintaining consistency as the organisation scales.',
+    'Operational performance is a clear strength. The focus should be on sustaining and benchmarking as volume grows.',
+    'Digital enablement is working well. Prioritise keeping data quality high and expanding automation incrementally.',
+    'Procurement is operating strategically. Focus on deepening vendor relationships and forward demand planning.',
+  ],
+  watch: [
+    'Some alignment gaps are emerging. Decision rights or priority clarity may need attention before they compound.',
+    'Operational friction exists and is manageable now — but will grow with scale. Map where workarounds are occurring.',
+    'Reporting and data gaps are creating blind spots. Identify the highest-cost manual processes first.',
+    'Procurement is functioning but is likely a constraint on speed. Approval workflows and vendor SLAs are the priority.',
+  ],
+  act: [
+    'Operating model fragmentation is likely already affecting outcomes. Structural intervention is needed.',
+    'Operational friction is significant. Rework, exceptions, and workarounds are consuming capacity that should go elsewhere.',
+    'Data inconsistency and manual processes are creating real risk. A prioritised digital improvement plan is needed.',
+    'Procurement is reactive and creating drag across the organisation. Cycle time and spend visibility are the starting points.',
+  ],
+};
+
+// ── State ──────────────────────────────────────────────────────────────────
+let current = 0;
+let answers = new Array(12).fill(null);
+let userName = '';
+let userEmail = '';
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function leverIndex(q) {
+  return Math.floor(q / 3);
+}
+
+function calcLeverScore(li) {
+  let total = 0;
+  for (let i = li * 3; i < li * 3 + 3; i++) {
+    if (answers[i] !== null) total += QUESTIONS[i].answers[answers[i]].score;
+  }
+  // Max possible per lever: sum of max scores (8+8+9=25 or similar)
+  const maxes = [0,1,2].map(j => Math.max(...QUESTIONS[li*3+j].answers.map(a=>a.score)));
+  const maxTotal = maxes.reduce((a,b)=>a+b,0);
+  return { raw: total, max: maxTotal, pct: Math.round(total / maxTotal * 100) };
+}
+
+function calcTotalScore() {
+  let total = 0, maxTotal = 0;
+  QUESTIONS.forEach((q,i) => {
+    if (answers[i] !== null) total += q.answers[answers[i]].score;
+    maxTotal += Math.max(...q.answers.map(a=>a.score));
+  });
+  return Math.round(total / maxTotal * 100);
+}
+
+function getOutcome(score) {
+  if (score >= 80) return { label: 'Strong Execution', color: '#4A7C59', bg: 'rgba(74,124,89,0.15)',
+    summary: 'Your execution architecture is fundamentally sound. The focus should be on sustaining performance and catching early drift signals as the organisation grows.' };
+  if (score >= 60) return { label: 'Early Drift', color: '#B8860B', bg: 'rgba(184,134,11,0.15)',
+    summary: 'Drift is emerging but has not yet compounded. This is the ideal moment to act — targeted intervention in your lowest-scoring levers will produce fast, visible improvement.' };
+  if (score >= 40) return { label: 'Active Drift', color: '#C07020', bg: 'rgba(192,112,32,0.15)',
+    summary: 'Execution has drifted materially from strategic intent. Structured intervention across your lowest levers is needed before this compounds further.' };
+  return { label: 'Fragmented Execution', color: '#8B3A3A', bg: 'rgba(139,58,58,0.15)',
+    summary: 'Execution fragmentation is significant and likely already visible in your results. A full diagnostic engagement is recommended to map the intervention priorities.' };
+}
+
+function getLeverStatus(pct) {
+  if (pct >= 80) return { label: 'Strong', color: '#4A7C59', bg: '#EAF3DE' };
+  if (pct >= 55) return { label: 'Watch', color: '#B8860B', bg: '#FBF3E0' };
+  return { label: 'Act', color: '#8B3A3A', bg: '#FCEBEB' };
+}
+
+function getLeverFinding(li, pct) {
+  if (pct >= 80) return LEVER_FINDINGS.strong[li];
+  if (pct >= 55) return LEVER_FINDINGS.watch[li];
+  return LEVER_FINDINGS.act[li];
+}
+
+// ── UI functions ───────────────────────────────────────────────────────────
+function startCheck() {
+  document.getElementById('start-card').style.display = 'none';
+  document.getElementById('question-card').style.display = 'block';
+  document.getElementById('progress-section').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[current];
+  document.getElementById('q-lever').textContent = q.lever;
+  document.getElementById('q-text').textContent = q.text;
+
+  const group = document.getElementById('answer-group');
+  group.innerHTML = '';
+  q.answers.forEach((a, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'answer-btn' + (answers[current] === i ? ' selected' : '');
+    btn.innerHTML = `
+      <div class="answer-dot"></div>
+      <div>
+        <div class="answer-label">${a.label}</div>
+        <div class="answer-desc">${a.desc}</div>
+      </div>`;
+    btn.onclick = () => selectAnswer(i);
+    group.appendChild(btn);
+  });
+
+  // Progress
+  const pct = (current / QUESTIONS.length) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `Question ${current + 1} of ${QUESTIONS.length}`;
+  document.getElementById('lever-label').textContent = q.lever;
+
+  // Buttons
+  document.getElementById('btn-prev').disabled = current === 0;
+  const nextBtn = document.getElementById('btn-next');
+  nextBtn.disabled = answers[current] === null;
+  nextBtn.textContent = current === QUESTIONS.length - 1 ? 'See my results →' : 'Next →';
+}
+
+function selectAnswer(i) {
+  answers[current] = i;
+  document.querySelectorAll('.answer-btn').forEach((b, idx) => {
+    b.classList.toggle('selected', idx === i);
+  });
+  document.getElementById('btn-next').disabled = false;
+}
+
+function nextQ() {
+  if (answers[current] === null) return;
+  if (current === QUESTIONS.length - 1) {
+    showGate();
+    return;
+  }
+  current++;
+  document.getElementById('question-card').style.animation = 'none';
+  setTimeout(() => {
+    document.getElementById('question-card').style.animation = 'slideIn .3s ease';
+    renderQuestion();
+  }, 10);
+}
+
+function prevQ() {
+  if (current === 0) return;
+  current--;
+  renderQuestion();
+}
+
+function showGate() {
+  document.getElementById('progress-section').style.display = 'none';
+  document.getElementById('question-card').style.display = 'none';
+  document.getElementById('gate-card').style.display = 'block';
+  document.getElementById('progress-fill').style.width = '100%';
+}
+
+function submitGate() {
+  const name  = document.getElementById('gate-name').value.trim();
+  const email = document.getElementById('gate-email').value.trim();
+  if (!name || !email) {
+    alert('Please enter your name and email to see your results.');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  userName  = name;
+  userEmail = email;
+
+  // Send email notification
+  const score = calcTotalScore();
+  const outcome = getOutcome(score);
+  const leverLines = LEVERS.map((l,i) => {
+    const s = calcLeverScore(i);
+    return `${l}: ${s.pct}%`;
+  }).join(' | ');
+
+  const subject = `Execution Health Check — ${name} scored ${score}/100`;
+  const body = `Name: ${name}\nEmail: ${email}\n\nScore: ${score}/100\nOutcome: ${outcome.label}\n\n${leverLines}\n\nCompleted: ${new Date().toLocaleString('en-NZ')}`;
+  const mailto = `mailto:contact@viaclara.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.open(mailto, '_blank');
+
+  showResults();
+}
+
+function showResults() {
+  document.getElementById('question-section').style.display = 'none';
+  document.getElementById('progress-section').style.display = 'none';
+  document.getElementById('hero-section').style.display = 'none';
+  document.getElementById('results-section').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const score   = calcTotalScore();
+  const outcome = getOutcome(score);
+
+  // Animate score count-up
+  const scoreEl = document.getElementById('result-score');
+  let count = 0;
+  const interval = setInterval(() => {
+    count = Math.min(count + 2, score);
+    scoreEl.textContent = count;
+    if (count >= score) clearInterval(interval);
+  }, 20);
+
+  // Outcome
+  const outcomeEl = document.getElementById('result-outcome');
+  outcomeEl.textContent = outcome.label;
+  outcomeEl.style.background = outcome.bg;
+  outcomeEl.style.color = outcome.color;
+
+  document.getElementById('result-summary').textContent = outcome.summary;
+
+  // Lever cards
+  const grid = document.getElementById('levers-grid');
+  grid.innerHTML = '';
+  LEVERS.forEach((lev, i) => {
+    const s   = calcLeverScore(i);
+    const st  = getLeverStatus(s.pct);
+    const fin = getLeverFinding(i, s.pct);
+
+    const card = document.createElement('div');
+    card.className = 'lever-card';
+    card.innerHTML = `
+      <div class="lever-name">${lev}</div>
+      <div class="lever-score-line">
+        <div class="lever-score-num">${s.pct}</div>
+        <div class="lever-score-max">/ 100</div>
+      </div>
+      <div class="lever-bar-track">
+        <div class="lever-bar-fill" style="width:0%;background:${st.color}" data-pct="${s.pct}"></div>
+      </div>
+      <div class="lever-status" style="background:${st.bg};color:${st.color}">${st.label}</div>
+      <div class="lever-finding">${fin}</div>`;
+    grid.appendChild(card);
+  });
+
+  // Animate bars after a beat
+  setTimeout(() => {
+    document.querySelectorAll('.lever-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.pct + '%';
+    });
+  }, 200);
+}
+
+function shareScore() {
+  const score   = calcTotalScore();
+  const outcome = getOutcome(score);
+  let lowestLever = 0;
+  let lowestPct = 101;
+  LEVERS.forEach((l, i) => {
+    const s = calcLeverScore(i);
+    if (s.pct < lowestPct) { lowestPct = s.pct; lowestLever = i; }
+  });
+  const worstName = LEVERS[lowestLever];
+
+  const msg = `I just took the Via Clara Execution Health Check and scored ${score}/100 — ${outcome.label}.\n\nMy biggest gap is ${worstName}.\n\nIf you lead operations, transformation, or procurement programmes — worth 3 minutes of your time:\nviaclara.co.nz/health-check.html\n\n#ExecutionDrift #BusinessTransformation`;
+
+  navigator.clipboard.writeText(msg).then(() => {
+    document.getElementById('copied-msg').style.display = 'inline';
+    setTimeout(() => {
+      document.getElementById('copied-msg').style.display = 'none';
+    }, 3000);
+  });
+}
+</script>
+
+</body>
+</html>
