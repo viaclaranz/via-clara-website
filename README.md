@@ -1,65 +1,89 @@
-# Via Clara - Professional Business Website
+# Via Clara — Website Repository
 
-**Clear Path Consulting for Business Transformation, Analytics, and Automation**
+**Execution Transformation Consulting — Australia & New Zealand**
+[viaclara.co.nz](https://www.viaclara.co.nz)
+
+---
 
 ## Overview
 
-Via Clara is a professional, fully-responsive business website for a consulting firm specializing in:
-- Business Transformation
-- Power BI & Analytics
-- Automation & Systems
+Via Clara is a consulting practice specialising in execution transformation: helping leadership teams across Australia and New Zealand eliminate execution breakdown and build operating systems that deliver measurably and permanently.
 
-## Pages
+**Four service areas:**
+- Operating model clarity and organisational alignment
+- Operational performance and efficiency improvement
+- Digital enablement and workflow automation
+- Procurement and cost structure optimisation
 
-- **index.html** - Homepage with hero section, services overview, case studies preview, and testimonials
-- **services.html** - Detailed service descriptions with real-world examples
-- **case-studies.html** - Three detailed case studies showcasing measurable business results
-- **blog.html** - Resources, guides, and thought leadership content
-- **about.html** - Company mission, values, and why-choose-us section
-- **contact.html** - Professional contact form, contact information, and FAQ
+---
 
-## Features
+## Site Structure
 
-✨ **Professional Design**
-- Modern gradient color scheme (Blue #0066cc + Teal #00a699)
-- Clean, contemporary aesthetic
-- Premium spacing and typography
-- Integrated company logo
+### Core pages
+| File | Purpose |
+|------|---------|
+| `index.html` | Homepage — hero, methodology, credibility, CTA |
+| `services.html` | Service descriptions and engagement model |
+| `case-studies.html` | Five detailed case studies with measurable results |
+| `blog.html` | Insights index — four published articles |
+| `about.html` | Company mission, principles, and approach |
+| `contact.html` | Contact details and enquiry prompt |
+| `health-check.html` | Interactive Execution Health Check tool |
+| `privacy.html` | Privacy policy (NZ Privacy Act 2020) |
 
-📱 **Fully Responsive**
-- Desktop, tablet, and mobile optimized
-- Adaptive layouts and navigation
+### Insight articles
+| File | Topic |
+|------|-------|
+| `insight-execution-failure.html` | Why transformations fail at execution, not strategy |
+| `insight-automation-roi.html` | Where automation actually delivers ROI |
+| `insight-procurement-transformation.html` | Moving procurement from reactive to strategic |
+| `insight-operating-models.html` | Building operating models that actually scale |
 
-🎯 **Client-Winning Elements**
-- Real-world case studies with measurable results
-- Client testimonials and social proof
-- Professional contact form
-- FAQ section addressing common concerns
-- Resources/blog for thought leadership
-- Clear calls-to-action throughout
+### Downloadable assets
+| File | Description |
+|------|-------------|
+| `via-clara-execution-clarity-diagnostic.pdf` | 30-question Execution Clarity Diagnostic™ |
+| `via-clara-insight-01-execution-failure.pdf` | PDF version of Insight 01 |
+| `via-clara-insight-02-automation-roi.pdf` | PDF version of Insight 02 |
+| `via-clara-insight-03-procurement-transformation.pdf` | PDF version of Insight 03 |
+| `via-clara-insight-04-operating-models.pdf` | PDF version of Insight 04 |
 
-🧭 **Complete Navigation**
-- Sticky navigation bar
-- Active page highlighting
-- Easy navigation between all pages
+---
 
-## Contact Information
+## Design System
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--bg` | `#F7F3EE` | Page background |
+| `--text` | `#5A5048` | Body text |
+| `--accent` | `#B89B7A` | Brand colour, CTAs, links |
+| `--border` | `#E6DDD4` | Dividers, card borders |
+| `--text-light` | `#A79F98` | Secondary text, labels |
+
+**Fonts:** Cormorant Garamond (headings) + DM Sans (body)
+
+---
+
+## Technical
+
+- Pure HTML/CSS — no build tools or frameworks required
+- Fully responsive with hamburger nav on mobile
+- Google Analytics: `G-Q47XYJ4CSQ`
+- Google Search Console verified
+- Sitemap: `sitemap.xml`
+- Robots: `robots.txt`
+- Canonical URLs and Open Graph tags on all pages
+- Schema.org `ProfessionalService` JSON-LD on all pages
+- Hosted on GitHub Pages via CNAME → `viaclara.co.nz`
+
+---
+
+## Contact
 
 - **Email:** contact@viaclara.co.nz
-- **Phone:** 027 802 4143
+- **Phone:** +64 27 802 4143
+- **LinkedIn:** linkedin.com/company/via-clara
 
-## Getting Started
-
-Simply open `index.html` in your browser to view the website. No external dependencies or build tools required—it's a pure HTML/CSS solution.
-
-## Customization
-
-You can easily customize:
-- Colors by editing the CSS variables in `styles.css`
-- Content in each HTML file
-- Add your own images and resources
-- Integrate form handling for the contact form
-
-## License
+---
 
 © 2026 Via Clara. All rights reserved.
