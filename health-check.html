@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://www.viaclara.co.nz/health-check.html">
 <link rel="icon" type="image/png" href="favicon.png">
-<title>Execution Health Check | Via Clara</title>
-<meta name="description" content="How healthy is your execution? Take Via Clara's free Execution Health Check — 14 questions across the Seven Drift Signals™. Find out where your organisation is drifting before it shows up in the results.">
-<meta property="og:title" content="Execution Health Check — Via Clara">
+<title>Execution Clarity Check™ | Via Clara</title>
+<meta name="description" content="How healthy is your execution? Take Via Clara’s free Execution Clarity Check™ — 14 questions across the Seven Drift Signals™. Find out where your organisation is drifting before it shows up in the results.">
+<meta property="og:title" content="Execution Clarity Check™ — Via Clara">
 <meta property="og:description" content="14 questions across the Seven Drift Signals™. Find out where your execution is drifting before it shows up in the results.">
 <meta property="og:image" content="https://www.viaclara.co.nz/og-image.png">
 <meta property="og:type" content="website">
@@ -406,7 +406,7 @@
 <!-- HERO -->
 <div class="hero" id="hero-section">
   <div class="hero-eyebrow">Free · 5 minutes · No obligation</div>
-  <h1>Execution<br>Health Check</h1>
+  <h1>Execution<br>Clarity Check™</h1>
   <p>14 questions across the Seven Drift Signals™. An honest score. Find out where your execution is drifting — before it shows up in the results.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">
@@ -427,7 +427,7 @@
 <!-- PROGRESS -->
 <div class="progress-wrap" id="progress-section" style="display:none">
   <div class="progress-info">
-    <span id="progress-text">Question 1 of 12</span>
+    <span id="progress-text">Question 1 of 14</span>
     <span id="lever-label">Priority Drift™</span>
   </div>
   <div class="progress-track">
@@ -440,13 +440,13 @@
 
   <!-- START CARD -->
   <div class="question-card" id="start-card">
-    <div class="q-lever">Via Clara · Execution Health Check</div>
+    <div class="q-lever">Via Clara &middot; Execution Clarity Check&trade;</div>
     <div class="q-text">How healthy is your organisation&rsquo;s execution? Answer 14 honest questions across the Seven Drift Signals™ and find out.</div>
     <div style="font-size:14px;color:var(--light);margin-bottom:28px;line-height:1.7">
       There are no right or wrong answers. Score based on how your organisation actually operates — not how it&rsquo;s designed to, or how you&rsquo;d like it to. Honest scoring produces useful results.
     </div>
     <button class="btn-next" onclick="startCheck()" style="width:100%;padding:16px;font-size:16px">
-      Start the Health Check &rarr;
+      Start the Clarity Check™ &rarr;
     </button>
   </div>
 
@@ -470,7 +470,7 @@
       <input type="text" class="gate-input" id="gate-name" placeholder="Your name">
       <input type="email" class="gate-input" id="gate-email" placeholder="Your email address">
       <button class="gate-submit" onclick="submitGate()">Show my results &rarr;</button>
-      <div class="gate-note">We&rsquo;ll also send a copy of the Execution Clarity Diagnostic to your inbox. No spam, ever.</div>
+      <div class="gate-note">We&rsquo;ll send your results and follow up directly. No spam, ever.</div>
     </div>
   </div>
 
@@ -480,7 +480,7 @@
 <div class="results-wrap" id="results-section" style="display:none">
 
   <div class="score-hero">
-    <div class="score-label">Your Execution Health Score</div>
+    <div class="score-label">Your Execution Clarity Score</div>
     <div class="score-number" id="result-score">0</div>
     <div class="score-denom">out of 100</div>
     <div class="score-outcome" id="result-outcome"></div>
@@ -491,8 +491,8 @@
 
   <div class="cta-strip">
     <div class="cta-text">
-      <h3>Go deeper with the full Diagnostic</h3>
-      <p>30 questions. 7 drift signals. A precise map of where to focus first.</p>
+      <h3>Go deeper with the full Clarity Diagnostic™</h3>
+      <p>35 questions. 7 drift signals. A precise map of where to focus first.</p>
     </div>
     <div class="cta-btns">
       <a href="diagnostic.html" class="btn-primary">Take the full Diagnostic online</a>
@@ -852,7 +852,7 @@ function submitGate() {
     return `${s}: ${sc.pct}%`;
   }).join(' | ');
 
-  const subject = `Execution Health Check — ${name} scored ${score}/100`;
+  const subject = `Execution Clarity Check™ — ${name} scored ${score}/100`;
   const body = `Name: ${name}\nEmail: ${email}\n\nScore: ${score}/100\nOutcome: ${outcome.label}\n\n${signalLines}\n\nCompleted: ${new Date().toLocaleString('en-NZ')}`;
   const mailto = `mailto:contact@viaclara.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.open(mailto, '_blank');
@@ -930,7 +930,7 @@ function shareScore() {
   });
   const worstName = SIGNALS[lowestSignal].replace('\u2122', '');
 
-  const msg = `I just took the Via Clara Execution Health Check and scored ${score}/100 — ${outcome.label.replace('\u2122','')}.\n\nMy highest-risk signal is ${worstName}.\n\nIf you lead operations, transformation, or procurement — worth 5 minutes of your time:\nviaclara.co.nz/health-check.html\n\n#ExecutionDrift #BusinessTransformation`;
+  const msg = `I just took the Via Clara Execution Clarity Check™ and scored ${score}/100 — ${outcome.label.replace('\u2122','')}.\n\nMy highest-risk signal is ${worstName}.\n\nIf you lead operations, transformation, or procurement — worth 5 minutes of your time:\nviaclara.co.nz/health-check.html\n\n#ExecutionDrift #BusinessTransformation`;
 
   navigator.clipboard.writeText(msg).then(() => {
     document.getElementById('copied-msg').style.display = 'inline';
