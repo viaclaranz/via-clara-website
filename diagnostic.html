@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.viaclara.co.nz/diagnostic.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<title>Execution Clarity Diagnostic™ | Via Clara</title>
+<meta name="description" content="35 questions across the Seven Drift Signals™. A precise, scored map of where your execution is breaking down — and where to focus first. Free. 15–20 minutes.">
+<meta property="og:title" content="Execution Clarity Diagnostic™ — Via Clara">
+<meta property="og:description" content="35 questions across the Seven Drift Signals™. Find out precisely where your execution is drifting — and what to fix first.">
+<meta property="og:image" content="https://www.viaclara.co.nz/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Via Clara">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q47XYJ4CSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q47XYJ4CSQ');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+/* ── Tokens ────────────────────────────────────────────────────────────── */
+:root {
+  --bg:      #F7F3EE;
+  --text:    #5A5048;
+  --accent:  #B89B7A;
+  --dark:    #3D3530;
+  --light:   #A79F98;
+  --border:  #E6DDD4;
+  --white:   #ffffff;
+  --pull:    #F2ECE6;
+  --shadow:  rgba(0,0,0,0.06);
+  --green:   #4A7C59;
+  --amber:   #B8860B;
+  --red:     #8B3A3A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;}
+
+/* ── Nav ───────────────────────────────────────────────────────────────── */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(247,243,238,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-container{width:90%;max-width:1300px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text);}
+.logo img{width:90px;height:auto;}
+.logo-text span{font-family:'Cormorant Garamond',serif;font-size:28px;letter-spacing:3px;color:var(--dark);}
+.logo-sub{font-size:12px;font-weight:300;letter-spacing:2px;color:var(--light);}
+.nav-back{font-size:13px;color:var(--light);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s;}
+.nav-back:hover{color:var(--accent);}
+.nav-toggle{display:none;}
+.nav-links{display:flex;gap:24px;list-style:none;font-size:13px;}
+.nav-links a{text-decoration:none;color:var(--text);transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a.nav-cta{background:var(--accent);color:white;padding:7px 16px;border-radius:6px;}
+.nav-links a.nav-cta:hover{opacity:.85;color:white;}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero{text-align:center;padding:64px 20px 48px;position:relative;}
+.hero::after{content:'';position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(200px,35vw,500px);height:clamp(200px,35vw,500px);background:url('logo.png') no-repeat center;background-size:contain;opacity:.06;z-index:0;pointer-events:none;}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;font-weight:500;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,58px);line-height:1.1;color:var(--dark);margin-bottom:16px;}
+.hero p{color:var(--light);font-size:16px;max-width:560px;margin:0 auto 24px;}
+.hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--light);}
+.hero-meta-item{display:flex;align-items:center;gap:6px;}
+
+/* ── Signal nav strip ──────────────────────────────────────────────────── */
+.signal-strip{background:var(--dark);padding:0;overflow-x:auto;display:flex;position:sticky;top:61px;z-index:90;}
+.signal-tab{flex:1;min-width:fit-content;padding:10px 14px;text-align:center;font-size:11px;font-weight:500;letter-spacing:.5px;color:rgba(255,255,255,.45);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
+.signal-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.signal-tab.completed{color:rgba(255,255,255,.7);}
+.signal-tab.completed::after{content:'✓';margin-left:4px;color:var(--green);}
+
+/* ── Progress ──────────────────────────────────────────────────────────── */
+.progress-wrap{background:var(--white);border-bottom:1px solid var(--border);padding:10px 5%;}
+.progress-info{display:flex;justify-content:space-between;font-size:12px;color:var(--light);margin-bottom:6px;}
+.progress-track{height:3px;background:var(--border);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .4s ease;}
+
+/* ── Main layout ───────────────────────────────────────────────────────── */
+.diagnostic-wrap{max-width:760px;margin:0 auto;padding:40px 20px 80px;position:relative;z-index:1;}
+
+/* ── Cards ─────────────────────────────────────────────────────────────── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;box-shadow:0 8px 32px var(--shadow);margin-bottom:24px;animation:fadeUp .35s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── Signal header ─────────────────────────────────────────────────────── */
+.signal-header{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.signal-number{font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;font-weight:500;margin-bottom:6px;}
+.signal-name{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--dark);line-height:1.1;margin-bottom:8px;}
+.signal-desc{font-size:13px;color:var(--light);line-height:1.6;}
+
+/* ── Questions ─────────────────────────────────────────────────────────── */
+.question-block{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.question-block:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.q-number{font-size:11px;letter-spacing:2px;color:var(--accent);font-weight:500;margin-bottom:6px;text-transform:uppercase;}
+.q-text{font-size:15px;color:var(--dark);line-height:1.5;margin-bottom:16px;font-weight:400;}
+.rating-row{display:flex;gap:8px;flex-wrap:wrap;}
+.rating-btn{flex:1;min-width:44px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;transition:all .18s;font-family:'DM Sans',sans-serif;}
+.rating-btn:hover{border-color:var(--accent);background:var(--pull);}
+.rating-btn.selected{border-color:var(--accent);background:var(--accent);color:white;}
+.rating-btn.selected .rating-num{color:white;}
+.rating-btn.selected .rating-label{color:rgba(255,255,255,.8);}
+.rating-num{font-size:18px;font-weight:500;color:var(--dark);line-height:1;}
+.rating-label{font-size:10px;color:var(--light);text-align:center;line-height:1.2;}
+
+/* ── Nav buttons ───────────────────────────────────────────────────────── */
+.nav-btns{display:flex;gap:12px;margin-top:32px;}
+.btn-prev{flex:0 0 auto;padding:12px 20px;border:1.5px solid var(--border);border-radius:8px;background:transparent;color:var(--text);font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.btn-prev:hover{border-color:var(--accent);color:var(--accent);}
+.btn-prev:disabled{opacity:.35;cursor:default;}
+.btn-next{flex:1;padding:14px 24px;background:var(--accent);border:none;border-radius:8px;color:white;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s;}
+.btn-next:hover{opacity:.88;}
+.btn-next:disabled{opacity:.35;cursor:default;}
+
+/* ── Section score ─────────────────────────────────────────────────────── */
+.section-score-bar{margin-top:28px;padding:20px;background:var(--pull);border-radius:12px;border:1px solid var(--border);}
+.section-score-label{font-size:12px;color:var(--light);margin-bottom:8px;letter-spacing:.5px;}
+.section-score-row{display:flex;align-items:center;gap:16px;}
+.section-score-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--accent);line-height:1;}
+.section-score-denom{font-size:13px;color:var(--light);}
+.section-score-track{flex:1;height:6px;background:var(--border);border-radius:6px;overflow:hidden;}
+.section-score-fill{height:100%;border-radius:6px;transition:width .6s ease;}
+
+/* ── Gate card ─────────────────────────────────────────────────────────── */
+.gate-card{text-align:center;}
+.gate-card h2{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--dark);margin-bottom:10px;}
+.gate-card p{color:var(--light);font-size:15px;margin-bottom:28px;}
+.gate-form{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:0 auto;}
+.gate-input{padding:13px 16px;border:1.5px solid var(--border);border-radius:8px;background:var(--bg);font-size:15px;font-family:'DM Sans',sans-serif;color:var(--dark);transition:border-color .2s;}
+.gate-input:focus{outline:none;border-color:var(--accent);}
+.gate-submit{padding:14px 24px;background:var(--accent);border:none;border-radius:8px;color:white;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s;}
+.gate-submit:hover{opacity:.88;}
+.gate-note{font-size:12px;color:var(--light);line-height:1.5;}
+
+/* ── Results ───────────────────────────────────────────────────────────── */
+.score-hero{text-align:center;padding:48px 20px 40px;background:var(--dark);color:white;border-radius:16px;margin-bottom:32px;}
+.score-label{font-size:12px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
+.score-number{font-family:'Cormorant Garamond',serif;font-size:96px;line-height:1;color:white;margin-bottom:4px;}
+.score-denom{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:20px;}
+.score-outcome{display:inline-block;padding:6px 18px;border-radius:20px;font-size:13px;font-weight:500;margin-bottom:16px;}
+.score-summary{font-size:15px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto;line-height:1.7;}
+
+/* ── Signal cards ──────────────────────────────────────────────────────── */
+.signals-section{margin-bottom:32px;}
+.signals-section-title{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--dark);margin-bottom:20px;}
+.signal-result-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;border-left:3px solid var(--border);}
+.signal-result-card.strong{border-left-color:var(--green);}
+.signal-result-card.watch{border-left-color:var(--amber);}
+.signal-result-card.act{border-left-color:var(--red);}
+.src-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.src-name{font-weight:500;color:var(--dark);font-size:15px;}
+.src-badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:12px;letter-spacing:.5px;}
+.src-score-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.src-score{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--accent);line-height:1;}
+.src-denom{font-size:12px;color:var(--light);}
+.src-bar-track{flex:1;height:5px;background:var(--border);border-radius:5px;overflow:hidden;}
+.src-bar-fill{height:100%;border-radius:5px;}
+.src-finding{font-size:13px;color:var(--light);line-height:1.6;}
+
+/* ── Priority section ──────────────────────────────────────────────────── */
+.priority-section{background:var(--pull);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:32px;}
+.priority-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--dark);margin-bottom:6px;}
+.priority-sub{font-size:13px;color:var(--light);margin-bottom:24px;}
+.priority-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start;}
+.priority-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--accent);line-height:1;flex-shrink:0;width:32px;}
+.priority-content{}
+.priority-signal{font-weight:500;color:var(--dark);font-size:14px;margin-bottom:4px;}
+.priority-finding{font-size:13px;color:var(--light);line-height:1.6;}
+
+/* ── CTA strip ─────────────────────────────────────────────────────────── */
+.cta-strip{background:var(--dark);border-radius:16px;padding:32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:24px;}
+.cta-text h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:6px;}
+.cta-text p{font-size:14px;color:rgba(255,255,255,.6);}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{display:inline-block;background:var(--accent);color:white;padding:13px 24px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:opacity .2s;white-space:nowrap;}
+.btn-primary:hover{opacity:.88;}
+.btn-secondary{display:inline-block;background:transparent;color:rgba(255,255,255,.7);padding:13px 24px;border-radius:8px;border:1px solid rgba(255,255,255,.2);text-decoration:none;font-size:14px;transition:all .2s;white-space:nowrap;}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ── Share ─────────────────────────────────────────────────────────────── */
+.share-row{text-align:center;font-size:13px;color:var(--light);margin-bottom:48px;}
+.share-link{background:none;border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:12px;color:var(--accent);cursor:pointer;font-family:'DM Sans',sans-serif;margin-left:8px;transition:all .2s;}
+.share-link:hover{border-color:var(--accent);background:var(--pull);}
+.copied-msg{display:none;font-size:12px;color:var(--green);margin-left:8px;}
+
+/* ── Restart ───────────────────────────────────────────────────────────── */
+.restart-row{text-align:center;margin-bottom:32px;}
+.restart-btn{background:none;border:none;color:var(--light);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;}
+.restart-btn:hover{color:var(--accent);}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+footer{background:#efe7df;font-size:13px;padding:32px 20px;text-align:center;color:var(--light);}
+footer a{color:var(--text);text-decoration:none;transition:color .2s;margin:0 8px;}
+footer a:hover{color:var(--accent);}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media(max-width:640px){
+  .card{padding:24px;}
+  .rating-btn{min-width:36px;padding:10px 4px;}
+  .rating-label{display:none;}
+  .cta-strip{flex-direction:column;align-items:flex-start;}
+  .signal-strip{top:54px;}
+  .nav-toggle{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(247,243,238,.97);flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding:8px 0;}
+  .nav-links.open{display:flex;}
+  .nav-links li a{display:block;padding:11px 5%;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="logo" aria-label="Via Clara home">
+      <img src="logo.png" alt="Via Clara logo" width="90" height="auto">
+      <div class="logo-text">
+        <span>Via Clara</span>
+        <div class="logo-sub">Clear Path</div>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="blog.html">Insights</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SIGNAL NAV STRIP -->
+<div class="signal-strip" id="signal-strip" style="display:none">
+  <button class="signal-tab" id="tab-0" onclick="jumpToSignal(0)">01 Priority</button>
+  <button class="signal-tab" id="tab-1" onclick="jumpToSignal(1)">02 Decision</button>
+  <button class="signal-tab" id="tab-2" onclick="jumpToSignal(2)">03 Accountability</button>
+  <button class="signal-tab" id="tab-3" onclick="jumpToSignal(3)">04 Flow</button>
+  <button class="signal-tab" id="tab-4" onclick="jumpToSignal(4)">05 Information</button>
+  <button class="signal-tab" id="tab-5" onclick="jumpToSignal(5)">06 Alignment</button>
+  <button class="signal-tab" id="tab-6" onclick="jumpToSignal(6)">07 Capacity</button>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap" id="progress-section" style="display:none">
+  <div class="progress-info">
+    <span id="progress-text">Signal 1 of 7</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="hero-section">
+  <div class="hero-eyebrow">Free &middot; 15&ndash;20 minutes &middot; No obligation</div>
+  <h1>Execution Clarity<br>Diagnostic&trade;</h1>
+  <p>35 questions across the Seven Drift Signals&trade;. A precise, scored map of where your execution is breaking down &mdash; and where to focus first.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      15&ndash;20 minutes
+    </div>
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      35 questions
+    </div>
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      7 drift signals
+    </div>
+    <div class="hero-meta-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      Score out of 175
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="diagnostic-wrap" id="diagnostic-wrap">
+
+  <!-- START CARD -->
+  <div class="card" id="start-card">
+    <div class="signal-number">Via Clara &middot; Execution Drift Model&trade;</div>
+    <div class="signal-name" style="font-size:26px;margin-bottom:12px">How to complete this diagnostic</div>
+    <p style="font-size:14px;color:var(--light);margin-bottom:16px;line-height:1.7">
+      Rate each of the 35 statements from <strong style="color:var(--dark)">1 (Strongly Disagree)</strong> to <strong style="color:var(--dark)">5 (Strongly Agree)</strong>. Score based on how your organisation <em>actually operates</em> &mdash; not how it is designed to, or how you would like it to.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px;">
+      <div style="text-align:center;padding:12px 4px;background:var(--pull);border-radius:8px;border:1px solid var(--border)"><div style="font-size:18px;font-weight:500;color:var(--dark)">1</div><div style="font-size:10px;color:var(--light);margin-top:2px">Strongly<br>Disagree</div></div>
+      <div style="text-align:center;padding:12px 4px;background:var(--pull);border-radius:8px;border:1px solid var(--border)"><div style="font-size:18px;font-weight:500;color:var(--dark)">2</div><div style="font-size:10px;color:var(--light);margin-top:2px">Disagree</div></div>
+      <div style="text-align:center;padding:12px 4px;background:var(--pull);border-radius:8px;border:1px solid var(--border)"><div style="font-size:18px;font-weight:500;color:var(--dark)">3</div><div style="font-size:10px;color:var(--light);margin-top:2px">Neutral /<br>Sometimes</div></div>
+      <div style="text-align:center;padding:12px 4px;background:var(--pull);border-radius:8px;border:1px solid var(--border)"><div style="font-size:18px;font-weight:500;color:var(--dark)">4</div><div style="font-size:10px;color:var(--light);margin-top:2px">Agree</div></div>
+      <div style="text-align:center;padding:12px 4px;background:var(--accent);border-radius:8px"><div style="font-size:18px;font-weight:500;color:white">5</div><div style="font-size:10px;color:rgba(255,255,255,.8);margin-top:2px">Strongly<br>Agree</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--light);margin-bottom:28px;line-height:1.6;font-style:italic;">
+      A score of 3 means &ldquo;sometimes&rdquo; &mdash; not &ldquo;we have a policy for this.&rdquo; If in doubt, score lower. Honest scoring produces useful results. Generous scoring does not.
+    </p>
+    <button class="btn-next" onclick="startDiagnostic()" style="width:100%;padding:16px;font-size:16px">
+      Begin the Diagnostic &rarr;
+    </button>
+  </div>
+
+  <!-- SIGNAL SECTIONS (rendered by JS) -->
+  <div id="signal-sections"></div>
+
+  <!-- GATE CARD -->
+  <div class="card gate-card" id="gate-card" style="display:none">
+    <div class="signal-number" style="text-align:center">All 35 questions complete</div>
+    <h2>Your results are ready</h2>
+    <p>Enter your details to unlock your full scored breakdown across all seven Drift Signals&trade;.</p>
+    <div class="gate-form">
+      <input type="text" class="gate-input" id="gate-name" placeholder="Your name">
+      <input type="email" class="gate-input" id="gate-email" placeholder="Your email address">
+      <input type="text" class="gate-input" id="gate-org" placeholder="Your organisation (optional)">
+      <button class="gate-submit" onclick="submitGate()">Show my results &rarr;</button>
+      <div class="gate-note">We&rsquo;ll send a summary of your results and the PDF Diagnostic to your inbox. No spam, ever.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RESULTS -->
+<div id="results-section" style="display:none">
+  <div class="diagnostic-wrap">
+
+    <div class="score-hero">
+      <div class="score-label">Execution Clarity Score</div>
+      <div class="score-number" id="result-score">0</div>
+      <div class="score-denom">out of 175</div>
+      <div class="score-outcome" id="result-outcome"></div>
+      <div class="score-summary" id="result-summary"></div>
+    </div>
+
+    <div class="priority-section" id="priority-section"></div>
+
+    <div class="signals-section">
+      <div class="signals-section-title">Your Seven Drift Signals&trade;</div>
+      <div id="signal-results"></div>
+    </div>
+
+    <div class="cta-strip">
+      <div class="cta-text">
+        <h3>Talk to us about your results</h3>
+        <p>A 30-minute call to walk through your scores and identify where to focus first.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Book a call</a>
+        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
+      </div>
+    </div>
+
+    <div class="share-row">
+      Share your score:
+      <button class="share-link" onclick="shareScore()">Copy shareable message</button>
+      <span class="copied-msg" id="copied-msg">Copied!</span>
+    </div>
+
+    <div class="restart-row">
+      <button class="restart-btn" onclick="restartDiagnostic()">Start again with a fresh assessment</button>
+    </div>
+
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <div class="container footer-inner" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding:48px 5% 32px;text-align:left;">
+    <div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--dark);display:block;margin-bottom:6px;">Via Clara</span>
+      <p style="color:var(--light);line-height:1.6;font-size:13px;">Execution transformation consulting<br>across Australia and New Zealand.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a>
+      <a href="tel:+64278024143">+64 27 802 4143</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--border);padding:16px 5%;text-align:center;color:var(--light);font-size:12px;">
+    &copy; 2026 Via Clara &middot; <a href="privacy.html" style="color:var(--light);">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+// ── Data ────────────────────────────────────────────────────────────────────
+const SIGNALS = [
+  {
+    name: 'Priority Drift\u2122',
+    desc: 'Are strategic priorities clear, stable, and understood consistently across the organisation?',
+    questions: [
+      'Our strategic priorities are understood consistently across all leadership teams \u2014 not just at the top.',
+      'Teams can clearly explain how their day-to-day work contributes to organisational objectives.',
+      'Success measures are defined and agreed for all major initiatives before execution begins.',
+      'Competing priorities rarely create confusion or force teams to make trade-offs without guidance.',
+      'Strategic objectives remain stable long enough for teams to execute effectively against them.',
+    ]
+  },
+  {
+    name: 'Decision Drift\u2122',
+    desc: 'Are decisions being made at the right speed, at the right level, with clear outcomes?',
+    questions: [
+      'Decisions that should be made at the team level are not being escalated unnecessarily.',
+      'When a decision is needed, it is made within an expected timeframe \u2014 not left pending.',
+      'Approval processes support execution speed rather than creating bottlenecks.',
+      'Critical issues are identified and resolved quickly, without waiting for the next scheduled meeting.',
+      'Governance forums consistently produce clear decisions and assigned actions \u2014 not just discussion.',
+    ]
+  },
+  {
+    name: 'Accountability Drift\u2122',
+    desc: 'Is ownership clear, respected, and sustained through change and complexity?',
+    questions: [
+      'Every major initiative has a single, clearly identified owner \u2014 not a committee or shared responsibility.',
+      'When something goes wrong, it is clear who is responsible \u2014 and that person is held accountable.',
+      'Cross-functional responsibilities are clearly defined and do not rely on informal relationships to function.',
+      'Accountability remains clear and intact during periods of change or restructuring.',
+      'When a process produces the wrong outcome, we can identify a specific owner without ambiguity.',
+    ]
+  },
+  {
+    name: 'Flow Drift\u2122',
+    desc: 'Are core processes followed consistently, with clean handoffs and predictable cycle times?',
+    questions: [
+      'Core processes are consistently followed across teams, sites, and regions \u2014 not quietly worked around.',
+      'Handoffs between teams occur with minimal friction, delay, or information loss.',
+      'Rework and duplication are genuinely limited \u2014 not just managed around.',
+      'Cycle times are predictable and consistently met across the organisation.',
+      'Teams spend more time delivering value than managing complexity and exceptions.',
+    ]
+  },
+  {
+    name: 'Information Drift\u2122',
+    desc: 'Is reporting trusted, timely, and consistently driving decisions and action?',
+    questions: [
+      'Leadership has genuine confidence in the accuracy and timeliness of operational reporting.',
+      'Data is consistent across systems \u2014 the same question does not produce different answers.',
+      'Teams can access the information they need, when they need it, without significant manual effort.',
+      'When performance data shows a problem, it consistently produces a decision and a clear action \u2014 not just a discussion.',
+      'Manual workarounds for data aggregation and reporting are the exception, not the norm.',
+    ]
+  },
+  {
+    name: 'Alignment Drift\u2122',
+    desc: 'Are agreed ways of working followed in practice \u2014 and is drift identified and corrected quickly?',
+    questions: [
+      'Leaders consistently reinforce agreed priorities and ways of working through their own behaviour \u2014 not just in communications.',
+      'New processes and systems are adopted effectively \u2014 teams use them as designed, not worked around.',
+      'Deviations from agreed processes are identified and addressed quickly, not left to compound.',
+      'Continuous improvement is genuinely embedded in daily operations \u2014 not just discussed in reviews.',
+      'Local practices across sites and regions remain aligned with organisational standards over time.',
+    ]
+  },
+  {
+    name: 'Capacity Drift\u2122',
+    desc: 'Does the organisation have the headroom to deliver change alongside running operations?',
+    questions: [
+      'Senior leaders spend the majority of their time on strategic and high-value activity \u2014 not operational firefighting.',
+      'Teams are not significantly burdened by rework, duplication, or work that should have been done right the first time.',
+      'Meeting and reporting cycles consume an appropriate proportion of team time relative to the value they produce.',
+      'When priorities change, workload is actively adjusted \u2014 new demands do not simply get added to existing ones.',
+      'The organisation has genuine capacity to absorb and deliver change \u2014 transformation is not permanently competing with keeping the lights on.',
+    ]
+  },
+];
+
+const FINDINGS = {
+  strong: [
+    'Strategic priorities are landing clearly. Focus on maintaining alignment as strategy evolves and new teams join.',
+    'Decisions are being made at the right speed and level. Protect this as the organisation grows \u2014 decision latency is one of the first things to degrade at scale.',
+    'Accountability is clear and respected. Ensure it remains structural rather than personal \u2014 tied to roles, not individuals.',
+    'Operational flow is strong. Monitor for workarounds emerging quietly at the edges as headcount or volume increases.',
+    'Information is reliable and driving action. Focus on expanding coverage to any blind spots and ensuring data quality holds as systems change.',
+    'Agreed ways of working are being followed. Invest in making drift detection systematic rather than dependent on individual observation.',
+    'Capacity is being directed well. Actively protect leadership time and change capacity as the organisation takes on more.',
+  ],
+  watch: [
+    'Priority alignment is inconsistent below senior leadership level. Clarify how strategic priorities translate into team-level decisions before the gap widens.',
+    'Some decisions are stalling or being relitigated. Map where the latency is occurring \u2014 governance structure, approval levels, or unclear ownership.',
+    'Accountability is present but not fully reliable. Identify where ownership blurs \u2014 typically at cross-functional handoffs or during periods of change.',
+    'Process adherence is variable. Identify which workarounds are genuinely necessary versus habit. Fix the process, not just the behaviour.',
+    'Reporting gaps or trust issues are creating blind spots. Identify the highest-priority data gaps and address manual aggregation before it becomes the norm.',
+    'Drift between agreed and actual practice is occurring. Introduce lightweight monitoring before variations embed as the new standard.',
+    'Capacity is being consumed by the wrong things in some areas. Identify where firefighting is displacing strategic work and address the root cause.',
+  ],
+  act: [
+    'Priority misalignment is active and likely already affecting outcomes. Rebuild priority clarity from the leadership level down before investing further in execution.',
+    'Decision latency is a structural problem. Approval bottlenecks and unclear escalation paths are slowing the organisation. Redesign governance before it compounds.',
+    'Accountability has diffused. Ownership is unclear, consequences are inconsistent, and the organisation cannot reliably identify who is responsible for outcomes.',
+    'Flow has fragmented. Workarounds are the norm, cycle times are unpredictable, and process redesign is needed before any further automation or scaling.',
+    'Information cannot be trusted. Leaders are making decisions without reliable data or spending significant time reconciling conflicting reports.',
+    'Alignment has broken down. The gap between agreed standards and actual practice is significant and compounding. Systemic intervention is required.',
+    'Capacity is critically constrained. Firefighting has displaced strategic work and the organisation lacks the headroom to deliver change.',
+  ],
+};
+
+const OUTCOMES = [
+  { min: 140, label: 'Clear Execution\u2122', summary: 'Your execution architecture is fundamentally sound. The focus should be on sustaining performance and catching early drift signals as the organisation grows.' },
+  { min: 115, label: 'Early Drift\u2122',     summary: 'Drift is emerging but has not yet compounded. This is the ideal moment to act \u2014 before structural friction becomes embedded and expensive to reverse.' },
+  { min: 80,  label: 'Active Drift\u2122',    summary: 'Execution is degrading materially from strategic intent. Structured intervention across your priority signals is needed before drift compounds further.' },
+  { min: 45,  label: 'Fragmented Execution\u2122', summary: 'Execution has fragmented significantly and is likely already visible in your results. A full diagnostic engagement is recommended to map intervention priorities.' },
+  { min: 0,   label: 'Structural Realignment Required\u2122', summary: 'Fundamental structural change is required before execution can improve. The drift signals are severe and compounding. Immediate structured engagement is recommended.' },
+];
+
+const LABELS = ['Strongly Disagree', 'Disagree', 'Neutral / Sometimes', 'Agree', 'Strongly Agree'];
+
+// ── State ──────────────────────────────────────────────────────────────────
+let scores   = SIGNALS.map(() => new Array(5).fill(null)); // [signal][question] = 1-5
+let currentSignal = 0;
+let started  = false;
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function signalTotal(si) {
+  return scores[si].reduce((a, v) => a + (v || 0), 0);
+}
+function signalPct(si) {
+  return Math.round(signalTotal(si) / 25 * 100);
+}
+function totalScore() {
+  return scores.reduce((a, _, si) => a + signalTotal(si), 0);
+}
+function signalComplete(si) {
+  return scores[si].every(v => v !== null);
+}
+function allComplete() {
+  return SIGNALS.every((_, si) => signalComplete(si));
+}
+function getOutcome(score) {
+  return OUTCOMES.find(o => score >= o.min);
+}
+function getStatus(pct) {
+  if (pct >= 80) return { label: 'Strong', color: 'var(--green)', bg: '#EAF3DE', cls: 'strong' };
+  if (pct >= 55) return { label: 'Watch',  color: 'var(--amber)', bg: '#FBF3E0', cls: 'watch'  };
+  return           { label: 'Act',    color: 'var(--red)',   bg: '#FCEBEB', cls: 'act'    };
+}
+function getFinding(si, pct) {
+  if (pct >= 80) return FINDINGS.strong[si];
+  if (pct >= 55) return FINDINGS.watch[si];
+  return FINDINGS.act[si];
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function startDiagnostic() {
+  started = true;
+  document.getElementById('start-card').style.display = 'none';
+  document.getElementById('signal-strip').style.display = 'flex';
+  document.getElementById('progress-section').style.display = 'block';
+  renderSignal(0);
+}
+
+function renderSignal(si) {
+  currentSignal = si;
+  const container = document.getElementById('signal-sections');
+
+  // Build HTML
+  const sig = SIGNALS[si];
+  let qs = '';
+  sig.questions.forEach((q, qi) => {
+    const selected = scores[si][qi];
+    let btns = '';
+    for (let v = 1; v <= 5; v++) {
+      btns += `<button class="rating-btn${selected === v ? ' selected' : ''}"
+        onclick="selectScore(${si},${qi},${v})"
+        aria-label="${v} - ${LABELS[v-1]}">
+        <span class="rating-num">${v}</span>
+        <span class="rating-label">${LABELS[v-1]}</span>
+      </button>`;
+    }
+    qs += `
+      <div class="question-block" id="qblock-${si}-${qi}">
+        <div class="q-number">Question ${qi+1} of 5</div>
+        <div class="q-text">${q}</div>
+        <div class="rating-row">${btns}</div>
+      </div>`;
+  });
+
+  // Section score
+  const total = signalTotal(si);
+  const pct   = signalPct(si);
+  const st    = getStatus(pct);
+  const barColor = signalComplete(si) ? st.color : 'var(--border)';
+
+  container.innerHTML = `
+    <div class="card" id="signal-card-${si}" style="animation:fadeUp .35s ease">
+      <div class="signal-header">
+        <div class="signal-number">Drift Signal 0${si+1} of 07</div>
+        <div class="signal-name">${sig.name}</div>
+        <div class="signal-desc">${sig.desc}</div>
+      </div>
+      ${qs}
+      <div class="section-score-bar" id="section-score-${si}">
+        <div class="section-score-label">SIGNAL SCORE</div>
+        <div class="section-score-row">
+          <div class="section-score-num" id="sscore-num-${si}">${total}</div>
+          <div class="section-score-denom">/ 25</div>
+          <div class="section-score-track">
+            <div class="section-score-fill" id="sscore-fill-${si}" style="width:${pct}%;background:${barColor}"></div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-prev" ${si === 0 ? 'disabled' : ''} onclick="goSignal(${si-1})">&#8592; Previous</button>
+        <button class="btn-next" id="btn-next-${si}" ${signalComplete(si) ? '' : 'disabled'}
+          onclick="${si < SIGNALS.length-1 ? `goSignal(${si+1})` : 'showGate()'}">
+          ${si < SIGNALS.length-1 ? 'Next Signal &rarr;' : 'See my results &rarr;'}
+        </button>
+      </div>
+    </div>`;
+
+  updateProgress(si);
+  updateTabs(si);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectScore(si, qi, val) {
+  scores[si][qi] = val;
+  // Re-render the question block buttons
+  const block = document.getElementById(`qblock-${si}-${qi}`);
+  const btns  = block.querySelectorAll('.rating-btn');
+  btns.forEach((btn, i) => {
+    btn.classList.toggle('selected', i + 1 === val);
+  });
+  // Update score bar
+  const total = signalTotal(si);
+  const pct   = signalPct(si);
+  const st    = getStatus(pct);
+  const numEl = document.getElementById(`sscore-num-${si}`);
+  const filEl = document.getElementById(`sscore-fill-${si}`);
+  if (numEl) numEl.textContent = total;
+  if (filEl) { filEl.style.width = pct + '%'; filEl.style.background = st.color; }
+  // Enable next button if complete
+  if (signalComplete(si)) {
+    const nxt = document.getElementById(`btn-next-${si}`);
+    if (nxt) nxt.disabled = false;
+  }
+  updateTabs(si);
+}
+
+function goSignal(si) {
+  renderSignal(si);
+}
+
+function jumpToSignal(si) {
+  if (!started) return;
+  renderSignal(si);
+}
+
+function updateProgress(si) {
+  const answered = scores.flat().filter(v => v !== null).length;
+  const total    = 35;
+  const pct      = Math.round(answered / total * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `Signal ${si+1} of 7`;
+  document.getElementById('progress-pct').textContent  = `${pct}% complete`;
+}
+
+function updateTabs(activeSi) {
+  SIGNALS.forEach((_, si) => {
+    const tab = document.getElementById(`tab-${si}`);
+    if (!tab) return;
+    tab.className = 'signal-tab' +
+      (si === activeSi ? ' active' : '') +
+      (signalComplete(si) && si !== activeSi ? ' completed' : '');
+  });
+}
+
+// ── Gate ───────────────────────────────────────────────────────────────────
+function showGate() {
+  document.getElementById('signal-sections').style.display = 'none';
+  document.getElementById('gate-card').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function submitGate() {
+  const name  = document.getElementById('gate-name').value.trim();
+  const email = document.getElementById('gate-email').value.trim();
+  const org   = document.getElementById('gate-org').value.trim();
+  if (!name || !email) {
+    document.getElementById('gate-name').style.borderColor  = name  ? '' : 'var(--red)';
+    document.getElementById('gate-email').style.borderColor = email ? '' : 'var(--red)';
+    return;
+  }
+
+  const score   = totalScore();
+  const outcome = getOutcome(score);
+  const sigLines = SIGNALS.map((s, si) => `${s.name.replace('\u2122','')}: ${signalTotal(si)}/25 (${signalPct(si)}%)`).join('\n');
+  const priorities = [...SIGNALS.keys()]
+    .sort((a, b) => signalTotal(a) - signalTotal(b))
+    .slice(0, 3)
+    .map(si => SIGNALS[si].name.replace('\u2122', ''));
+
+  const subject = `Execution Clarity Diagnostic\u2122 \u2014 ${name}${org ? ' (' + org + ')' : ''} \u2014 ${score}/175`;
+  const body = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    org ? `Organisation: ${org}` : '',
+    ``,
+    `Total Score: ${score} / 175`,
+    `Outcome: ${outcome.label}`,
+    ``,
+    `Signal Scores:`,
+    sigLines,
+    ``,
+    `Top 3 Priority Signals:`,
+    priorities.map((p, i) => `${i+1}. ${p}`).join('\n'),
+    ``,
+    `Completed: ${new Date().toLocaleString('en-NZ')}`,
+  ].filter(Boolean).join('\n');
+
+  const mailto = `mailto:contact@viaclara.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.open(mailto, '_blank');
+
+  showResults();
+}
+
+// ── Results ────────────────────────────────────────────────────────────────
+function showResults() {
+  document.getElementById('diagnostic-wrap').style.display = 'none';
+  document.getElementById('signal-strip').style.display = 'none';
+  document.getElementById('progress-section').style.display = 'none';
+  document.getElementById('hero-section').style.display = 'none';
+  document.getElementById('results-section').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const score   = totalScore();
+  const outcome = getOutcome(score);
+
+  // Animate score
+  let displayed = 0;
+  const target  = score;
+  const step    = Math.max(1, Math.round(target / 60));
+  const timer   = setInterval(() => {
+    displayed = Math.min(displayed + step, target);
+    document.getElementById('result-score').textContent = displayed;
+    if (displayed >= target) clearInterval(timer);
+  }, 20);
+
+  // Outcome
+  const outEl = document.getElementById('result-outcome');
+  outEl.textContent = outcome.label;
+  if (score >= 140)      { outEl.style.background = 'rgba(74,124,89,.2)';  outEl.style.color = 'var(--green)'; }
+  else if (score >= 115) { outEl.style.background = 'rgba(184,134,11,.2)'; outEl.style.color = '#D4A017'; }
+  else if (score >= 80)  { outEl.style.background = 'rgba(192,112,32,.2)'; outEl.style.color = '#E08040'; }
+  else                   { outEl.style.background = 'rgba(139,58,58,.2)';  outEl.style.color = '#D07070'; }
+  document.getElementById('result-summary').textContent = outcome.summary;
+
+  // Priorities
+  const sorted = [...SIGNALS.keys()].sort((a, b) => signalTotal(a) - signalTotal(b));
+  const top3   = sorted.slice(0, 3);
+  const priSection = document.getElementById('priority-section');
+  let priHTML = `<div class="priority-title">Your three priority signals</div>
+    <div class="priority-sub">Your lowest-scoring signals are your highest-leverage intervention points. Address these before investing in broader transformation activity.</div>`;
+  top3.forEach((si, rank) => {
+    const pct = signalPct(si);
+    const st  = getStatus(pct);
+    priHTML += `<div class="priority-card">
+      <div class="priority-num">${rank + 1}</div>
+      <div class="priority-content">
+        <div class="priority-signal">${SIGNALS[si].name} &mdash; ${signalTotal(si)}/25</div>
+        <div class="priority-finding">${getFinding(si, pct)}</div>
+      </div>
+    </div>`;
+  });
+  priSection.innerHTML = priHTML;
+
+  // All signal cards
+  const sigResults = document.getElementById('signal-results');
+  sigResults.innerHTML = '';
+  SIGNALS.forEach((sig, si) => {
+    const pct = signalPct(si);
+    const st  = getStatus(pct);
+    const card = document.createElement('div');
+    card.className = `signal-result-card ${st.cls}`;
+    card.innerHTML = `
+      <div class="src-top">
+        <div class="src-name">${sig.name}</div>
+        <div class="src-badge" style="background:${st.bg};color:${st.color}">${st.label}</div>
+      </div>
+      <div class="src-score-row">
+        <div class="src-score">${signalTotal(si)}</div>
+        <div class="src-denom">/ 25</div>
+        <div class="src-bar-track">
+          <div class="src-bar-fill" style="width:${pct}%;background:${st.color}"></div>
+        </div>
+        <div style="font-size:12px;color:var(--light);min-width:32px">${pct}%</div>
+      </div>
+      <div class="src-finding">${getFinding(si, pct)}</div>`;
+    sigResults.appendChild(card);
+
+    // Animate bar
+    const fill = card.querySelector('.src-bar-fill');
+    fill.style.width = '0%';
+    setTimeout(() => { fill.style.transition = 'width .8s ease'; fill.style.width = pct + '%'; }, 100 + si * 80);
+  });
+
+  // GA event
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'diagnostic_complete', { score, outcome: outcome.label });
+  }
+}
+
+function shareScore() {
+  const score   = totalScore();
+  const outcome = getOutcome(score);
+  const sorted  = [...SIGNALS.keys()].sort((a, b) => signalTotal(a) - signalTotal(b));
+  const worst   = SIGNALS[sorted[0]].name.replace('\u2122', '');
+
+  const msg = `I just completed the Via Clara Execution Clarity Diagnostic\u2122 and scored ${score}/175 \u2014 ${outcome.label.replace('\u2122','')}.
+
+My highest-risk signal is ${worst}.
+
+If you lead operations, transformation, or procurement \u2014 worth 15 minutes:
+viaclara.co.nz/diagnostic.html
+
+#ExecutionDrift #BusinessTransformation #ViaClara`;
+
+  navigator.clipboard.writeText(msg).then(() => {
+    const el = document.getElementById('copied-msg');
+    el.style.display = 'inline';
+    setTimeout(() => { el.style.display = 'none'; }, 3000);
+  });
+}
+
+function restartDiagnostic() {
+  scores = SIGNALS.map(() => new Array(5).fill(null));
+  currentSignal = 0;
+  started = false;
+  document.getElementById('results-section').style.display  = 'none';
+  document.getElementById('diagnostic-wrap').style.display  = 'block';
+  document.getElementById('hero-section').style.display     = 'block';
+  document.getElementById('signal-strip').style.display     = 'none';
+  document.getElementById('progress-section').style.display = 'none';
+  document.getElementById('start-card').style.display       = 'block';
+  document.getElementById('gate-card').style.display        = 'none';
+  document.getElementById('signal-sections').style.display  = 'block';
+  document.getElementById('signal-sections').innerHTML      = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Mobile nav ─────────────────────────────────────────────────────────────
+const toggle   = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+toggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  });
+});
+</script>
+
+</body>
+</html>
