@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Jaques Fouché
+N:Fouché;Jaques;;;
+ORG:Via Clara
+TITLE:Founder
+TEL;TYPE=CELL,VOICE:+64 27 802 4143
+EMAIL;TYPE=WORK:jaques.fouche@viaclara.co.nz
+URL:https://www.viaclara.co.nz
+END:VCARD
