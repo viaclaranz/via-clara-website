@@ -93,41 +93,71 @@
             <label for="message">Tell us about the challenge</label>
             <textarea id="message" placeholder="What's not working, what you've tried, and what a good outcome looks like&hellip;"></textarea>
           </div>
-          <button class="form-submit" onclick="sendEmail()">Send message</button>
-          <p class="form-note" id="form-note">This will open your email client with your message pre-filled and addressed to us. We respond within 24&ndash;48 hours.</p>
+          <!-- Honeypot: hidden from real visitors via CSS, invisible to screen readers.
+               Bots that auto-fill every field will fill this one; humans never see it. -->
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label for="website">Leave this field blank</label>
+            <input type="text" id="website" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="form-submit" id="form-submit-btn" onclick="submitLead()">Send message</button>
+          <p class="form-note" id="form-note">We respond within 24&ndash;48 hours.</p>
         </div>
 
         <script>
-        function sendEmail() {
+        async function submitLead() {
+          var btn     = document.getElementById('form-submit-btn');
+          var note    = document.getElementById('form-note');
           var name    = document.getElementById('name').value.trim();
           var org     = document.getElementById('org').value.trim();
           var email   = document.getElementById('email').value.trim();
           var topic   = document.getElementById('topic').value;
           var message = document.getElementById('message').value.trim();
+          var honeypot = document.getElementById('website').value;
 
           if (!name || !email || !message) {
-            document.getElementById('form-note').textContent =
-              'Please fill in your name, email, and message before sending.';
-            document.getElementById('form-note').style.color = '#B89B7A';
+            note.textContent = 'Please fill in your name, email, and message before sending.';
+            note.style.color = '#B89B7A';
             return;
           }
 
-          var subject = topic
-            ? 'Via Clara Enquiry — ' + topic
-            : 'Via Clara Enquiry';
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          note.style.color = '';
+          note.textContent = '';
 
-          var body =
-            'Name: ' + name + '\n' +
-            (org     ? 'Organisation: ' + org + '\n' : '') +
-            'Email: ' + email + '\n' +
-            (topic   ? 'Area of interest: ' + topic + '\n' : '') +
-            '\n' +
-            message;
+          try {
+            var res = await fetch('/api/lead', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                source: 'contact',
+                name: name,
+                organisation: org,
+                email: email,
+                message: (topic ? 'Area of interest: ' + topic + '\n\n' : '') + message,
+                website: honeypot
+              })
+            });
+            var data = await res.json();
 
-          window.location.href =
-            'mailto:contact@viaclara.co.nz' +
-            '?subject=' + encodeURIComponent(subject) +
-            '&body='    + encodeURIComponent(body);
+            if (res.ok && data.ok) {
+              document.getElementById('contact-form').innerHTML =
+                '<p style="font-size:18px;">Thanks, ' + escapeHtml(name) + ' &mdash; your message is through. We respond within 24&ndash;48 hours.</p>';
+            } else {
+              throw new Error(data.error || 'Something went wrong');
+            }
+          } catch (err) {
+            btn.disabled = false;
+            btn.textContent = 'Send message';
+            note.style.color = '#B89B7A';
+            note.textContent = 'Something went wrong sending that. Please try again, or email contact@viaclara.co.nz directly.';
+          }
+        }
+
+        function escapeHtml(str) {
+          var div = document.createElement('div');
+          div.textContent = str;
+          return div.innerHTML;
         }
         </script>
       </div>

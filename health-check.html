@@ -469,7 +469,11 @@
     <div class="gate-form">
       <input type="text" class="gate-input" id="gate-name" placeholder="Your name">
       <input type="email" class="gate-input" id="gate-email" placeholder="Your email address">
-      <button class="gate-submit" onclick="submitGate()">Show my results &rarr;</button>
+      <div style="position:absolute;left:-9999px;" aria-hidden="true">
+        <label for="gate-website">Leave this field blank</label>
+        <input type="text" id="gate-website" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="gate-submit" id="gate-submit-btn" onclick="submitGate()">Show my results &rarr;</button>
       <div class="gate-note">We&rsquo;ll send your results and follow up directly. No spam, ever.</div>
     </div>
   </div>
@@ -478,6 +482,10 @@
 
 <!-- RESULTS (hidden initially) -->
 <div class="results-wrap" id="results-section" style="display:none">
+
+  <div id="capture-warning" style="display:none;background:#FBEFE3;border:1px solid var(--accent);border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:14px;color:var(--dark)">
+    We couldn't save your details automatically. Your results below are still yours to keep &mdash; if you'd like us to follow up, please email <a href="mailto:contact@viaclara.co.nz" style="color:var(--accent)">contact@viaclara.co.nz</a> directly.
+  </div>
 
   <div class="score-hero">
     <div class="score-label">Your Execution Clarity Score</div>
@@ -830,21 +838,30 @@ function showGate() {
   document.getElementById('progress-fill').style.width = '100%';
 }
 
-function submitGate() {
+async function submitGate() {
   const name  = document.getElementById('gate-name').value.trim();
   const email = document.getElementById('gate-email').value.trim();
+  const honeypot = document.getElementById('gate-website').value;
+
+  document.getElementById('gate-name').style.borderColor = '';
+  document.getElementById('gate-email').style.borderColor = '';
+
   if (!name || !email) {
-    alert('Please enter your name and email to see your results.');
+    document.getElementById('gate-name').style.borderColor  = name  ? '' : 'var(--red)';
+    document.getElementById('gate-email').style.borderColor = email ? '' : 'var(--red)';
     return;
   }
-  if (!email.includes('@')) {
-    alert('Please enter a valid email address.');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('gate-email').style.borderColor = 'var(--red)';
     return;
   }
   userName  = name;
   userEmail = email;
 
-  // Send email notification
+  const btn = document.getElementById('gate-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
   const score = calcTotalScore();
   const outcome = getOutcome(score);
   const signalLines = SIGNALS.map((s,i) => {
@@ -852,11 +869,28 @@ function submitGate() {
     return `${s}: ${sc.pct}%`;
   }).join(' | ');
 
-  const subject = `Execution Clarity Check™ — ${name} scored ${score}/100`;
-  const body = `Name: ${name}\nEmail: ${email}\n\nScore: ${score}/100\nOutcome: ${outcome.label}\n\n${signalLines}\n\nCompleted: ${new Date().toLocaleString('en-NZ')}`;
-  const mailto = `mailto:contact@viaclara.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.open(mailto, '_blank');
+  let captureFailed = false;
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'clarity-check',
+        name, email,
+        score, outcome: outcome.label,
+        message: signalLines,
+        website: honeypot
+      })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) captureFailed = true;
+  } catch (err) {
+    captureFailed = true;
+  }
 
+  if (captureFailed) {
+    document.getElementById('capture-warning').style.display = 'block';
+  }
   showResults();
 }
 

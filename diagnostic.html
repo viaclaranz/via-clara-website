@@ -321,7 +321,11 @@ footer a:hover{color:var(--accent);}
       <input type="text" class="gate-input" id="gate-name" placeholder="Your name">
       <input type="email" class="gate-input" id="gate-email" placeholder="Your email address">
       <input type="text" class="gate-input" id="gate-org" placeholder="Your organisation (optional)">
-      <button class="gate-submit" onclick="submitGate()">Show my results &rarr;</button>
+      <div style="position:absolute;left:-9999px;" aria-hidden="true">
+        <label for="gate-website">Leave this field blank</label>
+        <input type="text" id="gate-website" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="gate-submit" id="gate-submit-btn" onclick="submitGate()">Show my results &rarr;</button>
       <div class="gate-note">We&rsquo;ll send your results summary and follow up directly. No spam, ever.</div>
     </div>
   </div>
@@ -331,6 +335,10 @@ footer a:hover{color:var(--accent);}
 <!-- RESULTS -->
 <div id="results-section" style="display:none">
   <div class="diagnostic-wrap">
+
+    <div id="capture-warning" style="display:none;background:#FBEFE3;border:1px solid var(--accent);border-radius:8px;padding:14px 18px;margin-bottom:20px;font-size:14px;color:var(--dark)">
+      We couldn't save your details automatically. Your results below are still yours to keep &mdash; if you'd like us to follow up, please email <a href="mailto:contact@viaclara.co.nz" style="color:var(--accent)">contact@viaclara.co.nz</a> directly.
+    </div>
 
     <div class="score-hero">
       <div class="score-label">Execution Clarity Score</div>
@@ -683,15 +691,20 @@ function showGate() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function submitGate() {
+async function submitGate() {
   const name  = document.getElementById('gate-name').value.trim();
   const email = document.getElementById('gate-email').value.trim();
   const org   = document.getElementById('gate-org').value.trim();
+  const honeypot = document.getElementById('gate-website').value;
   if (!name || !email) {
     document.getElementById('gate-name').style.borderColor  = name  ? '' : 'var(--red)';
     document.getElementById('gate-email').style.borderColor = email ? '' : 'var(--red)';
     return;
   }
+
+  const btn = document.getElementById('gate-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
 
   const score   = totalScore();
   const outcome = getOutcome(score);
@@ -701,27 +714,37 @@ function submitGate() {
     .slice(0, 3)
     .map(si => SIGNALS[si].name.replace('\u2122', ''));
 
-  const subject = `Execution Clarity Diagnostic\u2122 \u2014 ${name}${org ? ' (' + org + ')' : ''} \u2014 ${score}/175`;
-  const body = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    org ? `Organisation: ${org}` : '',
-    ``,
-    `Total Score: ${score} / 175`,
-    `Outcome: ${outcome.label}`,
-    ``,
+  const message = [
     `Signal Scores:`,
     sigLines,
     ``,
     `Top 3 Priority Signals:`,
     priorities.map((p, i) => `${i+1}. ${p}`).join('\n'),
-    ``,
-    `Completed: ${new Date().toLocaleString('en-NZ')}`,
-  ].filter(Boolean).join('\n');
+  ].join('\n');
 
-  const mailto = `mailto:contact@viaclara.co.nz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.open(mailto, '_blank');
+  let captureFailed = false;
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'diagnostic',
+        name, email, organisation: org,
+        score, outcome: outcome.label,
+        message, website: honeypot
+      })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) captureFailed = true;
+  } catch (err) {
+    captureFailed = true;
+  }
 
+  // Results are shown either way — the visitor earned them by finishing
+  // 35 questions. A failed capture is surfaced, not hidden behind a retry wall.
+  if (captureFailed) {
+    document.getElementById('capture-warning').style.display = 'block';
+  }
   showResults();
 }
 
