@@ -767,7 +767,24 @@ function startCheck() {
   document.getElementById('start-card').style.display = 'none';
   document.getElementById('question-card').style.display = 'block';
   document.getElementById('progress-section').style.display = 'block';
+  trackFunnel('assessment_started', { source: 'clarity-check' });
   renderQuestion();
+}
+
+// ── Funnel tracking ──────────────────────────────────────────────────────
+const _firedMilestones = {};
+function trackFunnel(eventName, params) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', eventName, params);
+}
+function trackProgressOnce(source, pct) {
+  [25, 50, 75].forEach(threshold => {
+    const key = source + '_' + threshold;
+    if (pct >= threshold && !_firedMilestones[key]) {
+      _firedMilestones[key] = true;
+      trackFunnel('assessment_progress', { source: source, percent: threshold });
+    }
+  });
 }
 
 function renderQuestion() {
@@ -795,6 +812,7 @@ function renderQuestion() {
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-text').textContent = `Question ${current + 1} of ${QUESTIONS.length}`;
   document.getElementById('lever-label').textContent = q.signal;
+  trackProgressOnce('clarity-check', pct);
 
   // Buttons
   document.getElementById('btn-prev').disabled = current === 0;
@@ -832,6 +850,7 @@ function prevQ() {
 }
 
 function showGate() {
+  trackFunnel('assessment_gate_reached', { source: 'clarity-check' });
   document.getElementById('progress-section').style.display = 'none';
   document.getElementById('question-card').style.display = 'none';
   document.getElementById('gate-card').style.display = 'block';
@@ -888,6 +907,7 @@ async function submitGate() {
     captureFailed = true;
   }
 
+  trackFunnel('lead_capture_result', { source: 'clarity-check', success: !captureFailed });
   if (captureFailed) {
     document.getElementById('capture-warning').style.display = 'block';
   }
@@ -903,6 +923,7 @@ function showResults() {
 
   const score   = calcTotalScore();
   const outcome = getOutcome(score);
+  trackFunnel('assessment_complete', { source: 'clarity-check', score, outcome: outcome.label });
 
   // Animate score count-up
   const scoreEl = document.getElementById('result-score');

@@ -565,7 +565,26 @@ function startDiagnostic() {
   document.getElementById('start-card').style.display = 'none';
   document.getElementById('signal-strip').style.display = 'flex';
   document.getElementById('progress-section').style.display = 'block';
+  trackFunnel('assessment_started', { source: 'diagnostic' });
   renderSignal(0);
+}
+
+// ── Funnel tracking ──────────────────────────────────────────────────────
+// Fires GA4 events at each meaningful stage. Progress milestones are
+// deduplicated so navigating back and forth doesn't refire them.
+const _firedMilestones = {};
+function trackFunnel(eventName, params) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', eventName, params);
+}
+function trackProgressOnce(source, pct) {
+  [25, 50, 75].forEach(threshold => {
+    const key = source + '_' + threshold;
+    if (pct >= threshold && !_firedMilestones[key]) {
+      _firedMilestones[key] = true;
+      trackFunnel('assessment_progress', { source: source, percent: threshold });
+    }
+  });
 }
 
 function renderSignal(si) {
@@ -672,6 +691,7 @@ function updateProgress(si) {
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-text').textContent = `Signal ${si+1} of 7`;
   document.getElementById('progress-pct').textContent  = `${pct}% complete`;
+  trackProgressOnce('diagnostic', pct);
 }
 
 function updateTabs(activeSi) {
@@ -686,6 +706,7 @@ function updateTabs(activeSi) {
 
 // ── Gate ───────────────────────────────────────────────────────────────────
 function showGate() {
+  trackFunnel('assessment_gate_reached', { source: 'diagnostic' });
   document.getElementById('signal-sections').style.display = 'none';
   document.getElementById('gate-card').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -742,6 +763,7 @@ async function submitGate() {
 
   // Results are shown either way — the visitor earned them by finishing
   // 35 questions. A failed capture is surfaced, not hidden behind a retry wall.
+  trackFunnel('lead_capture_result', { source: 'diagnostic', success: !captureFailed });
   if (captureFailed) {
     document.getElementById('capture-warning').style.display = 'block';
   }
@@ -830,7 +852,7 @@ function showResults() {
 
   // GA event
   if (typeof gtag !== 'undefined') {
-    gtag('event', 'diagnostic_complete', { score, outcome: outcome.label });
+    gtag('event', 'assessment_complete', { source: 'diagnostic', score, outcome: outcome.label });
   }
 }
 

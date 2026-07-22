@@ -141,12 +141,14 @@
             var data = await res.json();
 
             if (res.ok && data.ok) {
+              if (typeof gtag !== 'undefined') gtag('event', 'contact_form_result', { success: true, topic: topic || 'unspecified' });
               document.getElementById('contact-form').innerHTML =
                 '<p style="font-size:18px;">Thanks, ' + escapeHtml(name) + ' &mdash; your message is through. We respond within 24&ndash;48 hours.</p>';
             } else {
               throw new Error(data.error || 'Something went wrong');
             }
           } catch (err) {
+            if (typeof gtag !== 'undefined') gtag('event', 'contact_form_result', { success: false });
             btn.disabled = false;
             btn.textContent = 'Send message';
             note.style.color = '#B89B7A';
