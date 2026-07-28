@@ -355,6 +355,15 @@ footer a:hover{color:var(--accent);}
       <div id="signal-results"></div>
     </div>
 
+    <div class="size-selector" id="size-selector" style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-top:24px;">
+      <div style="font-weight:700;margin-bottom:12px;">One more thing \u2014 roughly how many people work at your organisation?</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn-secondary" onclick="setOrgSize('small')" style="cursor:pointer;border:1px solid var(--border);background:none;">Under 15</button>
+        <button class="btn-secondary" onclick="setOrgSize('medium')" style="cursor:pointer;border:1px solid var(--border);background:none;">15\u201380</button>
+        <button class="btn-secondary" onclick="setOrgSize('enterprise')" style="cursor:pointer;border:1px solid var(--border);background:none;">80+, or multiple sites</button>
+      </div>
+    </div>
+
     <div class="cta-strip" id="cta-strip">
     </div>
 
@@ -763,6 +772,69 @@ async function submitGate() {
 }
 
 // ── Results ────────────────────────────────────────────────────────────────
+function setOrgSize(size) {
+  window.orgSize = size;
+  document.querySelectorAll('#size-selector button').forEach(b => b.style.background = 'none');
+  event.target.style.background = 'var(--pull)';
+  renderCTA();
+}
+
+function renderCTA() {
+  const ctaEl = document.getElementById('cta-strip');
+  const score = window.currentScore;
+  const size = window.orgSize;
+
+  if (!size) {
+    ctaEl.innerHTML = `<p style="color:var(--light);font-size:14px;">Answer the question above to see the engagement sized for your organisation.</p>`;
+    return;
+  }
+
+  const urgent = score < 80; // Fragmented Execution or below — recommend a call regardless of size
+  const tiers = {
+    small:      { name: 'Small Engagement',  price: '$5,000 fixed',  anchor: 'small',
+                  desc: 'Kickoff scoping, up to 3 stakeholder interviews, a facilitated workshop, and a Clarity Report™ with a prioritised fix sequence.' },
+    medium:     { name: 'Medium Engagement', price: '$9,500 fixed',  anchor: 'medium',
+                  desc: 'Everything in Small, scaled up — up to 12 stakeholder interviews and a Comprehensive Clarity Report™ covering how your signals connect.' },
+    enterprise: { name: 'Enterprise',        price: 'Custom quote',  anchor: 'enterprise',
+                  desc: 'Scoped individually against your actual structure — stakeholder count, sites, and headcount.' }
+  };
+  const tier = tiers[size];
+
+  if (size === 'enterprise' || urgent) {
+    // Enterprise is always scoped by call. Any size with a genuinely low score gets a call recommended too,
+    // since a low score can mean complexity beyond what a standard fixed-price tier assumes.
+    const sizeNote = size !== 'enterprise'
+      ? `Based on your size, a <strong>${tier.name}</strong> (${tier.price}) is the likely starting point — `
+      : '';
+    ctaEl.innerHTML = `
+      <div class="cta-text">
+        <h3>What typically happens next</h3>
+        <p>${sizeNote}${urgent ? 'your scores suggest more than one connected signal, so we scope this properly on a call rather than assume the standard tier fits.' : 'given your size, this needs individual scoping rather than a fixed menu price.'}</p>
+        <p>An engagement at this level typically includes stakeholder interviews, a facilitated leadership workshop, root-cause analysis on your lowest signals, and a written report with a prioritised intervention sequence.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Book a call</a>
+        <a href="pricing.html#${tier.anchor}" class="btn-secondary">See ${tier.name} details</a>
+      </div>`;
+  } else {
+    // Small or Medium, and the score doesn't flag extra complexity — safe to self-serve
+    ctaEl.innerHTML = `
+      <div class="cta-text">
+        <h3>Where to go from here</h3>
+        <p>Based on your size, a <strong>${tier.name}</strong> is the right fit — or start lighter with a single Session first.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="pricing.html#${tier.anchor}" class="btn-primary">${tier.name} — ${tier.price}</a>
+        <a href="pricing.html#session" class="btn-secondary">Execution Clarity Session — $1,500</a>
+      </div>
+      <p style="font-size:13px;color:var(--light);margin-top:10px;">${tier.desc}</p>
+      <div class="cta-btns" style="margin-top:10px">
+        <a href="contact.html" class="btn-secondary">Not sure? Book a call instead</a>
+        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
+      </div>`;
+  }
+}
+
 function showResults() {
   document.getElementById('diagnostic-wrap').style.display = 'none';
   document.getElementById('signal-strip').style.display = 'none';
@@ -793,35 +865,10 @@ function showResults() {
   else                   { outEl.style.background = 'rgba(139,58,58,.2)';  outEl.style.color = '#D07070'; }
   document.getElementById('result-summary').textContent = outcome.summary;
 
-  // CTA — self-serve for scores that don't need judgment first, book-a-call foregrounded otherwise
-  const ctaEl = document.getElementById('cta-strip');
-  if (score >= 115) {
-    // Clear Execution / Early Drift — a Session or Small Engagement fits without a call first
-    ctaEl.innerHTML = `
-      <div class="cta-text">
-        <h3>Where to go from here</h3>
-        <p>Your score suggests a focused Session or Small Engagement is the right next step — no call needed to get started.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="pricing.html#session" class="btn-primary">Execution Clarity Session — $1,500</a>
-        <a href="pricing.html#small" class="btn-secondary">Small Engagement — $5,000</a>
-      </div>
-      <div class="cta-btns" style="margin-top:10px">
-        <a href="contact.html" class="btn-secondary">Not sure? Book a call instead</a>
-        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
-      </div>`;
-  } else {
-    // Active Drift / Fragmented / Structural Realignment — real judgment needed before quoting
-    ctaEl.innerHTML = `
-      <div class="cta-text">
-        <h3>Talk to us about your results</h3>
-        <p>Scores in this range usually involve more than one connected signal — a 30-minute call lets us scope the right engagement before quoting a price.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Book a call</a>
-        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
-      </div>`;
-  }
+  // Tier is driven by organisation SIZE, not score — they measure different things.
+  // Score drives urgency/messaging: whether a call is recommended even for a self-serve-eligible size.
+  window.currentScore = score;
+  renderCTA();
 
   // Priorities
   const sorted = [...SIGNALS.keys()].sort((a, b) => signalTotal(a) - signalTotal(b));

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Engagement Options — Via Clara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#F7F3EE; --text:#5A5048; --accent:#B89B7A; --dark:#3D3530;
+  --light:#A79F98; --border:#E6DDD4; --white:#ffffff; --pull:#F2ECE6;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+.navbar{position:sticky;top:0;z-index:100;background:rgba(247,243,238,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-container{width:90%;max-width:1300px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:16px 0;}
+.logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text);}
+.logo img{width:90px;height:auto;}
+.logo-text span{font-family:'Cormorant Garamond',serif;font-size:28px;letter-spacing:3px;color:var(--dark);}
+.logo-sub{font-size:12px;font-weight:300;letter-spacing:2px;color:var(--light);}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center;}
+.nav-links a{color:var(--text);text-decoration:none;font-size:14px;}
+.nav-cta{background:var(--dark);color:var(--white)!important;padding:9px 20px;border-radius:24px;}
+.nav-toggle{display:none;}
+footer{background:var(--white);border-top:1px solid var(--border);}
+footer a{color:var(--text);text-decoration:none;font-size:14px;}
+
+.article-wrap{max-width:720px;margin:0 auto;padding:56px 5% 80px;}
+.eyebrow{font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:14px;}
+h1.article-title{font-family:'Cormorant Garamond',serif;font-size:42px;line-height:1.15;color:var(--dark);margin-bottom:18px;}
+.byline{font-size:14px;color:var(--light);margin-bottom:40px;}
+.article-body p{margin-bottom:22px;font-size:17px;}
+.stat-callout{background:var(--pull);border-radius:10px;padding:28px 32px;margin:32px 0;text-align:center;}
+.stat-number{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--accent);font-weight:600;}
+.stat-caption{font-size:14px;color:var(--text);margin-top:6px;}
+blockquote{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin:32px 0;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--dark);}
+h2.section-head{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--dark);margin:36px 0 16px;}
+.example-box{background:var(--pull);border-radius:10px;padding:24px 28px;margin:28px 0;}
+.example-box .label{font-size:12px;letter-spacing:1.5px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:10px;}
+.example-box ul, .article-body ul{margin-left:20px;margin-bottom:22px;}
+.example-box li, .article-body li{margin-bottom:8px;font-size:16px;}
+.cta-strip{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:28px 32px;margin-top:44px;}
+.cta-strip h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--dark);margin-bottom:10px;}
+.cta-strip p{margin-bottom:18px;font-size:15px;}
+.btn-primary{display:inline-block;background:var(--dark);color:var(--white);padding:12px 26px;border-radius:24px;text-decoration:none;font-size:14px;margin-right:12px;}
+.btn-secondary{display:inline-block;background:transparent;color:var(--dark);border:1px solid var(--border);padding:12px 26px;border-radius:24px;text-decoration:none;font-size:14px;}
+</style>
+<style>
+.tier-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:36px 40px;margin-bottom:28px;scroll-margin-top:100px;}
+.tier-eyebrow{font-size:13px;letter-spacing:1.5px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:8px;}
+.tier-title{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--dark);margin-bottom:6px;}
+.tier-tagline{font-style:italic;color:var(--text);font-size:16px;margin-bottom:18px;}
+.tier-meta{display:flex;gap:32px;margin-bottom:18px;flex-wrap:wrap;}
+.tier-meta div{font-size:14px;}
+.tier-meta strong{display:block;color:var(--light);font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.tier-price{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--dark);font-weight:600;margin:18px 0;}
+.tier-includes{font-size:15px;color:var(--text);}
+.tier-cta{display:inline-block;background:var(--dark);color:var(--white);padding:12px 28px;border-radius:24px;text-decoration:none;font-size:14px;margin-top:16px;}
+.enterprise-card{background:var(--pull);}
+.choose-strip{background:var(--pull);border-radius:10px;padding:28px 32px;margin:40px 0;}
+.choose-strip ul{margin-left:20px;}
+.choose-strip li{margin-bottom:8px;}
+</style>
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="logo" aria-label="Via Clara home">
+      <img src="logo.png" alt="Via Clara logo" width="90" height="auto">
+      <div class="logo-text"><span>Via Clara</span><div class="logo-sub">Clear Path</div></div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="blog.html">Insights</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="article-wrap">
+  <div class="eyebrow">Engagement Options</div>
+  <h1 class="article-title">Execution Clarity</h1>
+  <p style="font-size:17px;margin-bottom:40px;">You've completed the Execution Clarity Check™ or Diagnostic™ — this is what comes next. Five ways to work with Via Clara, priced to match what's actually involved rather than one size fitting all.</p>
+
+  <div class="tier-card" id="session">
+    <div class="tier-eyebrow">1 · Best for any size, low commitment</div>
+    <div class="tier-title">Execution Clarity Session</div>
+    <div class="tier-tagline">The fastest way to get real traction on your lowest-scoring signals.</div>
+    <div class="tier-meta">
+      <div><strong>Duration</strong>6 hours, one sitting</div>
+    </div>
+    <div class="tier-includes">A working review of your Diagnostic scores together; a focused deep-dive on your one or two lowest signals; a short written summary of where to focus first.</div>
+    <div class="tier-price">$1,500 fixed</div>
+    <a href="contact.html" class="tier-cta">Book a Session</a>
+  </div>
+
+  <div class="tier-card" id="small">
+    <div class="tier-eyebrow">2 · Up to ~15 staff, single site</div>
+    <div class="tier-title">Small Engagement</div>
+    <div class="tier-tagline">Your Diagnostic told you where the friction is highest. This tells you why.</div>
+    <div class="tier-meta">
+      <div><strong>Duration</strong>2–3 weeks</div>
+    </div>
+    <div class="tier-includes">Kickoff scoping; document and data review; up to 3 stakeholder interviews; Diagnostic rolled out across your team; a facilitated leadership workshop; a Clarity Report™ with root-cause analysis and a prioritised intervention sequence; a readout session.</div>
+    <div class="tier-price">$5,000 fixed</div>
+    <a href="contact.html" class="tier-cta">Start a Small Engagement</a>
+  </div>
+
+  <div class="tier-card" id="medium">
+    <div class="tier-eyebrow">3 · Up to ~80 staff, single site</div>
+    <div class="tier-title">Medium Engagement</div>
+    <div class="tier-tagline">See how your Seven Drift Signals connect — not just where each one sits alone.</div>
+    <div class="tier-meta">
+      <div><strong>Duration</strong>3–5 weeks</div>
+    </div>
+    <div class="tier-includes">Everything in the Small Engagement, scaled up: up to 12 stakeholder interviews across leadership and management; a Comprehensive Clarity Report™ with root-cause analysis, cross-signal relationships, and a prioritised intervention sequence; a readout session.</div>
+    <div class="tier-price">$9,500 fixed</div>
+    <a href="contact.html" class="tier-cta">Start a Medium Engagement</a>
+  </div>
+
+  <div class="tier-card" id="quarterly">
+    <div class="tier-eyebrow">4 · For past Small or Medium Engagement clients</div>
+    <div class="tier-title">Quarterly Drift Review</div>
+    <div class="tier-tagline">Protect the progress you've already made.</div>
+    <div class="tier-meta">
+      <div><strong>Duration</strong>~7–8 hours per quarter</div>
+    </div>
+    <div class="tier-includes">Your Seven Drift Signals, re-scored each quarter against your baseline, a focused 90-minute leadership session, and an updated Clarity Report™ on what's improved, what's slipped, and what needs attention next.</div>
+    <div class="tier-price">$1,500 + GST per quarter</div>
+    <a href="contact.html" class="tier-cta">Ask about a Quarterly Review</a>
+  </div>
+
+  <div class="tier-card enterprise-card" id="enterprise">
+    <div class="tier-eyebrow">5 · Beyond ~80 staff, or multiple sites</div>
+    <div class="tier-title">Enterprise</div>
+    <div class="tier-tagline">Where a fixed menu price would either overcharge or undercharge for the real scope.</div>
+    <div class="tier-includes">Scoped individually against your actual structure — stakeholder count, sites, and headcount.</div>
+    <div class="tier-price">Custom quote</div>
+    <a href="contact.html" class="tier-cta">Book a scoping call</a>
+  </div>
+
+  <div class="choose-strip">
+    <strong>How to choose</strong>
+    <ul>
+      <li>Not sure yet, or want a low-commitment first step? Start with the Session.</li>
+      <li>Team under ~15 people? Small Engagement.</li>
+      <li>Growing organisation, up to ~80 people, single site? Medium Engagement.</li>
+      <li>Already been through an Engagement and want to protect the gains? Quarterly Drift Review.</li>
+      <li>Multiple sites, or bigger than the above? Let's talk — Enterprise.</li>
+    </ul>
+  </div>
+  <p style="font-size:13px;color:var(--light);">All fixed prices are ex GST. A Session applies as a credit toward a Small or Medium Engagement if you upgrade within 60 days.</p>
+</div>
+<footer role="contentinfo">
+  <div class="container footer-inner" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding:48px 5% 32px;text-align:left;">
+    <div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--dark);display:block;margin-bottom:6px;">Via Clara</span>
+      <p style="color:var(--light);line-height:1.6;font-size:13px;">Execution transformation consulting<br>across Australia and New Zealand.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Insights</a>
+      <a href="about.html">About</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a href="mailto:contact@viaclara.co.nz">contact@viaclara.co.nz</a>
+      <a href="tel:+64278024143">+64 27 802 4143</a>
+    </div>
+  </div>
+  <div style="text-align:center;padding:16px 5% 32px;color:var(--light);font-size:12px;">&copy; 2026 Via Clara. All frameworks, model names, and trademarks are the intellectual property of Via Clara.</div>
+</footer>
+</body>
+</html>
