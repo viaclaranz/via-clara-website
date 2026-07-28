@@ -355,15 +355,7 @@ footer a:hover{color:var(--accent);}
       <div id="signal-results"></div>
     </div>
 
-    <div class="cta-strip">
-      <div class="cta-text">
-        <h3>Talk to us about your results</h3>
-        <p>A 30-minute call to walk through your scores and identify where to focus first.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">Book a call</a>
-        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
-      </div>
+    <div class="cta-strip" id="cta-strip">
     </div>
 
     <div class="share-row">
@@ -800,6 +792,36 @@ function showResults() {
   else if (score >= 80)  { outEl.style.background = 'rgba(192,112,32,.2)'; outEl.style.color = '#E08040'; }
   else                   { outEl.style.background = 'rgba(139,58,58,.2)';  outEl.style.color = '#D07070'; }
   document.getElementById('result-summary').textContent = outcome.summary;
+
+  // CTA — self-serve for scores that don't need judgment first, book-a-call foregrounded otherwise
+  const ctaEl = document.getElementById('cta-strip');
+  if (score >= 115) {
+    // Clear Execution / Early Drift — a Session or Small Engagement fits without a call first
+    ctaEl.innerHTML = `
+      <div class="cta-text">
+        <h3>Where to go from here</h3>
+        <p>Your score suggests a focused Session or Small Engagement is the right next step — no call needed to get started.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="pricing.html#session" class="btn-primary">Execution Clarity Session — $1,500</a>
+        <a href="pricing.html#small" class="btn-secondary">Small Engagement — $5,000</a>
+      </div>
+      <div class="cta-btns" style="margin-top:10px">
+        <a href="contact.html" class="btn-secondary">Not sure? Book a call instead</a>
+        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
+      </div>`;
+  } else {
+    // Active Drift / Fragmented / Structural Realignment — real judgment needed before quoting
+    ctaEl.innerHTML = `
+      <div class="cta-text">
+        <h3>Talk to us about your results</h3>
+        <p>Scores in this range usually involve more than one connected signal — a 30-minute call lets us scope the right engagement before quoting a price.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Book a call</a>
+        <a href="via-clara-execution-clarity-diagnostic.pdf" class="btn-secondary">Download PDF version</a>
+      </div>`;
+  }
 
   // Priorities
   const sorted = [...SIGNALS.keys()].sort((a, b) => signalTotal(a) - signalTotal(b));
